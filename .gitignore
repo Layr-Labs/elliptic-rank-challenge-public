@@ -11,5 +11,6 @@ score.json
 tools/pari/
 tools/pari-src/
 .DS_Store
+# local coding-agent scratch directories
 .claude/
 .superpowers/
