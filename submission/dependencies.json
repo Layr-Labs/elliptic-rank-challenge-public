@@ -1,0 +1,22 @@
+[
+  {
+    "submissionId": "cacf98d0-0555-4064-917d-c6fe1cc0a323",
+    "rationale": "The complete current promoted board is retained as the starting frontier; no inherited curve is claimed as a new discovery. This predecessor introduced 2x2-8.ec.",
+    "evidence": "All seven submission/board/*.ec files are byte-identical to commit 9b03eb5f5895c0e3cadc34c4eff2bd5064d688b7. Compare submission/board/2x2-8.ec with that commit."
+  },
+  {
+    "submissionId": "414a380c-b23b-42e1-90d2-90f4e9fe6ccd",
+    "rationale": "Retains its cell 3/7 curve as part of the inherited frontier and regression requirement; no originality claim.",
+    "evidence": "submission/board/3-7.ec is byte-identical to commit 9c42b7b70f9b97e486c48a69493fb17cde550445."
+  },
+  {
+    "submissionId": "6973ec1f-93da-48b5-b84a-1b1765fad7a7",
+    "rationale": "Retains the four curves introduced for cells 2/7, 2x2/7, 4/7 and 4x2/6. They remain credited to the predecessor, without claiming its search or discoveries as our own.",
+    "evidence": "submission/board/2-7.ec, 2x2-7.ec, 4-7.ec and 4x2-6.ec are byte-identical to commit 607f954ac08847c3fd7be230904a4967cb2f0d41."
+  },
+  {
+    "submissionId": "6bb14ae9-aa84-4eaa-b4bd-9b2836747aaf",
+    "rationale": "Retains the original promoted holder of cell 4x2/5 because the inherited frontier must be preserved. No authorship of this curve is claimed.",
+    "evidence": "submission/board/cell-4x2-5.ec is byte-identical to commit ff39667c661882007cef9829ef36c014bf6cdf83."
+  }
+]
