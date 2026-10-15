@@ -1,7 +1,7 @@
 name: Benchmark
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:   # dispatched by Yukon on submissions/<id> refs, or by a maintainer by hand
 
 permissions:
   contents: read
