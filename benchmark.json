@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "name": "elliptic-rank",
+  "description": "Find new elliptic curves over Q that are smaller than the record for their torsion group and rank. Submit certified curves (minimal a-invariants plus independent rational points, one curve per file under submission/board/); the verifier recomputes everything: points on the curve exactly, torsion group and stripping, independence certified by a provably positive-definite canonical height pairing, novelty against every curve on the ICARM leaderboard and Dujella's tables (including isogenies and twists). Each curve lands in the cell of its torsion group (Mazur's 15) and certified rank. Score = board total: for every cell, the percentage by which the board's smallest curve undercuts the frozen cell baseline (the smallest certified known curve of that torsion and rank), or more than 100 (and more for a smaller curve) for a certified rank no known curve of that torsion reaches. Any new record in any cell promotes; the verifier rejects a submission that regresses a cell held by the previous frontier. Fail-closed: known curves, dependent or off-curve points, singular or non-minimal models score nothing. Scoring never executes participant code. Rules: every curve must be the submitter's own find; copying a curve from the ICARM leaderboard, the tables, the literature or another participant is prohibited even where the frozen known-curve gate does not catch it, and promoted curves are audited after the competition closes with rewards for copies revoked (RULES.md).",
+  "category": "math",
+  "direction": "+",
+  "editablePaths": [
+    "submission"
+  ],
+  "setupCommand": [
+    "bash",
+    "-lc",
+    "./setup.sh"
+  ],
+  "benchmarkCommand": [
+    "bash",
+    "-lc",
+    "./benchmark.sh"
+  ],
+  "scorePath": "score.json",
+  "minScoreImprovementBips": 0,
+  "maxSubmissionBytes": 16777216,
+  "runner": {
+    "provider": "github-actions",
+    "workflow": "benchmark.yml"
+  }
+}

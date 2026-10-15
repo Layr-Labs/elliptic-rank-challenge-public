@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+.venv-bench/
+score.json
+tools/pari/
+tools/pari-src/
+.DS_Store
+.claude/
+.superpowers/

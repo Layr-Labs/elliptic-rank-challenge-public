@@ -1,0 +1,33 @@
+[build-system]
+# Exact pin: an open bound lets setup download whatever setuptools ships next.
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "elliptic-rank-harness"
+version = "1.0.0.dev0"
+description = "Elliptic Rank Challenge: rank-certifying verifier and Yukon evaluator (PARI/GP driven)"
+requires-python = ">=3.11"
+# stdlib-only at runtime; PARI/GP is an external pinned binary (setup.sh).
+dependencies = []
+
+[project.optional-dependencies]
+test = [
+    "pytest==9.0.3",
+]
+
+[tool.setuptools]
+packages = [
+    "ec_verify",
+    "harness",
+]
+
+[tool.setuptools.package-data]
+ec_verify = ["known_curves.json", "records.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-p no:cacheprovider -m 'not slow'"
+markers = [
+    "slow: record-scale runs (minutes); `-m slow` to include",
+]

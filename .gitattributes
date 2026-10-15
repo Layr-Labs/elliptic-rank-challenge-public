@@ -1,0 +1,11 @@
+# Fixtures and the submission must never be line-ending-translated: the
+# verifier's grammar is byte-exact and scores must be reproducible.
+submission/** -text
+tests/corpus/** -text
+tests/fixtures/** -text
+ec_verify/*.json -text
+
+# Generated record-store data, one record per line (tools/fetch_known.py dump_per_line):
+# collapsed on GitHub by default; rebuilt by tools/build_known.py and tools/fetch_known.py.
+ec_verify/known_curves.json linguist-generated=true
+tools/known_raw.json linguist-generated=true

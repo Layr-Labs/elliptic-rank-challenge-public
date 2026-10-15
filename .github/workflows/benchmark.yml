@@ -1,0 +1,174 @@
+name: Benchmark
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: benchmark-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  benchmark:
+    # A standard GitHub-hosted runner is enough: the verifier certifies each
+    # curve in well under a second (a few short gp processes per curve: minimality,
+    # fingerprint, torsion, height pairing at 57 and 115 digits) and the whole
+    # board, at most 512 files plus any parent files re-verified for the
+    # regression gate, is capped at 1200 s; peak memory is the 2 GiB PARI
+    # stack ceiling.
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    outputs:
+      score: ${{ steps.score.outputs.value }}
+    env:
+      # Yukon dispatches a submission on `submissions/<id>`: the candidate commit it built server-side
+      # (editable paths grafted onto the live tip of main), pushed as that branch with a PR into main.
+      # Its parent commit is the frontier. The import/recovery baseline runs on `yukon/baseline/<sha>`
+      # at main's tip itself and a maintainer dispatch runs on main: neither has a frontier to be gated
+      # against. The surface check and the regression gate below both read this one flag, so the two
+      # steps cannot disagree about which refs are submissions.
+      EC_SUBMISSION_RUN: ${{ startsWith(github.ref, 'refs/heads/submissions/') && '1' || '' }}
+
+    steps:
+      - name: Checkout dispatched commit
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          ref: ${{ github.sha }}
+          clean: true
+          fetch-depth: 2
+          persist-credentials: false
+
+      # Yukon enforces editablePaths while constructing the commit. Keep this
+      # independent check so a malformed submission commit fails before setup.
+      - name: Verify submission surface
+        if: env.EC_SUBMISSION_RUN == '1'
+        shell: bash
+        run: |
+          set -euo pipefail
+          export LC_ALL=C   # byte-wise bracket ranges in the path-character checks below
+
+          read -r -a commit_line <<< "$(git rev-list --parents -n 1 "$GITHUB_SHA")"
+          if (( ${#commit_line[@]} != 2 )); then
+            echo "Submission must be a single-parent commit" >&2
+            exit 1
+          fi
+
+          while IFS= read -r -d '' changed_path; do
+            case "$changed_path" in
+              submission|submission/*) ;;
+              *)
+                echo "Submission changed a non-editable path: $changed_path" >&2
+                exit 1
+                ;;
+            esac
+            # Dotfiles (.gitattributes, .gitignore, ...) under submission/ are not board
+            # files and could steer git tooling; reject them outright.
+            if [[ "${changed_path##*/}" == .* ]]; then
+              echo "Submission path is a dotfile (not allowed under submission/): $changed_path" >&2
+              exit 1
+            fi
+            if [[ "$changed_path" == *[!A-Za-z0-9._/-]* ]]; then
+              echo "Submission path has a character outside [A-Za-z0-9._/-]: $(printf '%q' "$changed_path")" >&2
+              exit 1
+            fi
+          done < <(git diff --no-renames --name-only -z "$GITHUB_SHA^" "$GITHUB_SHA")
+
+          # Every entry under submission/ must be a regular blob: a symlink
+          # (120000) or gitlink (160000) at submission/board/<file>.ec would
+          # smuggle a host-file read into the verifier. No dotfiles either.
+          while IFS= read -r -d '' rec; do
+            mode=${rec%% *}
+            path=${rec#*$'\t'}
+            if [[ "${path##*/}" == .* ]]; then
+              echo "Submission entry is a dotfile (not allowed under submission/): $path" >&2
+              exit 1
+            fi
+            if [[ "$path" == *[!A-Za-z0-9._/-]* ]]; then
+              echo "Submission entry has a character outside [A-Za-z0-9._/-]: $(printf '%q' "$path")" >&2
+              exit 1
+            fi
+            case "$mode" in
+              100644|100755) ;;
+              *)
+                echo "Submission entry has non-regular mode $mode: $path" >&2
+                exit 1
+                ;;
+            esac
+          done < <(git ls-tree -r -z "$GITHUB_SHA" -- submission)
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      - name: Install build and sandbox dependencies
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libgmp-dev bubblewrap jq
+          bwrap --version
+
+      - name: Cache pinned PARI/GP build
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
+        with:
+          path: tools/pari
+          key: pari-2.17.4-${{ runner.os }}-${{ runner.arch }}-v1
+
+      - name: Setup
+        run: ./setup.sh
+
+      - name: Runner preflight
+        shell: bash
+        run: |
+          mkdir -p benchmark-results
+          {
+            uname -a; python3 --version; nproc; free -m | head -2
+            gp_bin=tools/pari/bin/gp; [[ -x "$gp_bin" ]] || gp_bin="$(command -v gp)"
+            echo "gp: $gp_bin $("$gp_bin" --version-short)"
+            echo "ref: $GITHUB_REF"
+            git rev-parse HEAD
+          } | tee benchmark-results/runner.txt
+
+      # The regression gate reads the parent commit, which is the frontier on a submission run (see
+      # EC_SUBMISSION_RUN). EC_REQUIRE_PARENT makes the harness reject a submission run that reaches it
+      # without a parent board (fail closed), so no submission can score ungated; baseline and
+      # maintainer runs have no frontier and are not gated.
+      - name: Benchmark
+        env:
+          EC_PARENT_REF: ${{ env.EC_SUBMISSION_RUN == '1' && format('{0}^', github.sha) || '' }}
+          EC_REQUIRE_PARENT: ${{ env.EC_SUBMISSION_RUN == '1' && '1' || '' }}
+        run: ./benchmark.sh
+
+      - name: Report score
+        id: score
+        shell: bash
+        run: |
+          set -euo pipefail
+          score=$(jq -er '.score | select(type == "number")' score.json)
+          curves=$(jq -er '.metrics.curves | length' score.json)
+          held=$(jq -er '[.metrics.cells[] | select(.contribution > 0)] | length' score.json)
+          rv=$(jq -er '.metrics.records_version' score.json)
+          gate=$(jq -er '.metrics.parent_gate' score.json)
+          echo "score=$score (curves=$curves, cells_held=$held, parent_gate=$gate, records_version=$rv)" | tee -a benchmark-results/runner.txt
+          echo "value=$score" >> "$GITHUB_OUTPUT"
+
+      - name: Upload score
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: benchmark-score
+          path: score.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload diagnostics
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: benchmark-diagnostics-${{ github.run_id }}
+          path: benchmark-results/
+          if-no-files-found: warn
+          retention-days: 30

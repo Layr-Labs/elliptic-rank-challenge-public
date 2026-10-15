@@ -1,0 +1,3411 @@
+{
+ "built_at": "2026-10-15T04:07:29+00:00",
+ "cells": {
+  "1/1": {
+   "class_count": 1217,
+   "exact_count": 22,
+   "known_count": 1257,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "1",
+     "0",
+     "0"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-424",
+    "naive_height": 0.939132
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/10": {
+   "class_count": 955,
+   "exact_count": 30,
+   "known_count": 985,
+   "rank": 10,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-1536664",
+     "648294124"
+    ],
+    "certified_rank": 10,
+    "id": "icarm-60",
+    "naive_height": 4.529081
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/11": {
+   "class_count": 925,
+   "exact_count": 21,
+   "known_count": 955,
+   "rank": 11,
+   "record": {
+    "ainvs": [
+     "0",
+     "0",
+     "1",
+     "-13073767",
+     "-11170229244"
+    ],
+    "certified_rank": 11,
+    "id": "icarm-552",
+    "naive_height": 5.06433
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/12": {
+   "class_count": 904,
+   "exact_count": 18,
+   "known_count": 934,
+   "rank": 12,
+   "record": {
+    "ainvs": [
+     "0",
+     "0",
+     "1",
+     "-113679727",
+     "682491235476"
+    ],
+    "certified_rank": 12,
+    "id": "icarm-475",
+    "naive_height": 5.668431
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/13": {
+   "class_count": 886,
+   "exact_count": 31,
+   "known_count": 916,
+   "rank": 13,
+   "record": {
+    "ainvs": [
+     "0",
+     "0",
+     "1",
+     "-1129201567",
+     "23953648602246"
+    ],
+    "certified_rank": 13,
+    "id": "icarm-588",
+    "naive_height": 6.261452
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/14": {
+   "class_count": 855,
+   "exact_count": 30,
+   "known_count": 885,
+   "rank": 14,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-17511333709",
+     "745147974695329"
+    ],
+    "certified_rank": 14,
+    "id": "icarm-685",
+    "naive_height": 6.864329
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/15": {
+   "class_count": 825,
+   "exact_count": 36,
+   "known_count": 855,
+   "rank": 15,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-438546442624",
+     "120392125493108044"
+    ],
+    "certified_rank": 15,
+    "id": "icarm-812",
+    "naive_height": 7.68185
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/16": {
+   "class_count": 790,
+   "exact_count": 62,
+   "known_count": 819,
+   "rank": 16,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-1019402439308929",
+     "12645004805360636001409"
+    ],
+    "certified_rank": 16,
+    "id": "icarm-4184",
+    "naive_height": 9.608854
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/17": {
+   "class_count": 729,
+   "exact_count": 55,
+   "known_count": 757,
+   "rank": 17,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-357845172766698640",
+     "82774132683222642097318096"
+    ],
+    "certified_rank": 17,
+    "id": "icarm-4186",
+    "naive_height": 11.073288
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/18": {
+   "class_count": 675,
+   "exact_count": 52,
+   "known_count": 702,
+   "rank": 18,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-12687403419773740800",
+     "14832398592309355212279298036"
+    ],
+    "certified_rank": 18,
+    "id": "icarm-4183",
+    "naive_height": 11.964586
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/19": {
+   "class_count": 623,
+   "exact_count": 64,
+   "known_count": 650,
+   "rank": 19,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-29015852737941337052556",
+     "1950033817928958623296270251397996"
+    ],
+    "certified_rank": 19,
+    "id": "icarm-240",
+    "naive_height": 13.902455
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/2": {
+   "class_count": 1198,
+   "exact_count": 25,
+   "known_count": 1235,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "0",
+     "1"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-69",
+    "naive_height": 1.127122
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/20": {
+   "class_count": 559,
+   "exact_count": 64,
+   "known_count": 586,
+   "rank": 20,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-124516003883001484890743",
+     "16924795101824243077258212820413422"
+    ],
+    "certified_rank": 20,
+    "id": "icarm-3563",
+    "naive_height": 14.26261
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/21": {
+   "class_count": 496,
+   "exact_count": 37,
+   "known_count": 522,
+   "rank": 21,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "0",
+     "-1066071946332339100860892",
+     "372888637161286783309817106150962080"
+    ],
+    "certified_rank": 21,
+    "id": "icarm-578",
+    "naive_height": 14.799306
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/22": {
+   "class_count": 459,
+   "exact_count": 34,
+   "known_count": 485,
+   "rank": 22,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-5100446049204850223511073745",
+     "137488064201527560952142742891541383860019"
+    ],
+    "certified_rank": 22,
+    "id": "icarm-3721",
+    "naive_height": 16.917582
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/23": {
+   "class_count": 425,
+   "exact_count": 53,
+   "known_count": 451,
+   "rank": 23,
+   "record": {
+    "ainvs": [
+     "0",
+     "0",
+     "0",
+     "-240005545330536236099527000812",
+     "36700078011396568556186592483815843659153620"
+    ],
+    "certified_rank": 23,
+    "id": "icarm-3550",
+    "naive_height": 17.880415
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/24": {
+   "class_count": 372,
+   "exact_count": 47,
+   "known_count": 398,
+   "rank": 24,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-1065725121464552797358276993065048",
+     "12296003729998120618135688362808500359797284582178"
+    ],
+    "certified_rank": 24,
+    "id": "icarm-3581",
+    "naive_height": 19.980041
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/25": {
+   "class_count": 326,
+   "exact_count": 55,
+   "known_count": 351,
+   "rank": 25,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "1",
+     "-1366954638717973452722911319027670708",
+     "609863887492729249417909746749250792660527837221615844"
+    ],
+    "certified_rank": 25,
+    "id": "icarm-3722",
+    "naive_height": 21.769212
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/26": {
+   "class_count": 272,
+   "exact_count": 42,
+   "known_count": 296,
+   "rank": 26,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-355759649701494098454278593344226445800",
+     "2571650703088294583277645377334967427199821617554097640000"
+    ],
+    "certified_rank": 26,
+    "id": "icarm-3549",
+    "naive_height": 23.15963
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/27": {
+   "class_count": 231,
+   "exact_count": 45,
+   "known_count": 254,
+   "rank": 27,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-7399395255648189797319275080085394168375",
+     "239898227386207938563037636274941193287416724179122935568041"
+    ],
+    "certified_rank": 27,
+    "id": "icarm-4090",
+    "naive_height": 23.918354
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/28": {
+   "class_count": 187,
+   "exact_count": 87,
+   "known_count": 209,
+   "rank": 28,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-8926348659862790413098172786871966833962345",
+     "9923847233397519955807650243640217758197114155733559398977897499"
+    ],
+    "certified_rank": 28,
+    "id": "icarm-4089",
+    "naive_height": 25.692196
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/29": {
+   "class_count": 101,
+   "exact_count": 51,
+   "known_count": 122,
+   "rank": 29,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-17503967055046696205704545730902468530138328804",
+     "894626890628394372235486258020137581791958557048134993037737763309860"
+    ],
+    "certified_rank": 29,
+    "id": "icarm-4088",
+    "naive_height": 27.588099
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/3": {
+   "class_count": 1176,
+   "exact_count": 27,
+   "known_count": 1210,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "1",
+     "-6",
+     "0"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-70",
+    "naive_height": 1.402368
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/30": {
+   "class_count": 51,
+   "exact_count": 38,
+   "known_count": 71,
+   "rank": 30,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-45875433589310492345560963870813242004955686812860",
+     "119260020574067829647229744987894968769054120014581280328759103765251260400"
+    ],
+    "certified_rank": 30,
+    "id": "icarm-3897",
+    "naive_height": 29.555304
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/31": {
+   "class_count": 17,
+   "exact_count": 33,
+   "known_count": 33,
+   "rank": 31,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-890388688605835123536218905979825104833945491596640055500",
+     "10383942932786635402481776305650782666752061853846503229365337279722917845189552250000"
+    ],
+    "certified_rank": 31,
+    "id": "icarm-846",
+    "naive_height": 33.753164
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/4": {
+   "class_count": 1152,
+   "exact_count": 25,
+   "known_count": 1183,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "0",
+     "0",
+     "1",
+     "-7",
+     "36"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-72",
+    "naive_height": 1.725335
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/5": {
+   "class_count": 1128,
+   "exact_count": 20,
+   "known_count": 1158,
+   "rank": 5,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-22",
+     "219"
+    ],
+    "certified_rank": 5,
+    "id": "icarm-55",
+    "naive_height": 2.026498
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/6": {
+   "class_count": 1108,
+   "exact_count": 20,
+   "known_count": 1138,
+   "rank": 6,
+   "record": {
+    "ainvs": [
+     "0",
+     "0",
+     "1",
+     "-277",
+     "4566"
+    ],
+    "certified_rank": 6,
+    "id": "icarm-56",
+    "naive_height": 2.531337
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/7": {
+   "class_count": 1088,
+   "exact_count": 41,
+   "known_count": 1118,
+   "rank": 7,
+   "record": {
+    "ainvs": [
+     "0",
+     "0",
+     "1",
+     "-1387",
+     "68046"
+    ],
+    "certified_rank": 7,
+    "id": "icarm-57",
+    "naive_height": 2.981586
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/8": {
+   "class_count": 1047,
+   "exact_count": 47,
+   "known_count": 1077,
+   "rank": 8,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "1",
+     "-16440",
+     "1394010"
+    ],
+    "certified_rank": 8,
+    "id": "icarm-58",
+    "naive_height": 3.485532
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "1/9": {
+   "class_count": 1000,
+   "exact_count": 45,
+   "known_count": 1030,
+   "rank": 9,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "1",
+     "-176907",
+     "16703700"
+    ],
+    "certified_rank": 9,
+    "id": "icarm-589",
+    "naive_height": 3.988645
+   },
+   "torsion": [],
+   "torsion_key": "1"
+  },
+  "10/1": {
+   "class_count": 182,
+   "exact_count": 18,
+   "known_count": 250,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-27275",
+     "2000625"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1057",
+    "naive_height": 3.54528
+   },
+   "torsion": [
+    10
+   ],
+   "torsion_key": "10"
+  },
+  "10/2": {
+   "class_count": 174,
+   "exact_count": 18,
+   "known_count": 232,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-331734280",
+     "2334220942400"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-852",
+    "naive_height": 5.873381
+   },
+   "torsion": [
+    10
+   ],
+   "torsion_key": "10"
+  },
+  "10/3": {
+   "class_count": 163,
+   "exact_count": 154,
+   "known_count": 214,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-10596063090767790103",
+     "20246425576229652155786091497"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-1482",
+    "naive_height": 11.989891
+   },
+   "torsion": [
+    10
+   ],
+   "torsion_key": "10"
+  },
+  "10/4": {
+   "class_count": 25,
+   "exact_count": 60,
+   "known_count": 60,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-3913976067656937637459249967383835",
+     "80614222594310898664080091661625700445673557913297"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-1090",
+    "naive_height": 20.305266
+   },
+   "torsion": [
+    10
+   ],
+   "torsion_key": "10"
+  },
+  "12/1": {
+   "class_count": 125,
+   "exact_count": 17,
+   "known_count": 144,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-471900",
+     "124722000"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1055",
+    "naive_height": 4.233931
+   },
+   "torsion": [
+    12
+   ],
+   "torsion_key": "12"
+  },
+  "12/2": {
+   "class_count": 111,
+   "exact_count": 16,
+   "known_count": 127,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-233489241305",
+     "43447031653412025"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-1118",
+    "naive_height": 7.511982
+   },
+   "torsion": [
+    12
+   ],
+   "torsion_key": "12"
+  },
+  "12/3": {
+   "class_count": 95,
+   "exact_count": 109,
+   "known_count": 111,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "1",
+     "-42403753582533569425032932",
+     "106274144228004532427905140464314177031"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-1102",
+    "naive_height": 15.72012
+   },
+   "torsion": [
+    12
+   ],
+   "torsion_key": "12"
+  },
+  "12/4": {
+   "class_count": 1,
+   "exact_count": 2,
+   "known_count": 2,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-4422329901784763147754792226039053294186858800",
+     "98943710602886706347390586357680210847183616798063680624530387016000"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-1105",
+    "naive_height": 27.243549
+   },
+   "torsion": [
+    12
+   ],
+   "torsion_key": "12"
+  },
+  "2/1": {
+   "class_count": 389,
+   "exact_count": 41,
+   "known_count": 676,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-1",
+     "0"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-646",
+    "naive_height": 0.972955
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/10": {
+   "class_count": 224,
+   "exact_count": 29,
+   "known_count": 418,
+   "rank": 10,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "0",
+     "-129075833083",
+     "9551874655985737"
+    ],
+    "certified_rank": 10,
+    "id": "icarm-4056",
+    "naive_height": 7.363717
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/11": {
+   "class_count": 207,
+   "exact_count": 29,
+   "known_count": 389,
+   "rank": 11,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "0",
+     "12360728041642",
+     "29933108375647357188"
+    ],
+    "certified_rank": 11,
+    "id": "icarm-4058",
+    "naive_height": 8.601178
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/12": {
+   "class_count": 192,
+   "exact_count": 17,
+   "known_count": 360,
+   "rank": 12,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-155758806554822025",
+     "17037557339777163308682423"
+    ],
+    "certified_rank": 12,
+    "id": "icarm-1380",
+    "naive_height": 10.864572
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/13": {
+   "class_count": 183,
+   "exact_count": 39,
+   "known_count": 343,
+   "rank": 13,
+   "record": {
+    "ainvs": [
+     "0",
+     "0",
+     "0",
+     "-60335751033640463682",
+     "19804851792913373013393462044"
+    ],
+    "certified_rank": 13,
+    "id": "icarm-2158",
+    "naive_height": 12.354414
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/14": {
+   "class_count": 159,
+   "exact_count": 51,
+   "known_count": 304,
+   "rank": 14,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-16388459788431249768180",
+     "573404154184717410734999527857984"
+    ],
+    "certified_rank": 14,
+    "id": "icarm-2315",
+    "naive_height": 13.755516
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/15": {
+   "class_count": 132,
+   "exact_count": 62,
+   "known_count": 253,
+   "rank": 15,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "861720912597366549278406",
+     "6486831363114452406834443307946544100"
+    ],
+    "certified_rank": 15,
+    "id": "icarm-2003",
+    "naive_height": 15.254068
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/16": {
+   "class_count": 102,
+   "exact_count": 54,
+   "known_count": 191,
+   "rank": 16,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-54050310909963728401644728615",
+     "4819942348608245487926058303845433045684912"
+    ],
+    "certified_rank": 16,
+    "id": "icarm-3544",
+    "naive_height": 17.507728
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/17": {
+   "class_count": 67,
+   "exact_count": 41,
+   "known_count": 137,
+   "rank": 17,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-175454373647018982254072256257832924",
+     "10629934898753117975527831597137904651351874164717568"
+    ],
+    "certified_rank": 17,
+    "id": "icarm-3565",
+    "naive_height": 21.255972
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/18": {
+   "class_count": 39,
+   "exact_count": 37,
+   "known_count": 96,
+   "rank": 18,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-39308487537865888978574883363887176366150",
+     "2915709249148784249365513826706507891862806922457247216983396"
+    ],
+    "certified_rank": 18,
+    "id": "icarm-3723",
+    "naive_height": 24.335865
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/19": {
+   "class_count": 25,
+   "exact_count": 9,
+   "known_count": 59,
+   "rank": 19,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-2011143219219703736016434920560646866071203640",
+     "30156900228721860275494249462949799088593535739436291848589235137600"
+    ],
+    "certified_rank": 19,
+    "id": "icarm-3553",
+    "naive_height": 27.046558
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/2": {
+   "class_count": 365,
+   "exact_count": 29,
+   "known_count": 635,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "6",
+     "6"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-1126",
+    "naive_height": 1.414871
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/20": {
+   "class_count": 22,
+   "exact_count": 38,
+   "known_count": 50,
+   "rank": 20,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "-14934175398914658958707415306175682357195827040",
+     "701828131716934075850493140315617416734603564102554378446514730554497"
+    ],
+    "certified_rank": 20,
+    "id": "icarm-4126",
+    "naive_height": 27.547796
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/21": {
+   "class_count": 5,
+   "exact_count": 9,
+   "known_count": 12,
+   "rank": 21,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "1",
+     "-282822262647497336219014806401252894409458843464127030",
+     "57888571992079360840369014591533726727536212561741309784320032785296140799062597"
+    ],
+    "certified_rank": 21,
+    "id": "icarm-4120",
+    "naive_height": 31.736965
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/22": {
+   "class_count": 1,
+   "exact_count": 3,
+   "known_count": 3,
+   "rank": 22,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-173719528525019397613189688778644156848077689219115646293",
+     "655283790102850006567977331426970882151340170628667781827093572298216118282111782608"
+    ],
+    "certified_rank": 22,
+    "id": "icarm-4118",
+    "naive_height": 33.34206
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/3": {
+   "class_count": 344,
+   "exact_count": 30,
+   "known_count": 606,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "0",
+     "-42",
+     "0"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-1129",
+    "naive_height": 1.905299
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/4": {
+   "class_count": 323,
+   "exact_count": 20,
+   "known_count": 576,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "161",
+     "2097"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-1583",
+    "naive_height": 2.397324
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/5": {
+   "class_count": 309,
+   "exact_count": 23,
+   "known_count": 556,
+   "rank": 5,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-895",
+     "130929"
+    ],
+    "certified_rank": 5,
+    "id": "icarm-4040",
+    "naive_height": 3.091043
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/6": {
+   "class_count": 295,
+   "exact_count": 39,
+   "known_count": 533,
+   "rank": 6,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "0",
+     "-82433",
+     "8186337"
+    ],
+    "certified_rank": 6,
+    "id": "icarm-1236",
+    "naive_height": 3.797737
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/7": {
+   "class_count": 270,
+   "exact_count": 23,
+   "known_count": 494,
+   "rank": 7,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-5594735",
+     "5089624849"
+    ],
+    "certified_rank": 7,
+    "id": "icarm-1331",
+    "naive_height": 4.852134
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/8": {
+   "class_count": 256,
+   "exact_count": 22,
+   "known_count": 471,
+   "rank": 8,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "0",
+     "-45452141",
+     "114932096265"
+    ],
+    "certified_rank": 8,
+    "id": "icarm-4045",
+    "naive_height": 5.375843
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2/9": {
+   "class_count": 243,
+   "exact_count": 31,
+   "known_count": 449,
+   "rank": 9,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "3090014805",
+     "27966726311676"
+    ],
+    "certified_rank": 9,
+    "id": "icarm-2027",
+    "naive_height": 6.430661
+   },
+   "torsion": [
+    2
+   ],
+   "torsion_key": "2"
+  },
+  "2x2/1": {
+   "class_count": 365,
+   "exact_count": 41,
+   "known_count": 433,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-6",
+     "0"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1022",
+    "naive_height": 1.429257
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/10": {
+   "class_count": 124,
+   "exact_count": 63,
+   "known_count": 180,
+   "rank": 10,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-548870077332076033",
+     "-60475836489794533890728063"
+    ],
+    "certified_rank": 10,
+    "id": "icarm-4158",
+    "naive_height": 11.17946
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/11": {
+   "class_count": 72,
+   "exact_count": 83,
+   "known_count": 117,
+   "rank": 11,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-484119589693778795169401",
+     "129256356763357159489956676543687815"
+    ],
+    "certified_rank": 11,
+    "id": "icarm-1202",
+    "naive_height": 14.601955
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/12": {
+   "class_count": 19,
+   "exact_count": 21,
+   "known_count": 34,
+   "rank": 12,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-21002225533046105932213261292638",
+     "35140343228020171366943571030989078985423672656"
+    ],
+    "certified_rank": 12,
+    "id": "icarm-4055",
+    "naive_height": 18.998346
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/13": {
+   "class_count": 7,
+   "exact_count": 9,
+   "known_count": 13,
+   "rank": 13,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-126805284556646749335939083075808898286800006041",
+     "6437933136993997783664151467830511224300392764380156814845149031129959"
+    ],
+    "certified_rank": 14,
+    "id": "icarm-1835",
+    "naive_height": 28.082546
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/14": {
+   "class_count": 2,
+   "exact_count": 2,
+   "known_count": 4,
+   "rank": 14,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-126805284556646749335939083075808898286800006041",
+     "6437933136993997783664151467830511224300392764380156814845149031129959"
+    ],
+    "certified_rank": 14,
+    "id": "icarm-1835",
+    "naive_height": 28.082546
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/15": {
+   "class_count": 1,
+   "exact_count": 2,
+   "known_count": 2,
+   "rank": 15,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-1478818379630960182018543975144238479079598870400357903794",
+     "21612333371564362906227820064846376685227380006732368388851217276076518563786908263808"
+    ],
+    "certified_rank": 15,
+    "id": "icarm-319",
+    "naive_height": 33.877449
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/2": {
+   "class_count": 330,
+   "exact_count": 38,
+   "known_count": 392,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "-71",
+     "-196"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-1139",
+    "naive_height": 2.033544
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/3": {
+   "class_count": 295,
+   "exact_count": 29,
+   "known_count": 354,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-1454",
+     "14784"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-2113",
+    "naive_height": 2.788376
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/4": {
+   "class_count": 269,
+   "exact_count": 32,
+   "known_count": 325,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-24649",
+     "1355209"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-14",
+    "naive_height": 3.495927
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/5": {
+   "class_count": 237,
+   "exact_count": 28,
+   "known_count": 293,
+   "rank": 5,
+   "record": {
+    "ainvs": [
+     "0",
+     "0",
+     "0",
+     "-2289196",
+     "13734960"
+    ],
+    "certified_rank": 5,
+    "id": "icarm-1909",
+    "naive_height": 4.628728
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/6": {
+   "class_count": 209,
+   "exact_count": 25,
+   "known_count": 265,
+   "rank": 6,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-233824729",
+     "1154819670169"
+    ],
+    "certified_rank": 6,
+    "id": "icarm-4150",
+    "naive_height": 5.785321
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/7": {
+   "class_count": 184,
+   "exact_count": 26,
+   "known_count": 240,
+   "rank": 7,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "0",
+     "-29529355863",
+     "-486682462847007"
+    ],
+    "certified_rank": 7,
+    "id": "icarm-4169",
+    "naive_height": 6.994963
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/8": {
+   "class_count": 158,
+   "exact_count": 15,
+   "known_count": 214,
+   "rank": 8,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-5152084861023",
+     "4482411023886917625"
+    ],
+    "certified_rank": 8,
+    "id": "icarm-4163",
+    "naive_height": 8.285406
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "2x2/9": {
+   "class_count": 143,
+   "exact_count": 19,
+   "known_count": 199,
+   "rank": 9,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-5358641471006980",
+     "31524477168456097476772"
+    ],
+    "certified_rank": 9,
+    "id": "icarm-4161",
+    "naive_height": 10.022172
+   },
+   "torsion": [
+    2,
+    2
+   ],
+   "torsion_key": "2x2"
+  },
+  "3/1": {
+   "class_count": 250,
+   "exact_count": 33,
+   "known_count": 303,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "1",
+     "3",
+     "2"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1012",
+    "naive_height": 1.213008
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/10": {
+   "class_count": 60,
+   "exact_count": 13,
+   "known_count": 85,
+   "rank": 10,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-212839301373879877635",
+     "1195884900278493132313187100225"
+    ],
+    "certified_rank": 10,
+    "id": "icarm-1395",
+    "naive_height": 12.669669
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/11": {
+   "class_count": 51,
+   "exact_count": 13,
+   "known_count": 72,
+   "rank": 11,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-19381405000232295858279660",
+     "32840137866325074034091731864481219472"
+    ],
+    "certified_rank": 11,
+    "id": "icarm-1195",
+    "naive_height": 15.524389
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/12": {
+   "class_count": 42,
+   "exact_count": 39,
+   "known_count": 59,
+   "rank": 12,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-2557499874808783579775134722531513",
+     "49997987268990292225606516653085266862246125287656"
+    ],
+    "certified_rank": 13,
+    "id": "icarm-1938",
+    "naive_height": 20.199607
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/13": {
+   "class_count": 10,
+   "exact_count": 14,
+   "known_count": 20,
+   "rank": 13,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-2557499874808783579775134722531513",
+     "49997987268990292225606516653085266862246125287656"
+    ],
+    "certified_rank": 13,
+    "id": "icarm-1938",
+    "naive_height": 20.199607
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/14": {
+   "class_count": 3,
+   "exact_count": 4,
+   "known_count": 6,
+   "rank": 14,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "1",
+     "-24791434545122407462176574410341851245",
+     "47463673909255798147742316846176526846664068435304032999"
+    ],
+    "certified_rank": 14,
+    "id": "icarm-1936",
+    "naive_height": 22.493691
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/15": {
+   "class_count": 1,
+   "exact_count": 2,
+   "known_count": 2,
+   "rank": 15,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-107404730164187455100283304999195859754632145403",
+     "48976939778870435455584633601954124477725966045276826839333933204370006"
+    ],
+    "certified_rank": 15,
+    "id": "icarm-318",
+    "naive_height": 28.255216
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/2": {
+   "class_count": 225,
+   "exact_count": 32,
+   "known_count": 270,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "23",
+     "24"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-1149",
+    "naive_height": 1.748024
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/3": {
+   "class_count": 197,
+   "exact_count": 18,
+   "known_count": 238,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "0",
+     "0",
+     "1",
+     "306",
+     "2135"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-1152",
+    "naive_height": 2.404652
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/4": {
+   "class_count": 182,
+   "exact_count": 16,
+   "known_count": 220,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "0",
+     "0",
+     "0",
+     "-22824",
+     "1424529"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-3785",
+    "naive_height": 3.488487
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/5": {
+   "class_count": 166,
+   "exact_count": 18,
+   "known_count": 204,
+   "rank": 5,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-324141",
+     "89192321"
+    ],
+    "certified_rank": 5,
+    "id": "icarm-3438",
+    "naive_height": 4.177828
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/6": {
+   "class_count": 148,
+   "exact_count": 18,
+   "known_count": 186,
+   "rank": 6,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "1",
+     "-9687757",
+     "12256549127"
+    ],
+    "certified_rank": 6,
+    "id": "icarm-3435",
+    "naive_height": 4.998527
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/7": {
+   "class_count": 130,
+   "exact_count": 21,
+   "known_count": 168,
+   "rank": 7,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "0",
+     "-32988023466",
+     "2176913384690696"
+    ],
+    "certified_rank": 7,
+    "id": "icarm-3786",
+    "naive_height": 7.022653
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/8": {
+   "class_count": 109,
+   "exact_count": 37,
+   "known_count": 147,
+   "rank": 8,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-4213613959455",
+     "3328416232976793662"
+    ],
+    "certified_rank": 8,
+    "id": "icarm-1099",
+    "naive_height": 8.235136
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "3/9": {
+   "class_count": 76,
+   "exact_count": 25,
+   "known_count": 110,
+   "rank": 9,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "351118951848067",
+     "17059676504171094152788"
+    ],
+    "certified_rank": 9,
+    "id": "icarm-3787",
+    "naive_height": 9.658763
+   },
+   "torsion": [
+    3
+   ],
+   "torsion_key": "3"
+  },
+  "4/1": {
+   "class_count": 262,
+   "exact_count": 31,
+   "known_count": 332,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "1",
+     "4",
+     "6"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1110",
+    "naive_height": 1.459237
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/10": {
+   "class_count": 63,
+   "exact_count": 39,
+   "known_count": 102,
+   "rank": 10,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "5365964600284239371851791",
+     "14610806763317668249280146321957009215"
+    ],
+    "certified_rank": 10,
+    "id": "icarm-632",
+    "naive_height": 15.3894
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/11": {
+   "class_count": 34,
+   "exact_count": 44,
+   "known_count": 63,
+   "rank": 11,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "-7671715934167815930781994061299",
+     "8178285354508392679962576458844594775376567537"
+    ],
+    "certified_rank": 11,
+    "id": "icarm-3518",
+    "naive_height": 18.746574
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/12": {
+   "class_count": 11,
+   "exact_count": 9,
+   "known_count": 19,
+   "rank": 12,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "1",
+     "-2037619837783747966746174671909195450105",
+     "34753468662079960434777991387015015721532327315712767685272"
+    ],
+    "certified_rank": 12,
+    "id": "icarm-3562",
+    "naive_height": 23.595951
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/13": {
+   "class_count": 5,
+   "exact_count": 10,
+   "known_count": 10,
+   "rank": 13,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-893211001377324088868409658436161336697176597505301441",
+     "322318489353257476127105984661383880720198001931577617014493148996108419252695905"
+    ],
+    "certified_rank": 13,
+    "id": "icarm-803",
+    "naive_height": 32.024466
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/2": {
+   "class_count": 238,
+   "exact_count": 33,
+   "known_count": 301,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-39",
+     "264"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-1156",
+    "naive_height": 2.047788
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/3": {
+   "class_count": 208,
+   "exact_count": 22,
+   "known_count": 268,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "1671",
+     "254526"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-4094",
+    "naive_height": 3.200999
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/4": {
+   "class_count": 189,
+   "exact_count": 34,
+   "known_count": 246,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "1",
+     "959224",
+     "460866210"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-3526",
+    "naive_height": 4.451785
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/5": {
+   "class_count": 155,
+   "exact_count": 23,
+   "known_count": 212,
+   "rank": 5,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "-174487014",
+     "387295820946"
+    ],
+    "certified_rank": 5,
+    "id": "icarm-4117",
+    "naive_height": 5.71214
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/6": {
+   "class_count": 132,
+   "exact_count": 17,
+   "known_count": 189,
+   "rank": 6,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "1",
+     "1682744314",
+     "47509035811260"
+    ],
+    "certified_rank": 6,
+    "id": "icarm-4086",
+    "naive_height": 6.375587
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/7": {
+   "class_count": 115,
+   "exact_count": 18,
+   "known_count": 172,
+   "rank": 7,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "-217075998668420",
+     "1475197160196665902820"
+    ],
+    "certified_rank": 7,
+    "id": "icarm-3661",
+    "naive_height": 9.250775
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/8": {
+   "class_count": 101,
+   "exact_count": 16,
+   "known_count": 154,
+   "rank": 8,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-1224548245683425264",
+     "519618705544772933827276608"
+    ],
+    "certified_rank": 8,
+    "id": "icarm-2083",
+    "naive_height": 11.380076
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4/9": {
+   "class_count": 88,
+   "exact_count": 36,
+   "known_count": 138,
+   "rank": 9,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "539663000987019167131",
+     "719234136896493217703737618121186"
+    ],
+    "certified_rank": 9,
+    "id": "icarm-2084",
+    "naive_height": 13.736219
+   },
+   "torsion": [
+    4
+   ],
+   "torsion_key": "4"
+  },
+  "4x2/1": {
+   "class_count": 263,
+   "exact_count": 20,
+   "known_count": 297,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-180",
+     "900"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1167",
+    "naive_height": 2.266502
+   },
+   "torsion": [
+    4,
+    2
+   ],
+   "torsion_key": "4x2"
+  },
+  "4x2/2": {
+   "class_count": 246,
+   "exact_count": 33,
+   "known_count": 277,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-7924",
+     "219776"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-1169",
+    "naive_height": 3.212224
+   },
+   "torsion": [
+    4,
+    2
+   ],
+   "torsion_key": "4x2"
+  },
+  "4x2/3": {
+   "class_count": 216,
+   "exact_count": 22,
+   "known_count": 244,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-875284",
+     "140750404"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-3354",
+    "naive_height": 4.388376
+   },
+   "torsion": [
+    4,
+    2
+   ],
+   "torsion_key": "4x2"
+  },
+  "4x2/4": {
+   "class_count": 194,
+   "exact_count": 42,
+   "known_count": 222,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "0",
+     "-1325894564",
+     "12210761491524"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-3737",
+    "naive_height": 6.219139
+   },
+   "torsion": [
+    4,
+    2
+   ],
+   "torsion_key": "4x2"
+  },
+  "4x2/5": {
+   "class_count": 152,
+   "exact_count": 30,
+   "known_count": 180,
+   "rank": 5,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "-5249460128724",
+     "4502799750307510356"
+    ],
+    "certified_rank": 5,
+    "id": "icarm-3780",
+    "naive_height": 8.290087
+   },
+   "torsion": [
+    4,
+    2
+   ],
+   "torsion_key": "4x2"
+  },
+  "4x2/6": {
+   "class_count": 122,
+   "exact_count": 58,
+   "known_count": 150,
+   "rank": 6,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-221330307474403054",
+     "17321055963451962366563204"
+    ],
+    "certified_rank": 6,
+    "id": "icarm-3798",
+    "naive_height": 10.952408
+   },
+   "torsion": [
+    4,
+    2
+   ],
+   "torsion_key": "4x2"
+  },
+  "4x2/7": {
+   "class_count": 74,
+   "exact_count": 23,
+   "known_count": 92,
+   "rank": 7,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "-650585738720869344749",
+     "3173911523544766821670373312666"
+    ],
+    "certified_rank": 7,
+    "id": "icarm-4197",
+    "naive_height": 12.948901
+   },
+   "torsion": [
+    4,
+    2
+   ],
+   "torsion_key": "4x2"
+  },
+  "4x2/8": {
+   "class_count": 56,
+   "exact_count": 63,
+   "known_count": 69,
+   "rank": 8,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-8665851076482178429252004",
+     "9394159653904223016884439949397508576"
+    ],
+    "certified_rank": 8,
+    "id": "icarm-3063",
+    "naive_height": 15.323158
+   },
+   "torsion": [
+    4,
+    2
+   ],
+   "torsion_key": "4x2"
+  },
+  "4x2/9": {
+   "class_count": 3,
+   "exact_count": 6,
+   "known_count": 6,
+   "rank": 9,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-160457317436491036800639760108090",
+     "-369449120458315595021673906507946532059648303900"
+    ],
+    "certified_rank": 9,
+    "id": "icarm-1827",
+    "naive_height": 19.506695
+   },
+   "torsion": [
+    4,
+    2
+   ],
+   "torsion_key": "4x2"
+  },
+  "5/1": {
+   "class_count": 131,
+   "exact_count": 19,
+   "known_count": 158,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "0",
+     "-1",
+     "1",
+     "10",
+     "6"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-999",
+    "naive_height": 1.534971
+   },
+   "torsion": [
+    5
+   ],
+   "torsion_key": "5"
+  },
+  "5/2": {
+   "class_count": 115,
+   "exact_count": 21,
+   "known_count": 139,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "1",
+     "-840",
+     "39800"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-1171",
+    "naive_height": 2.893369
+   },
+   "torsion": [
+    5
+   ],
+   "torsion_key": "5"
+  },
+  "5/3": {
+   "class_count": 97,
+   "exact_count": 13,
+   "known_count": 118,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "-270010",
+     "59128551"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-1185",
+    "naive_height": 4.109783
+   },
+   "torsion": [
+    5
+   ],
+   "torsion_key": "5"
+  },
+  "5/4": {
+   "class_count": 84,
+   "exact_count": 24,
+   "known_count": 105,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "-223521435",
+     "1911696935401"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-1210",
+    "naive_height": 5.840106
+   },
+   "torsion": [
+    5
+   ],
+   "torsion_key": "5"
+  },
+  "5/5": {
+   "class_count": 60,
+   "exact_count": 15,
+   "known_count": 81,
+   "rank": 5,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "1",
+     "755369674600",
+     "1108437052817940098"
+    ],
+    "certified_rank": 5,
+    "id": "icarm-1657",
+    "naive_height": 8.051843
+   },
+   "torsion": [
+    5
+   ],
+   "torsion_key": "5"
+  },
+  "5/6": {
+   "class_count": 45,
+   "exact_count": 18,
+   "known_count": 66,
+   "rank": 6,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "1",
+     "-4681323863817510",
+     "123661876023411492419210"
+    ],
+    "certified_rank": 6,
+    "id": "icarm-1691",
+    "naive_height": 9.988902
+   },
+   "torsion": [
+    5
+   ],
+   "torsion_key": "5"
+  },
+  "5/7": {
+   "class_count": 30,
+   "exact_count": 24,
+   "known_count": 48,
+   "rank": 7,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-4401046837403916631215",
+     "113247068123398333719870687876921"
+    ],
+    "certified_rank": 7,
+    "id": "icarm-1124",
+    "naive_height": 13.428116
+   },
+   "torsion": [
+    5
+   ],
+   "torsion_key": "5"
+  },
+  "5/8": {
+   "class_count": 14,
+   "exact_count": 22,
+   "known_count": 24,
+   "rank": 8,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "1",
+     "-43404903968582650644659510",
+     "110583089765290602424908396450544942556"
+    ],
+    "certified_rank": 8,
+    "id": "icarm-1917",
+    "naive_height": 15.726734
+   },
+   "torsion": [
+    5
+   ],
+   "torsion_key": "5"
+  },
+  "5/9": {
+   "class_count": 1,
+   "exact_count": 2,
+   "known_count": 2,
+   "rank": 9,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-1271376476514788123979112128312980",
+     "248131717764014678423337299444388036083025142487952"
+    ],
+    "certified_rank": 9,
+    "id": "icarm-1215",
+    "naive_height": 20.466603
+   },
+   "torsion": [
+    5
+   ],
+   "torsion_key": "5"
+  },
+  "6/1": {
+   "class_count": 277,
+   "exact_count": 28,
+   "known_count": 447,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-33",
+     "68"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1174",
+    "naive_height": 1.83827
+   },
+   "torsion": [
+    6
+   ],
+   "torsion_key": "6"
+  },
+  "6/2": {
+   "class_count": 262,
+   "exact_count": 28,
+   "known_count": 419,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-2454",
+     "6872"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-1175",
+    "naive_height": 2.91912
+   },
+   "torsion": [
+    6
+   ],
+   "torsion_key": "6"
+  },
+  "6/3": {
+   "class_count": 243,
+   "exact_count": 25,
+   "known_count": 391,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-783365",
+     "172533900"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-1192",
+    "naive_height": 4.360639
+   },
+   "torsion": [
+    6
+   ],
+   "torsion_key": "6"
+  },
+  "6/4": {
+   "class_count": 226,
+   "exact_count": 32,
+   "known_count": 366,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-60238011",
+     "164765102642"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-1613",
+    "naive_height": 5.446254
+   },
+   "torsion": [
+    6
+   ],
+   "torsion_key": "6"
+  },
+  "6/5": {
+   "class_count": 204,
+   "exact_count": 31,
+   "known_count": 334,
+   "rank": 5,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-545643110801",
+     "124388081382853776"
+    ],
+    "certified_rank": 5,
+    "id": "icarm-3475",
+    "naive_height": 7.724108
+   },
+   "torsion": [
+    6
+   ],
+   "torsion_key": "6"
+  },
+  "6/6": {
+   "class_count": 186,
+   "exact_count": 31,
+   "known_count": 303,
+   "rank": 6,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-2612439389653453",
+     "103699340708735815532756"
+    ],
+    "certified_rank": 6,
+    "id": "icarm-3494",
+    "naive_height": 9.959559
+   },
+   "torsion": [
+    6
+   ],
+   "torsion_key": "6"
+  },
+  "6/7": {
+   "class_count": 169,
+   "exact_count": 67,
+   "known_count": 272,
+   "rank": 7,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-237906519865576420215",
+     "1426402656891806968184602251817"
+    ],
+    "certified_rank": 7,
+    "id": "icarm-3716",
+    "naive_height": 12.699047
+   },
+   "torsion": [
+    6
+   ],
+   "torsion_key": "6"
+  },
+  "6/8": {
+   "class_count": 128,
+   "exact_count": 196,
+   "known_count": 205,
+   "rank": 8,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-6731612366192377228520404",
+     "3182900810959595258205766071715171806"
+    ],
+    "certified_rank": 8,
+    "id": "icarm-1913",
+    "naive_height": 15.260014
+   },
+   "torsion": [
+    6
+   ],
+   "torsion_key": "6"
+  },
+  "6/9": {
+   "class_count": 3,
+   "exact_count": 9,
+   "known_count": 9,
+   "rank": 9,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-801598222309406030167646512525",
+     "1340218010187071010144873439749301626926500625"
+    ],
+    "certified_rank": 9,
+    "id": "icarm-1216",
+    "naive_height": 18.445122
+   },
+   "torsion": [
+    6
+   ],
+   "torsion_key": "6"
+  },
+  "6x2/1": {
+   "class_count": 550,
+   "exact_count": 317,
+   "known_count": 612,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-31900",
+     "1610000"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1054",
+    "naive_height": 3.560391
+   },
+   "torsion": [
+    6,
+    2
+   ],
+   "torsion_key": "6x2"
+  },
+  "6x2/2": {
+   "class_count": 277,
+   "exact_count": 117,
+   "known_count": 295,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-244941793",
+     "318865017056"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-2173",
+    "naive_height": 5.796933
+   },
+   "torsion": [
+    6,
+    2
+   ],
+   "torsion_key": "6x2"
+  },
+  "6x2/3": {
+   "class_count": 162,
+   "exact_count": 24,
+   "known_count": 178,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-4214703227356",
+     "3151874734423746320"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-3356",
+    "naive_height": 8.2352
+   },
+   "torsion": [
+    6,
+    2
+   ],
+   "torsion_key": "6x2"
+  },
+  "6x2/4": {
+   "class_count": 138,
+   "exact_count": 25,
+   "known_count": 154,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "1",
+     "-999591626088641703",
+     "349303002842534327752474006"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-1498",
+    "naive_height": 11.329331
+   },
+   "torsion": [
+    6,
+    2
+   ],
+   "torsion_key": "6x2"
+  },
+  "6x2/5": {
+   "class_count": 113,
+   "exact_count": 121,
+   "known_count": 129,
+   "rank": 5,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-990429690240960203866170",
+     "343844266388187332499781887080604900"
+    ],
+    "certified_rank": 5,
+    "id": "icarm-1088",
+    "naive_height": 14.780907
+   },
+   "torsion": [
+    6,
+    2
+   ],
+   "torsion_key": "6x2"
+  },
+  "6x2/6": {
+   "class_count": 4,
+   "exact_count": 8,
+   "known_count": 8,
+   "rank": 6,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-37680956700999226080263982005713090640",
+     "-36992898397926078743894505902555362159162611772488902400"
+    ],
+    "certified_rank": 6,
+    "id": "icarm-1833",
+    "naive_height": 22.598355
+   },
+   "torsion": [
+    6,
+    2
+   ],
+   "torsion_key": "6x2"
+  },
+  "7/1": {
+   "class_count": 85,
+   "exact_count": 19,
+   "known_count": 99,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "1",
+     "-19353",
+     "958713"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1028",
+    "naive_height": 3.435447
+   },
+   "torsion": [
+    7
+   ],
+   "torsion_key": "7"
+  },
+  "7/2": {
+   "class_count": 69,
+   "exact_count": 13,
+   "known_count": 80,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-10770571",
+     "17614639217"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-855",
+    "naive_height": 5.058937
+   },
+   "torsion": [
+    7
+   ],
+   "torsion_key": "7"
+  },
+  "7/3": {
+   "class_count": 56,
+   "exact_count": 13,
+   "known_count": 67,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-57339985560",
+     "9437924676225600"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-844",
+    "naive_height": 7.257514
+   },
+   "torsion": [
+    7
+   ],
+   "torsion_key": "7"
+  },
+  "7/4": {
+   "class_count": 43,
+   "exact_count": 11,
+   "known_count": 54,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-143536591973710760",
+     "21086903195077588759809600"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-2144",
+    "naive_height": 10.845378
+   },
+   "torsion": [
+    7
+   ],
+   "torsion_key": "7"
+  },
+  "7/5": {
+   "class_count": 32,
+   "exact_count": 41,
+   "known_count": 43,
+   "rank": 5,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-3871874529581532682991685",
+     "2932443695831973034287157248711276225"
+    ],
+    "certified_rank": 5,
+    "id": "icarm-1094",
+    "naive_height": 15.121746
+   },
+   "torsion": [
+    7
+   ],
+   "torsion_key": "7"
+  },
+  "7/6": {
+   "class_count": 1,
+   "exact_count": 2,
+   "known_count": 2,
+   "rank": 6,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-326034514850898538462143577535732108974101688866",
+     "126139807177463916084745782524191445068029238338478785879968870214064452"
+    ],
+    "certified_rank": 6,
+    "id": "icarm-1214",
+    "naive_height": 28.412889
+   },
+   "torsion": [
+    7
+   ],
+   "torsion_key": "7"
+  },
+  "8/1": {
+   "class_count": 139,
+   "exact_count": 23,
+   "known_count": 163,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-1785",
+     "194922"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1180",
+    "naive_height": 3.157115
+   },
+   "torsion": [
+    8
+   ],
+   "torsion_key": "8"
+  },
+  "8/2": {
+   "class_count": 122,
+   "exact_count": 17,
+   "known_count": 140,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-1558900",
+     "7217210000"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-1188",
+    "naive_height": 4.910221
+   },
+   "torsion": [
+    8
+   ],
+   "torsion_key": "8"
+  },
+  "8/3": {
+   "class_count": 107,
+   "exact_count": 19,
+   "known_count": 123,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "-78912468240",
+     "8490058018974705"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-1189",
+    "naive_height": 7.240702
+   },
+   "torsion": [
+    8
+   ],
+   "torsion_key": "8"
+  },
+  "8/4": {
+   "class_count": 88,
+   "exact_count": 16,
+   "known_count": 104,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "0",
+     "1",
+     "0",
+     "-95549172512866864",
+     "11690998742798553808334900"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-1641",
+    "naive_height": 10.747072
+   },
+   "torsion": [
+    8
+   ],
+   "torsion_key": "8"
+  },
+  "8/5": {
+   "class_count": 72,
+   "exact_count": 80,
+   "known_count": 88,
+   "rank": 5,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-304241169811532712979315990",
+     "2065986446448965089594679105215890328100"
+    ],
+    "certified_rank": 5,
+    "id": "icarm-1093",
+    "naive_height": 16.214667
+   },
+   "torsion": [
+    8
+   ],
+   "torsion_key": "8"
+  },
+  "8/6": {
+   "class_count": 4,
+   "exact_count": 8,
+   "known_count": 8,
+   "rank": 6,
+   "record": {
+    "ainvs": [
+     "1",
+     "1",
+     "1",
+     "690560257169377937125059126423812540",
+     "-33492188518937203020097127431557287129957999127407035"
+    ],
+    "certified_rank": 6,
+    "id": "icarm-1904",
+    "naive_height": 21.598503
+   },
+   "torsion": [
+    8
+   ],
+   "torsion_key": "8"
+  },
+  "8x2/1": {
+   "class_count": 61,
+   "exact_count": 17,
+   "known_count": 76,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-49423080",
+     "130545230400"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1073",
+    "naive_height": 5.396782
+   },
+   "torsion": [
+    8,
+    2
+   ],
+   "torsion_key": "8x2"
+  },
+  "8x2/2": {
+   "class_count": 47,
+   "exact_count": 13,
+   "known_count": 59,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-33089897206260",
+     "72431786525672019600"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-1190",
+    "naive_height": 8.750363
+   },
+   "torsion": [
+    8,
+    2
+   ],
+   "torsion_key": "8x2"
+  },
+  "8x2/3": {
+   "class_count": 34,
+   "exact_count": 46,
+   "known_count": 46,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-15745932530829089880",
+     "24028219957095969426339278400"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-1087",
+    "naive_height": 12.018579
+   },
+   "torsion": [
+    8,
+    2
+   ],
+   "torsion_key": "8x2"
+  },
+  "9/1": {
+   "class_count": 106,
+   "exact_count": 20,
+   "known_count": 131,
+   "rank": 1,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-4767",
+     "127449"
+    ],
+    "certified_rank": 1,
+    "id": "icarm-1044",
+    "naive_height": 3.086693
+   },
+   "torsion": [
+    9
+   ],
+   "torsion_key": "9"
+  },
+  "9/2": {
+   "class_count": 89,
+   "exact_count": 13,
+   "known_count": 111,
+   "rank": 2,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "1",
+     "-832936109",
+     "213650223049109"
+    ],
+    "certified_rank": 2,
+    "id": "icarm-1191",
+    "naive_height": 6.626156
+   },
+   "torsion": [
+    9
+   ],
+   "torsion_key": "9"
+  },
+  "9/3": {
+   "class_count": 76,
+   "exact_count": 84,
+   "known_count": 98,
+   "rank": 3,
+   "record": {
+    "ainvs": [
+     "1",
+     "-1",
+     "1",
+     "-41368267697099",
+     "102411668493915101147"
+    ],
+    "certified_rank": 3,
+    "id": "icarm-1092",
+    "naive_height": 8.806184
+   },
+   "torsion": [
+    9
+   ],
+   "torsion_key": "9"
+  },
+  "9/4": {
+   "class_count": 7,
+   "exact_count": 14,
+   "known_count": 14,
+   "rank": 4,
+   "record": {
+    "ainvs": [
+     "1",
+     "0",
+     "0",
+     "-210121912561076041141788727170",
+     "37072777483029442821111037453964917510678212"
+    ],
+    "certified_rank": 4,
+    "id": "icarm-1117",
+    "naive_height": 17.847172
+   },
+   "torsion": [
+    9
+   ],
+   "torsion_key": "9"
+  }
+ },
+ "ledger_frozen_at": "2026-10-15T04:07:28+00:00",
+ "scoring_version": 6,
+ "version": 5
+}

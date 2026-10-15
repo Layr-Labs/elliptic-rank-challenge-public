@@ -1,0 +1,77 @@
+name: CI
+
+# CI must never run a participant-controlled tree. submissions/* refs are
+# graded exclusively by benchmark.yml (sandboxed, surface-checked); this
+# workflow installs and tests the checked-out tree, so it is scoped to
+# maintainer branches only.
+on:
+  push:
+    branches-ignore:
+      - 'submissions/**'
+      - 'yukon/**'            # yukon/baseline/<sha>: main's own tree, graded by benchmark.yml
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    if: ${{ github.event_name != 'pull_request' || !startsWith(github.head_ref, 'submissions/') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        python: ["3.11", "3.12"]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Build dependencies (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libgmp-dev bubblewrap jq
+      - name: Build dependencies (macOS)
+        if: runner.os == 'macOS'
+        run: brew install gmp jq
+      - name: Cache pinned PARI/GP build
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
+        with:
+          path: tools/pari
+          key: pari-2.17.4-${{ runner.os }}-${{ runner.arch }}-v1
+      - name: Install
+        run: pip install -e ".[test]"
+      - name: Setup (venv + pinned gp)
+        run: ./setup.sh
+      - name: Tests
+        run: python -m pytest tests/ -q
+      - name: Slow tests (Linux, one Python)
+        if: runner.os == 'Linux' && matrix.python == '3.12'
+        run: python -m pytest tests/ -q -m slow
+      - name: Harness e2e via the real scripts (frozen fixture, never the live board)
+        if: runner.os == 'Linux' && matrix.python == '3.12'
+        run: |
+          mkdir -p submission/board
+          cp tests/fixtures/base5.ec submission/board/ci-base5.ec
+          EC_PARENT_REF=HEAD bash ./benchmark.sh
+          test -f score.json
+          jq -er '.metrics.curves[] | select(.file == "ci-base5.ec") | .certified_rank == 5 and .cell == "1/5"' score.json
+          jq -er '.metrics.parent_gate == "checked"' score.json
+          # base5 (H 3.42) sits above the real rank-5 record (H 2.03): listed, contributes 0,
+          # so the total equals the parent board's (the live board may hold cells of its own).
+          jq -er '.metrics.improvement == 0' score.json
+          jq -er '.score == .metrics.parent_total' score.json
+          jq -er '.metrics.cells["1/5"].contribution == 0' score.json
+          rm -f submission/board/ci-base5.ec
