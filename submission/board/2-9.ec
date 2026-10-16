@@ -1,5 +1,4 @@
-# Own find, lane z2-r9 (ec-rank; s1 z2-r9 code). Family: every curve with a rational 2-torsion point, y^2 = x^3 + a x^2 + b x
-# (standard Z/2 model, point (0,0); sieve after Mestre 1982 / Nagao 1997 sums of a_p log p / p). Method:
+# Own find, lane z2-r9 (ec-rank s1). Method: residue-class restricted enumeration of Z/2 curves
 # y^2 = x^3 + a x^2 + b x (reduced (a,b), u=1 and u=2 minimal models) with naive height H in [0.0, 6.430661):
 # b mod 3*5*7*11*13*17*19*23 classes with S_E = sum_{3<=p<=23} -a_p log p/p in [6.163, 1e+30) enumerated by CRT,
 # then Mestre-Nagao S1 (p<60) >= 10.0, S2 (p<1000) >= 32.0, then PARI 2.17.4 ellrank on the minimal model.
