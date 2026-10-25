@@ -1,0 +1,42 @@
+read("submission/research/z3-family.gp");
+default(realprecision,38);
+{
+for(rr=1,10,
+for(ss=rr+1,20,
+ for(vv=ss+1,30,
+  if(gcd(gcd(rr,ss),vv)!=1,next);roots=[-vv,-ss,-rr,rr,ss,vv];polys=List();unique=Map();done=Map();
+  for(j=1,#matchings,
+   pairs=matchings[j];
+   mat=matrix(3,3,i,k,if(i==1,1,if(i==2,-roots[pairs[k][1]]-roots[pairs[k][2]],roots[pairs[k][1]]*roots[pairs[k][2]])));
+   if(matdet(mat)==0,next);
+   ks=mat^-1*[1,0,x]~;kk=prod(i=1,3,ks[i]);
+   if(mapisdefined(unique,kk),next);
+   mapput(unique,kk,1);listput(polys,kk);
+  );
+  for(i=1,#polys,
+   for(j=i+1,#polys,
+    fac=factor(polys[i]-polys[j]);
+    for(k=1,matsize(fac)[1],
+     ff=fac[k,1];if(poldegree(ff)!=1,next);
+     lam=-polcoeff(ff,0)/polcoeff(ff,1);
+     if(mapisdefined(done,lam),next);
+     mapput(done,lam,1);
+     kk=subst(polys[i],x,lam);if(kk==0,next);
+     count=sum(jj=1,#polys,subst(polys[jj],x,lam)==kk);
+     if(count<3,next);
+     dk=factor(denominator(kk));mult=lcm(denominator(lam),prod(zz=1,matsize(dk)[1],dk[zz,1]^ceil(dk[zz,2]/3)));
+     if(mult>100,next);
+     F=z3family(rr,ss,vv,lam,kk,101/103);
+     if(#F[1]==0 || #F[2]<5,next);
+     Eprobe=ellminimalmodel(F[1],&vprobe);Pprobe=vector(#F[2],zz,ellchangepoint(F[2][zz],vprobe));
+     evals=qfjacobi(ellheightmatrix(Eprobe,Pprobe))[1];seedrank=sum(zz=1,#evals,evals[zz]>10^-15);
+     if(seedrank>=5,print([rr,ss,vv,Str(lam),Str(kk),seedrank,mult]));
+
+    );
+   );
+  );
+ );
+);
+);
+}
+quit;

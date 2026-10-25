@@ -1,0 +1,7 @@
+{
+ "counter_samples": 50,
+ "negative_samples": 25,
+ "max_integer_counter_error": 0,
+ "gp_samples": 15,
+ "max_gp_trace_error": 8.881784197001252e-15
+}

@@ -1,0 +1,8 @@
+# Independently generated: sieve2 full enumeration of y^2=x(x+u^2)(x+v^2) below H 10.9524 (Mestre-Nagao S over p<2000, ellrank on top scores), family Z/2xZ/4 (Kubert's parametrisation), param u=16016 v=47433, log work/search/s4-4x2/rank_s6a.txt
+E 1 0 0 -94805771283683614 10689892431384258800958404
+P -74090450/9 -91441046192846/27
+P -143844976 4620772701182
+P 144737396 6500896442
+P -186706366 -4677757263256
+P 2224574275/4 91203764604491/8
+P 17973077969/64 1276163450175229/512

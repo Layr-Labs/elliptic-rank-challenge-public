@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/home/linux/ec-rank/ec_verify/gp.py", line 168, in run_gp
+    proc = subprocess.run(gp_command(gp_bin, path), capture_output=True, text=True, timeout=timeout, env=env, cwd=scratch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/lib/python3.12/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['/home/linux/ec-rank/tools/pari/bin/gp', '-q', '-f', '--default', 'parisize=268435456', '--default', 'parisizemax=2147483648', '--default', 'recover=0', '/tmp/ecgp-9p_koica/stage.gp']' timed out after 240 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/linux/ec-rank/submission/research/probe-families.py", line 12, in <module>
+    for(jj=1,2,tprobe=if(jj==1,2/3,3/7);F=z3family({r},{s},{v},{lam},{k},tprobe);if(#F[1]==0,lower=0;break);E=ellminimalmodel(F[1],&vc);P=vector(#F[2],ii,ellchangepoint(F[2][ii],vc));R=ellrank(E,0,P);lower=min(lower,R[1]));
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linux/ec-rank/ec_verify/gp.py", line 172, in run_gp
+    raise GPTimeout(f"gp exceeded {timeout:.0f}s")
+ec_verify.gp.GPTimeout: gp exceeded 240s

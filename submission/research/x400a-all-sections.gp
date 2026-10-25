@@ -1,0 +1,20 @@
+{
+aa=[1,121-99*x,26*x-23,75*x-44];bb=[x,21-74*x,25*x-36,x+77];
+A=prod(i=1,4,aa[i]);B=prod(i=1,4,bb[i]);sections=List();
+for(i=0,15,for(j=0,15,
+ al=prod(k=1,4,if(bittest(i,k-1),aa[k],1));ar=A/al;
+ bl=prod(k=1,4,if(bittest(j,k-1),bb[k],1));br=B/bl;
+ if(poldegree(al*bl)>4,next);
+ f=y*bl+ar;g=y*al+br;d=poldisc(f*g);
+ if(!d,next);
+ fs=factor(d);
+ for(m=1,matsize(fs)[1],if(poldegree(fs[m,1])==1,
+  cv=-polcoef(fs[m,1],0)/polcoef(fs[m,1],1);
+  if(cv,xx=cv*al*bl;vv=xx*(xx+A)*(xx+B);
+   if(issquare(vv,&yy)&&yy,listput(sections,[xx,yy]))
+  )
+ ))
+));
+print("SECTIONS=",Vec(Set(sections)));
+}
+quit;
