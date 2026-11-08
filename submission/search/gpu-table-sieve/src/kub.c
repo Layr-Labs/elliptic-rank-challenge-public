@@ -8,6 +8,7 @@
 // FAM 6:  y^2+(1-t)xy-(t+t^2)y = x^3-(t+t^2)x^2             (Z/6)
 // FAM 42: y^2+xy-b y = x^3-b x^2, b = v^2-1/16, v=t         (Z/2xZ/4)
 // FAM 44: y^2 = x (x+p^2) (x+q^2), (p,q) = (b,a) with a > b >= 1 coprime  (Z/2xZ/4 in Legendre form: no duplicates, no 2-power scaling overhead; a4 = p^2 q^2 != 0)
+// FAM 4:  y^2+xy-t y = x^3-t x^2, t = p/q  (Z/4, Tate normal form with c = 0; integral model [q, -pq, -p q^2, 0, 0]; disc = p^4 q^7 (16p+q); every curve once, t of both signs, no symmetry, p large and q small allowed)
 // sieve output (stdout): p q S300 S2000 S10000 H   for every t=p/q (gcd=1, q in [qlo,qhi]) with H<Hmax and S300>=thr1,
 //                        S2000>=thr2, S10000>=thr3.  progress / counters go to stderr.
 #include <stdio.h>
@@ -273,16 +274,17 @@ static double phi_of(double tau) {
     double u = x * x * x, v = y * y;
     return u > v ? u : v;
 }
-#define NGRID 6200
+#define NGRID 12000
 static double gx[NGRID], gphi[NGRID];
 static int ngrid;
 static void init_grid(void) {
-    // ascending: -1e10 ... -1e-3, 0, 1e-3 ... 1e10 geometric ratio 1.01
+    // ascending: -GMAX ... -1e-3, 0, 1e-3 ... GMAX geometric ratio 1.01;  GMAX = 1e10 (all families up to FAM 265), 1e18 for FAM 4 (Z/4: H ~ (ln|p| + ln q)/2 for |p| > q, so q = 1 reaches |p| ~ e^(2H))
     int n = 0;
     double r = 1.01;
-    int m = 0; for (double x = 1e-3; x < 1e10; x *= r) m++;
+    const double gmax = (FAM == 4) ? 1e18 : 1e10;
+    int m = 0; for (double x = 1e-3; x < gmax; x *= r) m++;
     double *pos = (double *)malloc(m * sizeof(double)); m = 0;
-    for (double x = 1e-3; x < 1e10; x *= r) pos[m++] = x;
+    for (double x = 1e-3; x < gmax; x *= r) pos[m++] = x;
     for (int i = m - 1; i >= 0; i--) gx[n++] = -pos[i];
     gx[n++] = 0.0;
     for (int i = 0; i < m; i++) gx[n++] = pos[i];

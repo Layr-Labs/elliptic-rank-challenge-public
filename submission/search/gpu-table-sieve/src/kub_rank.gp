@@ -35,7 +35,7 @@ FD = 0; AA = vector(5, k, [0]); AW = [1, 2, 3, 4, 6];     \\ blocks for [a1,a2,a
   if(FD == 0, error("family ", fam, " not found in ", famfile));
 }
 kmodel(p, q) = vector(5, k, sum(j = 1, #AA[k], AA[k][j] * p^(j-1) * q^(AW[k]*FD - (j-1))));
-wantt = if(fam == 5, [5, [5]], if(fam == 6 || fam == 66 || fam == 67, [6, [6]], if(fam == 42 || fam == 44, [8, [4, 2]], if(fam == 8 || fam == 88, [8, [8]], if(fam == 10, [10, [10]], if(fam == 12, [12, [12]], if(fam == 26 || fam == 261 || fam == 265, [12, [6, 2]], [16, [8, 2]])))))));
+wantt = if(fam == 4, [4, [4]], if(fam == 5, [5, [5]], if(fam == 6 || fam == 66 || fam == 67, [6, [6]], if(fam == 42 || fam == 44, [8, [4, 2]], if(fam == 8 || fam == 88, [8, [8]], if(fam == 10, [10, [10]], if(fam == 12, [12, [12]], if(fam == 26 || fam == 261 || fam == 265, [12, [6, 2]], [16, [8, 2]]))))))));
 cstr(x) = if(denominator(x) == 1, Str(numerator(x)), Str(numerator(x), "/", denominator(x)));
 L = readstr(fn);
 {

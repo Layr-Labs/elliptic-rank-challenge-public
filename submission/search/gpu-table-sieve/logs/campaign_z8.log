@@ -1,0 +1,14 @@
+== 01:04:46 Z/8 rank-7 sweep restarted: device S2000>=16 (5x faster than 13), cuts 4.5/16/28.5, KUB_TA=6, WSIGN=-1
+== shell FAM=8 H in [26,28)  start 01:04:46
+sieve: done: candidates 1406350218536  after S300 109102826340  after S2000 519764680  output 1435417  (hit-buffer overflow 0) (1290 s wall, 1435417 candidates to rank)
+rank stage started in the background (report: /home/zereraz/ecwork_src/kub/runs/camp_8_26_28/rank_report.txt)
+== shell FAM=8 H in [28,29)  start 01:26:16
+./pipe.sh: line 26: syntax error near unexpected token `('
+./pipe.sh: line 26: `echo "sieve: $(tail -1 "$OUT/sieve.log" 2>/dev/null) ($((t1-t0)) s wall, $n candidates to rank)"'
+== shell FAM=8 H in [29,30)  start 02:14:52
+== 02:25:21: switched to extended-table sieve (kubg_f10): thr3=27, KUB_THR4=38 (S(10^5) cut computed on the host with tabx_8.bin), no S10000-only parking; shell [29,30) resumes at q=387097 in runs/camp_8_29_30_b; earlier shells re-filtered offline
+== shell [29,30) remainder q>=387097 start 02:25:21
+sieve: done: candidates 3562550720697  after S300 276378785810  after S2000 1316749660  output 291406  (hit-buffer overflow 0) (6489 s wall, 291406 candidates to rank)
+rank stage started in the background (report: /home/zereraz/ecwork_src/kub/runs/camp_8_29_30_b/rank_report.txt)
+== shell FAM=8 H in [30,31)  start 04:13:31
+== 04:15:32: Z/8 campaign STOPPED after shell [29,30) (ladder: no rank>=4 above H 26, P(rank-7 below H 30) ~3-5 %); GPU to Z/5 and the thin-family scans

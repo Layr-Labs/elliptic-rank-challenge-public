@@ -50,3 +50,9 @@ KUB_TABDIR=tabs KUB_FAMS=fams.txt KUB_THR4=55 KUB_HMIN=<Hlo> ./kubg sieve 5 <Hhi
 KUB_FAM=5 KUB_IN=cand.txt KUB_MINRANK=9 gp -q kub_rank.gp
 python -m ec_verify submission/board/<file>.ec
 ```
+
+## Update for the second Legendre find (submission after `d7c737f3`)
+
+* `logs/winning_run_2/` holds the candidate list, ranked list, verifier screen and sieve head/tail of the shell that produced the curve of cell 4x2/9 with (a,b) = (184873649, 51731680) (role B, `KUB_QRICH=4`, integral-model shell [19.51, 20.0)); `command.txt` is the exact campaign command.
+* Shell edges are defined on the height of the *integral* Legendre model, the score on the *minimal* model: for the third of the pairs whose even element is divisible by 4 the minimal height is lower by ln 2 (0.693), so these pairs are scored 0.693 below the shell they were swept in.
+* `src/kub.c`, `src/kubg.cu`, `src/fams.txt`, `src/kub_rank.gp` now also contain FAM 4 (Z/4 in Tate form, t = p/q, integral model [q, -pq, -pq^2, 0, 0], discriminant p^4 q^7 (16p+q)): a wider height grid for tau up to 1e18 (only for FAM 4, the grid of all other families is unchanged), a larger work-item buffer (MAXITEMS 2^20) with an explicit capacity check instead of silent dropping, and the skip of the singular fibre t = -1/16. The binaries that produced the finds were built from the version without these additions; the code path of FAM 44 is identical.

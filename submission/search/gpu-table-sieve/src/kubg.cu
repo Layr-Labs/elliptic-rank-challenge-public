@@ -13,7 +13,7 @@ static double THR4 = -1e18; static int USE_X = 0;      // env KUB_THR4: also req
 
 #define NP1 61
 #define CHUNK (1LL << 26)          // candidates per work item
-#define MAXITEMS 65536
+#define MAXITEMS (1 << 20)        // 32 MB of items on the host and on the device;  FAM 4 (Z/4) has q = 1 with |p| up to e^(2H): one q can need > 10^5 items of CHUNK candidates
 #define ITEM_MARGIN 4096          // free item slots required before a q is started (one q adds up to a few hundred items in KUB_PROG mode)
 #define HITCAP (1 << 24)          // device hits per batch (24 bytes each); thin families need KUB_BATCHLOG <= 32 to stay below it
 static int NOCOP = 0;
@@ -431,6 +431,7 @@ static void *host_thr(void *arg) {
     for (int k = J->lo; k < J->hi; k++) {
         int64_t p = J->h[k].p, q = J->h[k].q;
         if (p == 0 || gcd64(p, q) != 1) continue;
+        if (FAM == 4 && 16 * p + q == 0) continue;          // singular fibre t = -1/16
         double h = hnaive(FAM, (double)p, (double)q);
         if (h >= Hmax || h < Hmin) continue;
         J->c1++;
@@ -583,6 +584,14 @@ int main(int argc, char **argv) {
                     if (lo <= hi) { ilo[m] = lo; ihi[m] = hi; m++; }
                 }
                 nint = m;
+            }
+            if (!PROG && nint) {      // capacity check: never drop work items silently (FAM 4: small q has huge p-intervals).  Flush the batch first, or stop if one q alone does not fit.
+                int64_t need = 0;
+                for (int iv = 0; iv < nint; iv++) { int64_t cnt = ihi[iv] - ilo[iv] + 1; if (cnt > 0) need += 2 * (cnt / CHUNK + 1); }     // upper bound: <= 2 residue classes
+                if (nitems + need >= MAXITEMS) {
+                    if (nitems > 0) break;
+                    fprintf(stderr, "q = %lld needs %lld work items (> MAXITEMS %d): increase CHUNK/MAXITEMS or start at a larger q\n", (long long)q, (long long)need, MAXITEMS); return 3;
+                }
             }
             for (int iv = 0; iv < nint; iv++) {
                 int64_t lo = ilo[iv], hi = ihi[iv];

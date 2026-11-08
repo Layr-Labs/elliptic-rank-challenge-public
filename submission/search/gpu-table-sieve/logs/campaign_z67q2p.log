@@ -2,3 +2,6 @@
 sieve: done: candidates 2160530268324  after S300 4054358046  after S2000 386628  output 35  (hit-buffer overflow 0) (6690 s wall, 35 candidates to rank)
 rank stage started in the background (report: /home/zereraz/ecwork_src/kub/runs/camp_67q2p_15.8_16.8/rank_report.txt)
 == shell FAM=67 H in [16.8,17.5)  start 12:16:48
+sieve: done: candidates 7635047212410  after S300 14319739262  after S2000 1352684  output 33  (hit-buffer overflow 0) (13603 s wall, 33 candidates to rank)
+rank stage started in the background (report: /home/zereraz/ecwork_src/kub/runs/camp_67q2p_16.8_17.5/rank_report.txt)
+== shell FAM=67 H in [17.5,17.9)  start 16:03:31
