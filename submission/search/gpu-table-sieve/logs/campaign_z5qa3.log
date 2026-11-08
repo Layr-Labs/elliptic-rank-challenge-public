@@ -1,0 +1,9 @@
+== shell FAM=5 H in [16.8,17.5)  start 06:53:00
+sieve: done: candidates 8616758352403  after S300 28335674984  after S2000 3491666  output 22  (hit-buffer overflow 0) (1326 s wall, 22 candidates to rank)
+rank stage started in the background (report: /home/zereraz/ecwork_src/kub/runs/camp_5qa3_16.8_17.5/rank_report.txt)
+== shell FAM=5 H in [17.5,17.9)  start 07:15:06
+sieve: done: candidates 13998562265712  after S300 46021679648  after S2000 5664840  output 16  (hit-buffer overflow 0) (2640 s wall, 16 candidates to rank)
+rank stage started in the background (report: /home/zereraz/ecwork_src/kub/runs/camp_5qa3_17.5_17.9/rank_report.txt)
+== shell FAM=5 H in [17.9,18.2)  start 07:59:06
+sieve: done: candidates 20887702961361  after S300 68653223121  after S2000 8454331  output 25  (hit-buffer overflow 0) (5738 s wall, 25 candidates to rank)
+rank stage started in the background (report: /home/zereraz/ecwork_src/kub/runs/camp_5qa3_17.9_18.2/rank_report.txt)

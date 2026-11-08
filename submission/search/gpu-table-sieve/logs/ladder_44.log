@@ -1,0 +1,33 @@
+== FAM 44 bin L1 H in [14.4,15.0) QMOD=1 start 05:19:44
+sieve: done: candidates 671015282795  after S300 2429030968  after S2000 408797  output 273  (hit-buffer overflow 0) (94 s wall, 273 candidates to rank)
+rank stage: 2 s wall
+ranked 273 curves; lower-bound rank histogram: [(-2, 235), (0, 1), (2, 3), (3, 3), (4, 3), (5, 5), (6, 9), (7, 14)]
+  rank >= 5: n=5  H min 13.969  median 14.745
+  rank >= 6: n=9  H min 13.731  median 14.657
+  rank >= 7: n=14  H min 13.798  median 14.863
+== FAM 44 bin L2 H in [15.0,15.8) QMOD=1 start 05:21:20
+rank stage: 8 s wall
+ranked 1366 curves; lower-bound rank histogram: [(-2, 1209), (0, 5), (1, 8), (2, 22), (3, 12), (4, 22), (5, 17), (6, 38), (7, 32), (8, 1)]
+  rank >= 5: n=17  H min 14.429  median 15.090
+  rank >= 6: n=38  H min 14.359  median 15.066
+  rank >= 7: n=32  H min 14.401  median 15.057
+  rank >= 8: n=1  H min 15.323  median 15.323
+== FAM 44 bin L3 H in [15.8,16.8) QMOD=11 start 05:28:55
+rank stage: 5 s wall
+ranked 954 curves; lower-bound rank histogram: [(-2, 890), (0, 5), (1, 21), (2, 4), (3, 6), (4, 8), (5, 4), (6, 8), (7, 7), (8, 1)]
+  rank >= 5: n=4  H min 16.035  median 16.436
+  rank >= 6: n=8  H min 15.398  median 16.037
+  rank >= 7: n=7  H min 15.752  median 16.181
+  rank >= 8: n=1  H min 16.500  median 16.500
+== FAM 44 bin L4 H in [16.8,17.5) QMOD=41 start 05:35:16
+sieve: done: candidates 2618736084800  after S300 9501488605  after S2000 1595017  output 794  (hit-buffer overflow 0) (334 s wall, 794 candidates to rank)
+rank stage: 5 s wall
+ranked 794 curves; lower-bound rank histogram: [(-2, 743), (0, 6), (1, 24), (2, 6), (3, 9), (4, 1), (5, 2), (6, 2), (7, 1)]
+  rank >= 5: n=2  H min 17.166  median 17.321
+  rank >= 6: n=2  H min 16.234  median 16.786
+  rank >= 7: n=1  H min 16.896  median 16.896
+== FAM 44 bin L5 H in [17.5,18.2) QMOD=163 start 05:40:55
+sieve: CUDA error out of memory at kubg.cu:469 (1 s wall, 0 candidates to rank)
+rank stage: 0 s wall
+ranked 0 curves; lower-bound rank histogram: []
+== ladder FAM 44 done 05:40:56

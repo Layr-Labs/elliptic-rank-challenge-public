@@ -1,0 +1,29 @@
+== FAM 42 bin L1 H in [14.4,15.0) QMOD=1 start 04:48:05
+sieve: done: candidates 167756409971  after S300 453432499  after S2000 71798  output 50  (hit-buffer overflow 0) (38 s wall, 50 candidates to rank)
+rank stage: 1 s wall
+ranked 50 curves; lower-bound rank histogram: [(-2, 35), (4, 1), (5, 3), (6, 11)]
+  rank >= 5: n=3  H min 13.116  median 14.795
+  rank >= 6: n=11  H min 11.782  median 12.212
+== FAM 42 bin L2 H in [15.0,15.8) QMOD=7 start 04:48:44
+sieve: done: candidates 135566189479  after S300 365228280  after S2000 58672  output 59  (hit-buffer overflow 0) (20 s wall, 59 candidates to rank)
+rank stage: 0 s wall
+ranked 59 curves; lower-bound rank histogram: [(-2, 50), (2, 1), (6, 4), (7, 4)]
+  rank >= 6: n=4  H min 12.599  median 12.714
+  rank >= 7: n=4  H min 12.949  median 13.865
+== FAM 42 bin L3 H in [15.8,16.8) QMOD=47 start 04:49:04
+sieve: done: candidates 161632513043  after S300 437561517  after S2000 69348  output 41  (hit-buffer overflow 0) (19 s wall, 41 candidates to rank)
+rank stage: 0 s wall
+ranked 41 curves; lower-bound rank histogram: [(-2, 38), (4, 1), (5, 1), (7, 1)]
+  rank >= 5: n=1  H min 16.081  median 16.081
+  rank >= 7: n=1  H min 13.535  median 13.535
+== FAM 42 bin L4 H in [16.8,17.5) QMOD=163 start 04:49:23
+sieve: done: candidates 164676564181  after S300 445282129  after S2000 69834  output 38  (hit-buffer overflow 0) (18 s wall, 38 candidates to rank)
+rank stage: 0 s wall
+ranked 38 curves; lower-bound rank histogram: [(-2, 33), (1, 4), (2, 1)]
+== FAM 42 bin L5 H in [17.5,18.2) QMOD=641 start 04:49:41
+sieve: done: candidates 169815196680  after S300 459032101  after S2000 72580  output 34  (hit-buffer overflow 0) (17 s wall, 34 candidates to rank)
+rank stage: 1 s wall
+ranked 34 curves; lower-bound rank histogram: [(-2, 32), (6, 1), (7, 1)]
+  rank >= 6: n=1  H min 15.120  median 15.120
+  rank >= 7: n=1  H min 17.920  median 17.920
+== ladder FAM 42 done 04:49:59

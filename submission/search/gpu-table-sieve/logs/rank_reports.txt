@@ -1,0 +1,306 @@
+== runs/camp_44qa2p_16.8_17.5
+rank stage: 0 s wall
+ranked 9 curves; lower-bound rank histogram: [(5, 1), (6, 1), (7, 6), (8, 1)]
+  rank >= 5: n=1  H min 16.224  median 16.224
+  rank >= 6: n=1  H min 16.740  median 16.740
+  rank >= 7: n=6  H min 16.125  median 16.867
+  rank >= 8: n=1  H min 17.301  median 17.301
+== runs/camp_44qa2p_17.5_18.0
+rank stage: 0 s wall
+ranked 16 curves; lower-bound rank histogram: [(3, 1), (5, 3), (6, 3), (7, 7), (8, 2)]
+  rank >= 5: n=3  H min 17.625  median 17.860
+  rank >= 6: n=3  H min 17.055  median 17.247
+  rank >= 7: n=7  H min 16.840  median 17.210
+  rank >= 8: n=2  H min 17.772  median 17.972
+== runs/camp_44qa2p_18.0_18.4
+rank stage: 0 s wall
+ranked 9 curves; lower-bound rank histogram: [(6, 4), (7, 2), (8, 3)]
+  rank >= 6: n=4  H min 17.396  median 17.658
+  rank >= 7: n=2  H min 17.648  median 18.219
+  rank >= 8: n=3  H min 17.387  median 18.389
+== runs/camp_44qa2p_18.4_18.8
+rank stage: 0 s wall
+ranked 13 curves; lower-bound rank histogram: [(0, 1), (5, 1), (6, 2), (7, 6), (8, 3)]
+  rank >= 5: n=1  H min 18.795  median 18.795
+  rank >= 6: n=2  H min 17.920  median 18.087
+  rank >= 7: n=6  H min 17.861  median 18.705
+  rank >= 8: n=3  H min 17.772  median 18.452
+== runs/camp_44qa2pb_18.8_19.2
+rank stage: 0 s wall
+ranked 23 curves; lower-bound rank histogram: [(2, 1), (5, 6), (6, 2), (7, 11), (8, 3)]
+  rank >= 5: n=6  H min 18.135  median 18.450
+  rank >= 6: n=2  H min 18.821  median 18.905
+  rank >= 7: n=11  H min 18.381  median 18.839
+  rank >= 8: n=3  H min 18.958  median 19.128
+== runs/camp_44qa3L_16.8_17.5
+rank stage: 0 s wall
+ranked 134 curves; lower-bound rank histogram: [(2, 2), (3, 2), (4, 6), (5, 7), (6, 33), (7, 81), (8, 3)]
+  rank >= 5: n=7  H min 16.113  median 17.224
+  rank >= 6: n=33  H min 16.115  median 16.818
+  rank >= 7: n=81  H min 16.112  median 16.638
+  rank >= 8: n=3  H min 16.468  median 17.076
+== runs/camp_44qa3_16.8_17.5
+rank stage: 0 s wall
+ranked 25 curves; lower-bound rank histogram: [(6, 3), (7, 19), (8, 3)]
+  rank >= 6: n=3  H min 16.806  median 17.321
+  rank >= 7: n=19  H min 16.131  median 16.491
+  rank >= 8: n=3  H min 16.468  median 17.076
+== runs/camp_44qa3_17.5_18.0
+rank stage: 0 s wall
+ranked 19 curves; lower-bound rank histogram: [(3, 1), (5, 1), (6, 7), (7, 8), (8, 2)]
+  rank >= 5: n=1  H min 17.693  median 17.693
+  rank >= 6: n=7  H min 17.184  median 17.292
+  rank >= 7: n=8  H min 16.856  median 17.294
+  rank >= 8: n=2  H min 17.868  median 17.903
+== runs/camp_44qa3_18.0_18.4
+rank stage: 0 s wall
+ranked 25 curves; lower-bound rank histogram: [(1, 3), (3, 1), (4, 1), (6, 6), (7, 9), (8, 5)]
+  rank >= 6: n=6  H min 17.576  median 18.007
+  rank >= 7: n=9  H min 17.325  median 18.008
+  rank >= 8: n=5  H min 17.381  median 17.503
+== runs/camp_44qa3_18.4_18.8
+rank stage: 0 s wall
+ranked 34 curves; lower-bound rank histogram: [(1, 4), (2, 1), (3, 1), (4, 1), (5, 5), (6, 9), (7, 7), (8, 6)]
+  rank >= 5: n=5  H min 17.792  median 18.020
+  rank >= 6: n=9  H min 17.773  median 17.901
+  rank >= 7: n=7  H min 17.728  median 17.920
+  rank >= 8: n=6  H min 17.708  median 18.046
+== runs/camp_44qa3_18.8_19.2
+rank stage: 1 s wall
+ranked 52 curves; lower-bound rank histogram: [(1, 2), (2, 4), (3, 1), (4, 2), (5, 5), (6, 6), (7, 19), (8, 13)]
+  rank >= 5: n=5  H min 18.230  median 19.050
+  rank >= 6: n=6  H min 18.355  median 18.485
+  rank >= 7: n=19  H min 18.119  median 18.958
+  rank >= 8: n=13  H min 18.132  median 18.325
+== runs/camp_44qa4_19.2_19.51
+rank stage: 0 s wall
+ranked 6 curves; lower-bound rank histogram: [(1, 1), (4, 1), (5, 1), (6, 1), (7, 1), (8, 1)]
+  rank >= 5: n=1  H min 18.604  median 18.604
+  rank >= 6: n=1  H min 18.809  median 18.809
+  rank >= 7: n=1  H min 18.684  median 18.684
+  rank >= 8: n=1  H min 19.390  median 19.390
+== runs/camp_44qb2p_16.8_17.5
+rank stage: 0 s wall
+ranked 12 curves; lower-bound rank histogram: [(5, 1), (6, 1), (7, 9), (8, 1)]
+  rank >= 5: n=1  H min 16.224  median 16.224
+  rank >= 6: n=1  H min 16.740  median 16.740
+  rank >= 7: n=9  H min 16.266  median 16.687
+  rank >= 8: n=1  H min 17.076  median 17.076
+== runs/camp_44qb2p_17.5_18.0
+rank stage: 0 s wall
+ranked 14 curves; lower-bound rank histogram: [(3, 1), (5, 3), (6, 4), (7, 5), (8, 1)]
+  rank >= 5: n=3  H min 17.625  median 17.860
+  rank >= 6: n=4  H min 17.055  median 17.865
+  rank >= 7: n=5  H min 16.840  median 17.240
+  rank >= 8: n=1  H min 17.772  median 17.772
+== runs/camp_44qb2p_18.0_18.4
+rank stage: 0 s wall
+ranked 10 curves; lower-bound rank histogram: [(5, 1), (6, 2), (7, 2), (8, 5)]
+  rank >= 5: n=1  H min 18.224  median 18.224
+  rank >= 6: n=2  H min 17.658  median 18.228
+  rank >= 7: n=2  H min 17.648  median 18.027
+  rank >= 8: n=5  H min 17.503  median 18.097
+== runs/camp_44qb2p_18.4_18.8
+rank stage: 0 s wall
+ranked 18 curves; lower-bound rank histogram: [(0, 1), (5, 1), (6, 4), (7, 5), (8, 7)]
+  rank >= 5: n=1  H min 17.933  median 17.933
+  rank >= 6: n=4  H min 17.920  median 18.087
+  rank >= 7: n=5  H min 17.728  median 17.867
+  rank >= 8: n=7  H min 17.764  median 18.408
+== runs/camp_44qb3L_16.8_17.5
+rank stage: 0 s wall
+ranked 148 curves; lower-bound rank histogram: [(0, 1), (1, 1), (2, 4), (3, 3), (4, 5), (5, 9), (6, 34), (7, 89), (8, 2)]
+  rank >= 5: n=9  H min 16.583  median 17.243
+  rank >= 6: n=34  H min 16.122  median 16.581
+  rank >= 7: n=89  H min 16.108  median 16.589
+  rank >= 8: n=2  H min 17.189  median 17.301
+== runs/camp_44qb3_16.8_17.5
+rank stage: 0 s wall
+ranked 27 curves; lower-bound rank histogram: [(3, 1), (5, 1), (6, 1), (7, 22), (8, 2)]
+  rank >= 5: n=1  H min 16.980  median 16.980
+  rank >= 6: n=1  H min 16.407  median 16.407
+  rank >= 7: n=22  H min 16.117  median 16.310
+  rank >= 8: n=2  H min 17.189  median 17.301
+== runs/camp_44qb3_17.5_18.0
+rank stage: 0 s wall
+ranked 16 curves; lower-bound rank histogram: [(1, 1), (5, 1), (6, 4), (7, 7), (8, 3)]
+  rank >= 5: n=1  H min 17.770  median 17.770
+  rank >= 6: n=4  H min 17.174  median 17.600
+  rank >= 7: n=7  H min 16.879  median 17.173
+  rank >= 8: n=3  H min 17.119  median 17.903
+== runs/camp_44qb3_18.0_18.4
+rank stage: 0 s wall
+ranked 18 curves; lower-bound rank histogram: [(5, 2), (6, 5), (7, 9), (8, 2)]
+  rank >= 5: n=2  H min 17.459  median 17.563
+  rank >= 6: n=5  H min 17.396  median 17.603
+  rank >= 7: n=9  H min 17.325  median 18.039
+  rank >= 8: n=2  H min 17.387  median 18.201
+== runs/camp_44qb3_18.4_18.8
+rank stage: 0 s wall
+ranked 32 curves; lower-bound rank histogram: [(2, 1), (3, 4), (5, 4), (6, 6), (7, 13), (8, 4)]
+  rank >= 5: n=4  H min 17.805  median 18.106
+  rank >= 6: n=6  H min 17.976  median 18.085
+  rank >= 7: n=13  H min 17.707  median 17.929
+  rank >= 8: n=4  H min 17.764  median 18.452
+== runs/camp_44qb3_18.8_19.2
+rank stage: 0 s wall
+ranked 53 curves; lower-bound rank histogram: [(1, 1), (2, 4), (3, 2), (4, 7), (5, 6), (6, 3), (7, 17), (8, 13)]
+  rank >= 5: n=6  H min 18.131  median 18.871
+  rank >= 6: n=3  H min 18.188  median 18.234
+  rank >= 7: n=17  H min 18.143  median 18.405
+  rank >= 8: n=13  H min 18.202  median 18.473
+== runs/camp_44qb4_19.2_19.51
+rank stage: 0 s wall
+ranked 11 curves; lower-bound rank histogram: [(4, 1), (6, 2), (7, 3), (8, 5)]
+  rank >= 6: n=2  H min 18.558  median 19.294
+  rank >= 7: n=3  H min 18.515  median 18.627
+  rank >= 8: n=5  H min 18.553  median 19.204
+== runs/camp_5qa2p_16.8_17.5
+rank stage: 0 s wall
+ranked 15 curves; lower-bound rank histogram: [(3, 2), (4, 1), (6, 7), (7, 3), (8, 2)]
+  rank >= 6: n=7  H min 16.960  median 17.144
+  rank >= 7: n=3  H min 17.219  median 17.245
+  rank >= 8: n=2  H min 16.957  median 17.427
+== runs/camp_5qa3_16.8_17.5
+rank stage: 3 s wall
+ranked 22 curves; lower-bound rank histogram: [(0, 1), (3, 1), (5, 2), (6, 6), (7, 7), (8, 5)]
+  rank >= 5: n=2  H min 17.001  median 17.495
+  rank >= 6: n=6  H min 16.978  median 17.345
+  rank >= 7: n=7  H min 17.019  median 17.238
+  rank >= 8: n=5  H min 17.002  median 17.404
+== runs/camp_5qa3_17.5_17.9
+rank stage: 0 s wall
+ranked 16 curves; lower-bound rank histogram: [(1, 1), (2, 1), (3, 1), (4, 2), (5, 4), (6, 2), (7, 3), (8, 2)]
+  rank >= 5: n=4  H min 17.578  median 17.768
+  rank >= 6: n=2  H min 17.843  median 17.857
+  rank >= 7: n=3  H min 17.549  median 17.823
+  rank >= 8: n=2  H min 17.567  median 17.888
+== runs/camp_5qa3_17.9_18.2
+rank stage: 0 s wall
+ranked 25 curves; lower-bound rank histogram: [(2, 2), (4, 3), (5, 3), (6, 6), (7, 10), (8, 1)]
+  rank >= 5: n=3  H min 18.062  median 18.080
+  rank >= 6: n=6  H min 17.967  median 18.163
+  rank >= 7: n=10  H min 17.925  median 18.053
+  rank >= 8: n=1  H min 17.990  median 17.990
+== runs/camp_5qa4_18.2_18.5
+rank stage: 0 s wall
+ranked 10 curves; lower-bound rank histogram: [(1, 1), (5, 2), (6, 1), (7, 5), (8, 1)]
+  rank >= 5: n=2  H min 18.441  median 18.481
+  rank >= 6: n=1  H min 18.245  median 18.245
+  rank >= 7: n=5  H min 18.223  median 18.427
+  rank >= 8: n=1  H min 18.415  median 18.415
+== runs/camp_5qb2p_16.8_17.5
+rank stage: 0 s wall
+ranked 13 curves; lower-bound rank histogram: [(3, 2), (6, 6), (7, 3), (8, 2)]
+  rank >= 6: n=6  H min 16.857  median 17.187
+  rank >= 7: n=3  H min 17.084  median 17.426
+  rank >= 8: n=2  H min 17.237  median 17.404
+== runs/camp_5qb2p_17.5_17.9
+rank stage: 0 s wall
+ranked 8 curves; lower-bound rank histogram: [(5, 2), (6, 2), (7, 3), (8, 1)]
+  rank >= 5: n=2  H min 17.768  median 17.895
+  rank >= 6: n=2  H min 17.639  median 17.706
+  rank >= 7: n=3  H min 17.621  median 17.811
+  rank >= 8: n=1  H min 17.567  median 17.567
+== runs/camp_5qb3_16.8_17.5
+rank stage: 2 s wall
+ranked 20 curves; lower-bound rank histogram: [(1, 1), (3, 1), (4, 1), (6, 5), (7, 7), (8, 5)]
+  rank >= 6: n=5  H min 17.069  median 17.096
+  rank >= 7: n=7  H min 17.019  median 17.245
+  rank >= 8: n=5  H min 16.957  median 17.427
+== runs/camp_5qb3_17.5_17.9
+rank stage: 0 s wall
+ranked 13 curves; lower-bound rank histogram: [(0, 1), (1, 3), (3, 3), (5, 1), (6, 2), (7, 1), (8, 2)]
+  rank >= 5: n=1  H min 17.893  median 17.893
+  rank >= 6: n=2  H min 17.567  median 17.681
+  rank >= 7: n=1  H min 17.571  median 17.571
+  rank >= 8: n=2  H min 17.594  median 17.888
+== runs/camp_5qb3_17.9_18.2
+rank stage: 0 s wall
+ranked 24 curves; lower-bound rank histogram: [(2, 2), (3, 2), (4, 2), (5, 3), (6, 6), (7, 9)]
+  rank >= 5: n=3  H min 17.939  median 18.141
+  rank >= 6: n=6  H min 17.971  median 18.143
+  rank >= 7: n=9  H min 17.902  median 17.978
+== runs/camp_5qb4_18.2_18.5
+rank stage: 0 s wall
+ranked 7 curves; lower-bound rank histogram: [(5, 2), (6, 1), (7, 2), (8, 2)]
+  rank >= 5: n=2  H min 18.211  median 18.496
+  rank >= 6: n=1  H min 18.447  median 18.447
+  rank >= 7: n=2  H min 18.297  median 18.327
+  rank >= 8: n=2  H min 18.281  median 18.386
+== runs/camp_66q2p_15.8_16.8
+rank stage: 0 s wall
+ranked 36 curves; lower-bound rank histogram: [(6, 7), (7, 28), (8, 1)]
+  rank >= 6: n=7  H min 15.281  median 16.514
+  rank >= 7: n=28  H min 15.226  median 16.169
+  rank >= 8: n=1  H min 16.618  median 16.618
+== runs/camp_66q2p_16.8_17.5
+rank stage: 0 s wall
+ranked 31 curves; lower-bound rank histogram: [(5, 3), (6, 7), (7, 13), (8, 8)]
+  rank >= 5: n=3  H min 17.070  median 17.270
+  rank >= 6: n=7  H min 16.557  median 17.077
+  rank >= 7: n=13  H min 16.149  median 16.878
+  rank >= 8: n=8  H min 16.834  median 17.192
+== runs/camp_66q3_15.8_16.8
+rank stage: 0 s wall
+ranked 84 curves; lower-bound rank histogram: [(1, 1), (3, 1), (4, 2), (6, 21), (7, 51), (8, 8)]
+  rank >= 6: n=21  H min 15.770  median 16.322
+  rank >= 7: n=51  H min 15.124  median 16.033
+  rank >= 8: n=8  H min 15.778  median 16.615
+== runs/camp_66q3_16.8_17.5
+rank stage: 0 s wall
+ranked 84 curves; lower-bound rank histogram: [(3, 1), (5, 1), (6, 20), (7, 53), (8, 9)]
+  rank >= 5: n=1  H min 17.311  median 17.311
+  rank >= 6: n=20  H min 16.321  median 17.049
+  rank >= 7: n=53  H min 16.230  median 16.942
+  rank >= 8: n=9  H min 16.920  median 17.228
+== runs/camp_66q3_17.5_17.9
+rank stage: 0 s wall
+ranked 71 curves; lower-bound rank histogram: [(0, 1), (2, 2), (3, 2), (4, 2), (5, 12), (6, 21), (7, 20), (8, 11)]
+  rank >= 5: n=12  H min 17.521  median 17.765
+  rank >= 6: n=21  H min 17.025  median 17.690
+  rank >= 7: n=20  H min 16.888  median 17.649
+  rank >= 8: n=11  H min 16.922  median 17.708
+== runs/camp_66q3_17.9_18.2
+rank stage: 1 s wall
+ranked 60 curves; lower-bound rank histogram: [(0, 1), (1, 4), (3, 2), (4, 4), (5, 6), (6, 8), (7, 26), (8, 9)]
+  rank >= 5: n=6  H min 17.943  median 18.062
+  rank >= 6: n=8  H min 17.295  median 17.958
+  rank >= 7: n=26  H min 17.229  median 18.067
+  rank >= 8: n=9  H min 17.374  median 18.075
+== runs/camp_67q2p_15.8_16.8
+rank stage: 0 s wall
+ranked 35 curves; lower-bound rank histogram: [(6, 5), (7, 26), (8, 4)]
+  rank >= 6: n=5  H min 16.514  median 16.739
+  rank >= 7: n=26  H min 15.515  median 16.169
+  rank >= 8: n=4  H min 15.966  median 16.618
+== runs/camp_67q3_15.8_16.8
+rank stage: 0 s wall
+ranked 72 curves; lower-bound rank histogram: [(3, 1), (6, 19), (7, 50), (8, 2)]
+  rank >= 6: n=19  H min 15.281  median 15.999
+  rank >= 7: n=50  H min 15.226  median 16.016
+  rank >= 8: n=2  H min 16.147  median 16.728
+== runs/camp_67q3_16.8_17.5
+rank stage: 0 s wall
+ranked 79 curves; lower-bound rank histogram: [(1, 3), (2, 1), (3, 1), (4, 1), (5, 2), (6, 18), (7, 42), (8, 11)]
+  rank >= 5: n=2  H min 17.002  median 17.322
+  rank >= 6: n=18  H min 16.200  median 17.077
+  rank >= 7: n=42  H min 16.149  median 16.852
+  rank >= 8: n=11  H min 16.956  median 17.258
+== runs/camp_67q3_17.5_17.9
+rank stage: 0 s wall
+ranked 80 curves; lower-bound rank histogram: [(0, 1), (1, 2), (2, 1), (3, 2), (4, 1), (5, 8), (6, 17), (7, 30), (8, 18)]
+  rank >= 5: n=8  H min 17.559  median 17.756
+  rank >= 6: n=17  H min 16.814  median 17.514
+  rank >= 7: n=30  H min 16.819  median 17.161
+  rank >= 8: n=18  H min 16.922  median 17.622
+== runs/camp_67q3_17.9_18.2
+rank stage: 0 s wall
+ranked 51 curves; lower-bound rank histogram: [(0, 1), (2, 3), (3, 2), (4, 5), (5, 8), (6, 6), (7, 18), (8, 8)]
+  rank >= 5: n=8  H min 17.900  median 18.096
+  rank >= 6: n=6  H min 17.316  median 18.052
+  rank >= 7: n=18  H min 17.249  median 17.498
+  rank >= 8: n=8  H min 17.355  median 18.075
+== runs/camp_88_30_32
+rank stage: 1 s wall
+ranked 9626 curves; lower-bound rank histogram: [(-3, 4773), (1, 4853)]

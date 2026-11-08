@@ -1,0 +1,4 @@
+== shell FAM=5 H in [18.2,18.5)  start 09:33:08
+sieve: done: candidates 4114514815844  after S300 11709401068  after S2000 1255784  output 10  (hit-buffer overflow 0) (1253 s wall, 10 candidates to rank)
+rank stage started in the background (report: /home/zereraz/ecwork_src/kub/runs/camp_5qa4_18.2_18.5/rank_report.txt)
+== shell FAM=5 H in [18.5,18.8)  start 09:54:01

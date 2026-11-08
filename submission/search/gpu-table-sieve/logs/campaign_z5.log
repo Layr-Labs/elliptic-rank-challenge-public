@@ -1,0 +1,22 @@
+== shell FAM=5 H in [15.8,16.8)  start 22:28:27
+== new run 23:27:21: part 1 rank-only; shell 1 remainder q>=9857935 on the new stage-2 kernel (kubg 2.1x), then shells 2.. via campaign.sh
+sieve skipped: using the existing runs/camp_5_15.8_16.8/cand.txt
+sieve: q<9857935  cand 4.48e+13  rate 1.29e+10/s  hits 4902305 (0 s wall, 83 candidates to rank)
+rank stage started in the background (report: runs/camp_5_15.8_16.8/rank_report.txt)
+== shell 1 remainder q>=9857935 start 23:27:42
+== restart 23:39:45: host filter fixed (no S600/S1000/S4000 cuts; they dropped the frozen Z/5 r9, Z/5 r8 and 2xZ/4 r9 records), thresholds now 9.5/24/40, shells 2..5 on kubg_f4; shell 1 (leaky) to be redone later
+sieve skipped: using the existing runs/camp_5_15.8_16.8_b/cand.txt
+sieve: q<12092119  cand 1.81e+13  rate 2.6e+10/s  hits 1980786 (0 s wall, 41 candidates to rank)
+rank stage started in the background (report: runs/camp_5_15.8_16.8_b/rank_report.txt)
+== shell FAM=5 H in [16.8,17.5)  start 23:39:58
+== restart 23:51:26: early-exit kernel f5 (1.34x), shell [16.8,17.5) resumes at q=11032578; then shells 3..5
+sieve skipped: using the existing runs/camp_5_16.8_17.5/cand.txt
+sieve: q<11032578  cand 8.04e+12  rate 1.18e+10/s  hits 6797385 (0 s wall, 631 candidates to rank)
+rank stage started in the background (report: runs/camp_5_16.8_17.5/rank_report.txt)
+== shell 2 remainder q>=11032578 start 23:54:27
+== restart 00:04:49: SWAR kernel f6, thresholds 9.5/24/38, rank script screens dS=S(1e5)-S(1e4)>=8 before ellrank (KUB_DSMIN=8); shell 2 remainder from q=12983298
+sieve skipped: using the existing /home/zereraz/ecwork_src/kub/runs/camp_5_16.8_17.5_b/cand.txt
+sieve: q<12983298  cand 1.69e+13  rate 2.75e+10/s  hits 13851889 (0 s wall, 1235 candidates to rank)
+rank stage started in the background (report: /home/zereraz/ecwork_src/kub/runs/camp_5_16.8_17.5_b/rank_report.txt)
+== shell 2 remainder q>=12983298 start 00:04:49
+== 00:59:07: Z/5 campaign PAUSED at shell [16.8,17.5) q=19265226 (resume: kubg sieve 5 17.5 19265226 ... thresholds 9.5/24/38, KUB_DSMIN=8); GPU goes to the Z/8 rank-7 breakthrough sweep

@@ -1,0 +1,12 @@
+extended cut: S(10^5) >= 55.00 (8363 primes in the tabx file)
+progression mode: inner values divisible by 2 further primes of W
+outer-value restriction: >= 2 of the primes 7..47 divide q; role A (q = the larger number, |p| < q)
+q range 1..167678405 (automatic cap 167678405)
+tables ready in 0.2s: 1228 odd primes (stage1 61)
+stage-1 table entries within +-9
+stage-1 kernel: packed + SWAR byte-lane blocks
+stage-2 early exit: S(700) >= 14.000000
+q<109004637  cand 3.67e+07  rate 4.12e+05/s  hits 8
+q<109160017  cand 6.52e+09  rate 5.97e+07/s  hits 1063
+q<109306714  cand 1.74e+10  rate 1.35e+08/s  hits 2898
+q<109447256  cand 3.11e+10  rate 2.08e+08/s  hits 5026
