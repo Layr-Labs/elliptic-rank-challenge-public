@@ -1,4 +1,0 @@
-== shell FAM=44 H in [19.2,19.51)  start 09:43:22
-sieve: done: candidates 8041081506670  after S300 18722829523  after S2000 1946261  output 11  (hit-buffer overflow 0) (2531 s wall, 11 candidates to rank)
-rank stage started in the background (report: /home/zereraz/ecwork_src/kub/runs/camp_44qb4_19.2_19.51/rank_report.txt)
-== campaign done 10:25:33

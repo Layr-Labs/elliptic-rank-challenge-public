@@ -1,5 +1,0 @@
-== 02:42:29: Z/5 campaign restarted with extended-table cut (tabx_5): thresholds 9.5/24/34, KUB_THR4=55 (rank-9 records: S(1e5)=67.8, rank-8: 62.5/60.2; junk 0.07 % above 55), shells [15.8,16.8) [16.8,17.5) [17.5,17.9) [17.9,18.2) [18.2,18.5), nice 10, concurrent with the Z/8 sweep
-== shell FAM=5 H in [15.8,16.8)  start 02:42:29
-sieve: done: candidates 119442541274245  after S300 545067026080  after S2000 97884284  output 145  (hit-buffer overflow 0) (6164 s wall, 145 candidates to rank)
-rank stage started in the background (report: /home/zereraz/ecwork_src/kub/runs/camp_5_15.8_16.8/rank_report.txt)
-== shell FAM=5 H in [16.8,17.5)  start 04:25:13

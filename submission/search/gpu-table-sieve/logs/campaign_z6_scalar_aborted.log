@@ -1,9 +1,0 @@
-== shell FAM=6 H in [15.3,16.5)  start 22:14:35
-Terminated
-sieve: q<801625  cand 6.36e+12  rate 9.08e+09/s  hits 3524222 (710 s wall, 652 candidates to rank)
-rank stage: 2 s wall
-ranked 652 curves; lower-bound rank histogram: [(0, 228), (1, 280), (2, 69), (3, 43), (4, 18), (5, 7), (6, 2), (7, 4), (8, 1)]
-  rank >= 5: n=7  H min 15.392  median 15.910
-  rank >= 6: n=2  H min 15.382  median 15.440
-  rank >= 7: n=4  H min 14.821  median 15.517
-  rank >= 8: n=1  H min 15.778  median 15.778
