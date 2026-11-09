@@ -14,9 +14,9 @@ static double THR4 = -1e18; static int USE_X = 0;      // env KUB_THR4: also req
 #define NP1 61
 #define CHUNK (1LL << 26)          // candidates per work item
 #define MAXITEMS (1 << 20)        // 32 MB of items on the host and on the device;  FAM 4 (Z/4) has q = 1 with |p| up to e^(2H): one q can need > 10^5 items of CHUNK candidates
-#define ITEM_MARGIN 4096          // free item slots required before a q is started (one q adds up to a few hundred items in KUB_PROG mode)
+#define ITEM_MARGIN (1 << 17)          // free item slots required before a q is started (one q adds up to a few hundred items in KUB_PROG mode)
 #define HITCAP (1 << 24)          // device hits per batch (24 bytes each); thin families need KUB_BATCHLOG <= 32 to stay below it
-static int NOCOP = 0;
+static int NOCOP = 0; static uint64_t dropped_items = 0;
 // FAM 44 / FAM 5 outer-value restriction ("small-prime-rich" values; FAM 5: |p| < q fundamental domain, role B uses the symmetry t -> -1/t).  W = {7,11,...,47}.  KUB_QRICH=t: only outer values q with at least t primes of W dividing q are swept (all inner values
 // p in the shell).  KUB_ROLE=A: q = a (the larger of the Legendre pair), p = b in [1,q-1]  (the default fundamental domain);  KUB_ROLE=B: q = b (the smaller one), p = a in (q, inf):
 // the family is symmetric in (a,b), so the same tables apply.  Measured on the S-selected rank>=7 curves of the Legendre family: "h_a >= 3 or h_b >= 3" keeps 55 % of them
@@ -26,12 +26,43 @@ static const int WP[12] = {7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47};
 // KUB_PROG=n (with KUB_QRICH=KUB_QRICHMAX=h, FAM 44 / FAM 5): for the outer values with exactly h primes of W the inner values are NOT swept densely but only the multiples of the products m of n further
 // primes of W (union of progressions p = m*k, duplicates removed per batch): the class "outer h, inner >= n" of the pairs whose small bad primes are split between the two factors.
 struct Sub { int mask; int64_t m; };
-static std::vector<Sub> SUBS[4];
+static std::vector<Sub> SUBS[8];
 static int PROG = 0;
+// KUB_C45=<bitmask> (FAM 44 + KUB_PROG only): small-prime restrictions of the Legendre pair, measured on our own rank >= 7 finds (n = 570; independent of each other, joint = product):
+// bit 1: "exactly one of a,b is divisible by 4 and the other is odd" (60 % of the rank 7-8 finds vs 33 % of all pairs, BUT only 2 of 13 rank-9 finds: do not use for rank 9/10);
+// bit 2: "5 divides a*b" (64 % of rank 7, 60 % of rank 8, 62 % of rank 9 vs 33 %: x1.9, stable across ranks); bit 4: "3 divides a*b" (63 % vs 50 %: x1.25).
+// Implemented as extra factors of the progression modulus: bit 1: q = 2 mod 4 is skipped, q odd -> 4 | p;  bit 2: 5 does not divide q -> 5 | p;  bit 4: 3 does not divide q -> 3 | p.
+static int C45 = 0;
 static inline int64_t floordiv64(int64_t a, int64_t b) { int64_t q = a / b; if ((a % b != 0) && ((a < 0) != (b < 0))) q--; return q; }
 static int64_t QMOD = 1, QRES = 0;   // KUB_QMOD=m:r  -> only q = r mod m (systematic subsample of the domain)
+// FAM 4 (Z/4, Tate form t = p/q, integral model [q,-pq,-pq^2]): the model is non-minimal whenever q has a square factor.  With q = m^2 r (r squarefree) the model [m r, -p r, -p m r^2] has
+// H = H_int - ln m, so the curves of small height have q = m^2 r with small r (about e^(3H) curves below H, not e^(2H)).  FAM 4 therefore loops over the pairs (m, r) instead of q: q = m^2 r,
+// m = qlo..qhi (command-line range), r over the squarefree integers <= KUB_RMAX (default 30); the p-intervals are taken at height + ln m and the host subtracts ln m(q).
+// number of primes of W dividing q, from a block sieve (a block of WBLK consecutive integers at a time; ~20x cheaper than 12 modulo operations per q when q runs up to 10^10 and more)
+#define WBLK (1 << 24)
+static std::vector<uint8_t> WCNT; static int64_t WCNT_LO = -1;
+static inline int hq_of(int64_t q) {
+    if (WCNT_LO < 0 || q < WCNT_LO || q >= WCNT_LO + WBLK) {
+        if (WCNT.empty()) WCNT.resize(WBLK);
+        const int64_t lo = (q / WBLK) * (int64_t)WBLK;
+        memset(WCNT.data(), 0, WBLK);
+        for (int j = 0; j < 12; j++) { const int64_t w = WP[j]; for (int64_t x = ((lo + w - 1) / w) * w; x < lo + WBLK; x += w) WCNT[x - lo]++; }
+        WCNT_LO = lo;
+    }
+    return WCNT[q - WCNT_LO];
+}
+static std::vector<int64_t> RL4; static int SWAPN = 0;      // KUB_SWAPN=n (FAM 4): swapped mode, outer = p with >= n primes of W dividing p, inner = m (q = m^2 r)
+static inline int64_t mq4(int64_t q) {      // m with q = m^2 r, r squarefree <= RMAX (1 if q has no such form)
+    for (size_t i = 0; i < RL4.size(); i++) {
+        const int64_t r = RL4[i]; if (q % r) continue;
+        const int64_t qq = q / r; int64_t s = (int64_t)sqrt((double)qq);
+        while (s * s > qq) s--; while ((s + 1) * (s + 1) <= qq) s++;
+        if (s * s == qq) return s;
+    }
+    return 1;
+}
 
-struct Item { int64_t q; int64_t plo; int64_t len; int64_t stride; };   // candidates p = plo + stride*u, u in [0,len)
+struct Item { int64_t q; int64_t plo; int64_t len; int64_t stride; int64_t r; };   // candidates p = plo + stride*u, u in [0,len);  swapped mode (FAM 4, r > 0): q holds the fixed p, candidates are m = plo + stride*u with q = m^2 r
 struct Hit { int64_t p; int64_t q; int32_t s; int32_t pad; };
 
 __constant__ int c_primes[NP1];
@@ -214,7 +245,7 @@ __global__ void __launch_bounds__(256) stage1p(const Item *items, const int8_t *
     __shared__ int shs[512];
     __shared__ int shn;
     Item it = items[blockIdx.x];
-    const int stride = (int)it.stride;
+    const int64_t stride = it.stride;      // int64: FAM 4 progressions over products of up to 7 primes of W exceed 2^31
     int64_t q = it.q;
     // prologue: resampled biased row  rr[m] = R[(srlo + stride*m) mod l] + BIAS,  windows W[idx] = rr[idx..idx+3] (indices mod l)
     for (int i = 0; i < NP1; i++) {
@@ -299,7 +330,7 @@ __global__ void __launch_bounds__(256) stage1s(const Item *items, const int8_t *
     __shared__ int shs[512];
     __shared__ int shn;
     Item it = items[blockIdx.x];
-    const int stride = (int)it.stride;
+    const int64_t stride = it.stride;
     int64_t q = it.q;
     // prologue: resampled biased row  rr[m] = R[(srlo + stride*m) mod l] + BIAS,  windows W[idx] = rr[idx..idx+3] (indices mod l)
     for (int i = 0; i < NP1; i++) {
@@ -424,6 +455,124 @@ __global__ void __launch_bounds__(256) stage1s(const Item *items, const int8_t *
     }
 }
 
+
+// ---------------------------------------------------------------------------------------------
+// swapped-mode kernel (FAM 4, p-rich outer class): the item fixes p (Item.q, may be negative) and the squarefree r (Item.r); the candidates are m = plo + stride*u, q = m^2 r.
+// The table index of prime l is tau = p * (m^2 r)^-1 mod l, periodic in m, so the stage-1 machinery of stage1s is reused with a row that is built in shared memory from tab/inv
+// (primes l | m r contribute nothing, as for l | q).  Stage 2 evaluates the same formula per candidate.
+__device__ __forceinline__ int stage2_term_w(uint32_t m, int64_t rr, const P2 &pk) {
+    const uint32_t lq = (uint32_t)pk.l;
+    uint32_t a = __umulhi(m, pk.magic);
+    int j = (int)(m - a * lq); if (j >= (int)lq) j -= (int)lq;
+    const uint32_t rm = (uint32_t)(rr % (int64_t)lq);
+    const uint32_t jj = (((uint32_t)j * (uint32_t)j) % lq) * rm % lq;
+    if (jj == 0) return 0;
+    const uint32_t inv = d_inv2[pk.off + jj];
+    const uint32_t tau = ((uint32_t)pk.pad * inv) % lq;
+    return d_tab2[pk.off + tau];
+}
+__global__ void __launch_bounds__(256) stage1w(const Item *items, int thr, int thr2i, int np2, Hit *hits, int *nhits, int cap) {
+    __shared__ uint32_t sW[SUMW];
+    __shared__ P2 sP2[NP2MAX];
+    __shared__ int shu[512];
+    __shared__ int shs[512];
+    __shared__ int shn;
+    Item it = items[blockIdx.x];
+    const int64_t stride = it.stride;
+    const int64_t pfix = it.q;
+    const int64_t rr = it.r;
+    for (int i = 0; i < NP1; i++) {
+        const int l = c_primes[i];
+        const int off = d_p2[i].off;                       // the first NP1 stage-2 records are the stage-1 primes
+        const int P = (int)(((pfix % l) + l) % l);
+        const int rm = (int)(rr % l);
+        int64_t m0 = it.plo % l; if (m0 < 0) m0 += l;
+        const int ms = (int)((stride % l));
+        for (int idx = threadIdx.x; idx < l; idx += blockDim.x) {
+            uint32_t w = 0;
+            #pragma unroll
+            for (int b = 0; b < 4; b++) {
+                int mm = (idx + 256 * b) % l;
+                int pos = (int)((m0 + (int64_t)ms * mm) % l);                  // m mod l of this candidate
+                int jj = (int)((((int64_t)pos * pos) % l) * rm % l);           // m^2 r mod l
+                int v8 = 0;
+                if (jj != 0) { const int inv = d_inv2[off + jj]; v8 = d_tab2[off + (int)(((int64_t)P * inv) % l)]; }
+                w |= (uint32_t)(v8 + BIAS2) << (8 * b);
+            }
+            sW[c_woff[i] + idx] = w;
+        }
+    }
+    for (int k = NP1 + threadIdx.x; k < np2; k += blockDim.x) {      // stage-2 records: pad = p mod l
+        P2 g = d_p2[k];
+        g.pad = (int)(((pfix % g.l) + g.l) % g.l);
+        sP2[k] = g;
+    }
+    __syncthreads();
+    for (int64_t u0 = 0; u0 < it.len; u0 += 4096) {
+        uint32_t acc0[4], acc1[4];
+        #pragma unroll
+        for (int j = 0; j < 4; j++) { acc0[j] = 0; acc1[j] = 0; }
+        const uint32_t g0 = (uint32_t)(u0 + threadIdx.x);
+        for (int i0 = 0; i0 < NP1; i0 += SWB) {
+            uint32_t bs0 = 0, bs1 = 0, bs2 = 0, bs3 = 0;
+            const int i1 = (i0 + SWB < NP1) ? i0 + SWB : NP1;
+            for (int i = i0; i < i1; i++) {
+                const int l = c_primes[i];
+                uint32_t qq = __umulhi(g0, c_magic[i]);
+                int idx = (int)(g0 - qq * (uint32_t)l); if (idx >= l) idx -= l;
+                const int st = c_step1024[i];
+                const uint32_t *Wl = sW + c_woff[i];
+                bs0 += Wl[idx]; idx += st; if (idx >= l) idx -= l;
+                bs1 += Wl[idx]; idx += st; if (idx >= l) idx -= l;
+                bs2 += Wl[idx]; idx += st; if (idx >= l) idx -= l;
+                bs3 += Wl[idx];
+            }
+            acc0[0] += __byte_perm(bs0, 0, 0x5140); acc1[0] += __byte_perm(bs0, 0, 0x5342);
+            acc0[1] += __byte_perm(bs1, 0, 0x5140); acc1[1] += __byte_perm(bs1, 0, 0x5342);
+            acc0[2] += __byte_perm(bs2, 0, 0x5140); acc1[2] += __byte_perm(bs2, 0, 0x5342);
+            acc0[3] += __byte_perm(bs3, 0, 0x5140); acc1[3] += __byte_perm(bs3, 0, 0x5342);
+        }
+        if (threadIdx.x == 0) shn = 0;
+        __syncthreads();
+        const int base = NP1 * BIAS2;
+        #pragma unroll
+        for (int j = 0; j < 4; j++) {
+            #pragma unroll
+            for (int b = 0; b < 4; b++) {
+                uint32_t a = (b < 2) ? acc0[j] : acc1[j];
+                int s = (int)((b & 1) ? (a >> 16) : (a & 0xFFFFu)) - base;
+                int64_t u = (int64_t)u0 + (int64_t)threadIdx.x + 1024 * j + 256 * b;
+                if (u < it.len && s >= thr) {
+                    int pos = atomicAdd(&shn, 1);
+                    if (pos < 512) { shu[pos] = (int)u; shs[pos] = s; }
+                }
+            }
+        }
+        __syncthreads();
+        int nh = shn < 512 ? shn : 512;
+        if (threadIdx.x == 0 && nh > 0) atomicAdd(&d_cnt1, (unsigned long long)nh);
+        const int lane = threadIdx.x & 31, wid = threadIdx.x >> 5;
+        for (int h = wid; h < nh; h += 8) {
+            const uint32_t mc = (uint32_t)(it.plo + stride * shu[h]);
+            int sa = 0;
+            #pragma unroll
+            for (int j = 0; j < 2; j++) { const int k = NP1 + lane + 32 * j; if (k < np2) sa += stage2_term_w(mc, rr, sP2[k]); }
+            sa = warp_sum(sa);
+            if (shs[h] + sa >= c_tA) {
+                int sb = 0;
+                #pragma unroll
+                for (int j = 2; j < NIT2; j++) { const int k = NP1 + lane + 32 * j; if (k < np2) sb += stage2_term_w(mc, rr, sP2[k]); }
+                const int s2 = sa + warp_sum(sb);
+                if (lane == 0 && shs[h] + s2 >= thr2i) {
+                    int pos = atomicAdd(nhits, 1);
+                    if (pos < cap) { hits[pos].p = pfix; hits[pos].q = (int64_t)mc * (int64_t)mc * rr; hits[pos].s = shs[h]; hits[pos].pad = shs[h] + s2; }
+                }
+            }
+        }
+        __syncthreads();
+    }
+}
+
 typedef struct { Hit *h; int lo, hi; char *out; size_t olen, ocap; uint64_t c1, c2, c3; } hostjob_t;
 
 static void *host_thr(void *arg) {
@@ -433,6 +582,7 @@ static void *host_thr(void *arg) {
         if (p == 0 || gcd64(p, q) != 1) continue;
         if (FAM == 4 && 16 * p + q == 0) continue;          // singular fibre t = -1/16
         double h = hnaive(FAM, (double)p, (double)q);
+        if (FAM == 4) h -= log((double)mq4(q));              // reduced model: divide out the square part of q
         if (h >= Hmax || h < Hmin) continue;
         J->c1++;
         double s1, s2, s3;
@@ -460,24 +610,43 @@ int main(int argc, char **argv) {
     if (getenv("KUB_THR4")) { THR4 = atof(getenv("KUB_THR4")); if (!tabx_load(FAM)) { fprintf(stderr, "KUB_THR4 set but tabx_%d.bin not found in KUB_TABDIR\n", FAM); return 3; } USE_X = 1; fprintf(stderr, "extended cut: S(10^5) >= %.2f (%d primes in the tabx file)\n", THR4, tabx_n); }      // host stage of the GPU driver: exact thresholds only (no intermediate cuts), hits are rare
     if (getenv("KUB_NOSYM")) SYM = 0;
     if (getenv("KUB_NOCOP")) NOCOP = 1;
+    auto setup_prog = [&]() -> int {
+        PROG = atoi(getenv("KUB_PROG"));
+        const int maxn = (FAM == 4) ? 7 : 3;      // FAM 4: p-rich classes with up to 7 of the 12 primes of W (792 subsets of size 7)
+        if ((FAM != 44 && FAM != 5 && FAM != 66 && FAM != 67 && FAM != 4) || PROG < 1 || PROG > maxn) { fprintf(stderr, "KUB_PROG needs FAM 4 (n <= 7), 44, 5, 66 or 67 (n <= 3)\n"); return 3; }
+        for (int mask = 1; mask < 4096; mask++) { int sz = __builtin_popcount(mask); if (sz > maxn) continue; int64_t m = 1; for (int j = 0; j < 12; j++) if (mask >> j & 1) m *= WP[j]; SUBS[sz].push_back({mask, m}); }
+        fprintf(stderr, "progression mode: inner values divisible by %d further primes of W\n", PROG);
+        return 0;
+    };
+    if (FAM == 4) {
+        int rmax = getenv("KUB_RMAX") ? atoi(getenv("KUB_RMAX")) : 30;
+        for (int r = 1; r <= rmax; r++) { bool sf = true; for (int d = 2; d * d <= r; d++) if (r % (d * d) == 0) sf = false; if (sf) RL4.push_back(r); }
+        fprintf(stderr, "FAM 4: q = m^2 r with %zu squarefree values r <= %d, reduced height H = H_int - ln m\n", RL4.size(), rmax);
+        if (!getenv("KUB_QRICH") && getenv("KUB_PROG")) { if (setup_prog()) return 3; }       // p-rich class without a restriction on the outer value
+        if (getenv("KUB_SWAPN")) {
+            SWAPN = atoi(getenv("KUB_SWAPN"));
+            if (SWAPN < 1 || SWAPN > 7) { fprintf(stderr, "KUB_SWAPN needs 1 <= n <= 7\n"); return 3; }
+            if (!getenv("KUB_NOSWAR") == 0 || getenv("KUB_NOPACK")) { fprintf(stderr, "swapped mode needs the SWAR kernel\n"); return 3; }
+            for (int mask = 1; mask < 4096; mask++) { if (__builtin_popcount(mask) != SWAPN) continue; int64_t mm = 1; for (int j = 0; j < 12; j++) if (mask >> j & 1) mm *= WP[j]; SUBS[SWAPN].push_back({mask, mm}); }
+        }
+    }
     if (getenv("KUB_QRICH")) {
         QRICH = atoi(getenv("KUB_QRICH")); if (getenv("KUB_QRICHMAX")) QRICHMAX = atoi(getenv("KUB_QRICHMAX"));
-        if (getenv("KUB_PROG")) {
-            PROG = atoi(getenv("KUB_PROG"));
-            if ((FAM != 44 && FAM != 5 && FAM != 66 && FAM != 67) || PROG < 1 || PROG > 3) { fprintf(stderr, "KUB_PROG needs FAM 44, 5, 66 or 67 and 1 <= n <= 3\n"); return 3; }
-            for (int mask = 1; mask < 4096; mask++) { int sz = __builtin_popcount(mask); if (sz > 3) continue; int64_t m = 1; for (int j = 0; j < 12; j++) if (mask >> j & 1) m *= WP[j]; SUBS[sz].push_back({mask, m}); }
-            fprintf(stderr, "progression mode: inner values divisible by %d further primes of W\n", PROG);
-        }
+        if (getenv("KUB_PROG")) { if (setup_prog()) return 3; }
         const char *role = getenv("KUB_ROLE"); ROLEB = (role && (role[0] == 'B' || role[0] == 'b')) ? 1 : 0;
-        if (FAM != 44 && FAM != 5 && FAM != 66 && FAM != 67 && FAM != 88 && FAM != 26 && FAM != 261 && FAM != 265) { fprintf(stderr, "KUB_QRICH needs FAM 44, 5, 66, 67, 88, 26, 261 or 265\n"); return 3; }      // 66 / 67 = Z/6 with the outer value p resp. p+q (see fams.txt)
+        if (FAM != 44 && FAM != 5 && FAM != 66 && FAM != 67 && FAM != 88 && FAM != 26 && FAM != 261 && FAM != 265 && FAM != 4) { fprintf(stderr, "KUB_QRICH needs FAM 4, 44, 5, 66, 67, 88, 26, 261 or 265\n"); return 3; }      // 66 / 67 = Z/6 with the outer value p resp. p+q (see fams.txt)
         fprintf(stderr, "outer-value restriction: >= %d of the primes 7..47 divide q; role %c (q = %s)\n", QRICH, ROLEB ? 'B' : 'A', ROLEB ? "the smaller number, |p| > q" : "the larger number, |p| < q");
     } else if (getenv("KUB_ROLE")) { const char *role = getenv("KUB_ROLE"); ROLEB = (role[0] == 'B' || role[0] == 'b') ? 1 : 0; if (ROLEB && FAM != 44 && FAM != 5) { fprintf(stderr, "KUB_ROLE=B needs FAM 44 or FAM 5\n"); return 3; } }
     if (getenv("KUB_QMOD")) { long long m = 1, r = 0; sscanf(getenv("KUB_QMOD"), "%lld:%lld", &m, &r); QMOD = m; QRES = r; }
+    if (getenv("KUB_C45")) {
+        if (FAM != 44 || !PROG) { fprintf(stderr, "KUB_C45 needs FAM 44 with KUB_PROG\n"); return 3; }
+        C45 = atoi(getenv("KUB_C45")); fprintf(stderr, "C45 restriction mask %d: %s%s%s\n", C45, (C45 & 1) ? "exactly one of the pair divisible by 4 (other odd); " : "", (C45 & 2) ? "5 | p*q; " : "", (C45 & 4) ? "3 | p*q" : "");
+    }
     if (getenv("KUB_HMIN")) Hmin = atof(getenv("KUB_HMIN"));
     init_grid();
     Hmax = atof(argv[3]); qlo = atoll(argv[4]); qhi = atoll(argv[5]);
     thr1 = atof(argv[6]); thr2 = atof(argv[7]); thr3 = atof(argv[8]);
-    { int64_t qa = q_auto_cap(Hmax); if (qhi > qa) qhi = qa; fprintf(stderr, "q range %lld..%lld (automatic cap %lld)\n", (long long)qlo, (long long)qhi, (long long)qa); }
+    { int64_t qa = (FAM == 4) ? (SWAPN ? (int64_t)(4.0e18) : (int64_t)exp(Hmax + 0.4)) : q_auto_cap(Hmax); if (qhi > qa) qhi = qa; fprintf(stderr, "%s range %lld..%lld (automatic cap %lld)\n", SWAPN ? "p" : (FAM == 4 ? "m" : "q"), (long long)qlo, (long long)qhi, (long long)qa); }
     int nthr = argc > 9 ? atoi(argv[9]) : 8;
     uint64_t BATCHMAX = 1ULL << (getenv("KUB_BATCHLOG") ? atoi(getenv("KUB_BATCHLOG")) : 36);     // candidates per GPU batch
     double t0 = now();
@@ -553,14 +722,115 @@ int main(int argc, char **argv) {
     uint64_t total_cand = 0, tot1 = 0, tot2 = 0, tot3 = 0, overflow = 0, gpu_s1 = 0;
     double tstart = now(), tlast = tstart;
     int64_t q = qlo;
+    int64_t mcur = qlo; size_t ri = 0;          // FAM 4: current (m, r) pair, q = mcur^2 * RL4[ri]
+    if (FAM == 4) q = mcur * mcur * RL4[0];
+#define QOK() (FAM == 4 ? (mcur <= qhi) : (q <= qhi))
+#define QNEXT() do { if (FAM == 4) { if (++ri >= RL4.size()) { ri = 0; mcur++; } q = mcur * mcur * RL4[ri]; } else { q++; } } while (0)
+    const double cap4 = exp(Hmax + 0.4);
     int nitems = 0; uint64_t batch_cand = 0;
     int64_t ilo[40], ihi[40];
+    auto flush = [&](bool swapped, int64_t pos) {
+        CK(cudaMemcpy(d_items, hitems, nitems * sizeof(Item), cudaMemcpyHostToDevice));
+        CK(cudaMemset(d_nhits, 0, sizeof(int)));
+        { unsigned long long z = 0; CK(cudaMemcpyToSymbol(d_cnt1, &z, sizeof z)); }
+        if (swapped) stage1w<<<nitems, 256>>>(d_items, thr1i, thr2i, NP2, d_hits, d_nhits, HITCAP);
+        else if (use_swar) stage1s<<<nitems, 256>>>(d_items, d_pat, d_patofs, thr1i, thr2i, NP2, d_hits, d_nhits, HITCAP);
+        else if (use_packed) stage1p<<<nitems, 256>>>(d_items, d_pat, d_patofs, thr1i, thr2i, NP2, d_hits, d_nhits, HITCAP);
+        else stage1<<<nitems, 256>>>(d_items, d_pat, d_patofs, thr1i, thr2i, NP2, d_hits, d_nhits, HITCAP);
+        CK(cudaGetLastError());
+        CK(cudaDeviceSynchronize());
+        { unsigned long long c1 = 0; CK(cudaMemcpyFromSymbol(&c1, d_cnt1, sizeof c1)); gpu_s1 += c1; }
+        int nh = 0; CK(cudaMemcpy(&nh, d_nhits, sizeof(int), cudaMemcpyDeviceToHost));
+        if (nh > HITCAP) { overflow += (uint64_t)(nh - HITCAP); nh = HITCAP; }
+        CK(cudaMemcpy(hhits, d_hits, (size_t)nh * sizeof(Hit), cudaMemcpyDeviceToHost));
+        total_cand += batch_cand;
+        if (PROG && nh > 1) {      // the same (p,q) can come from several progressions: keep one
+            std::sort(hhits, hhits + nh, [](const Hit &x, const Hit &y) { return x.q != y.q ? x.q < y.q : x.p < y.p; });
+            nh = (int)(std::unique(hhits, hhits + nh, [](const Hit &x, const Hit &y) { return x.q == y.q && x.p == y.p; }) - hhits);
+        }
+        // host-side checks in parallel
+        pthread_t th[64]; hostjob_t jobs[64]; int nt = nthr > 64 ? 64 : nthr;
+        for (int t = 0; t < nt; t++) {
+            memset(&jobs[t], 0, sizeof(hostjob_t));
+            jobs[t].h = hhits; jobs[t].lo = (int)((int64_t)nh * t / nt); jobs[t].hi = (int)((int64_t)nh * (t + 1) / nt);
+            pthread_create(&th[t], NULL, host_thr, &jobs[t]);
+        }
+        for (int t = 0; t < nt; t++) {
+            pthread_join(th[t], NULL);
+            if (jobs[t].olen) { fwrite(jobs[t].out, 1, jobs[t].olen, stdout); }
+            tot1 += jobs[t].c1; tot2 += jobs[t].c2; tot3 += jobs[t].c3; free(jobs[t].out);
+        }
+        fflush(stdout);
+        double tn = now();
+        if (tn - tlast > 20) { fprintf(stderr, "%s<%lld  cand %.3g  rate %.3g/s  hits %llu\n", swapped ? "p" : (FAM == 4 ? "m" : "q"), (long long)pos, (double)total_cand, total_cand / (tn - tstart), (unsigned long long)tot1); tlast = tn; }
+        nitems = 0; batch_cand = 0;
+    };
+    if (SWAPN) {
+        const int n = SWAPN;
+        double eN = 0; for (const Sub &sb : SUBS[n]) eN += 1.0 / (double)sb.m;
+        int64_t pstart = qlo > 0 ? qlo : 1, pend = qhi;
+        const double pcap = exp(2.0 * (Hmax + 0.05) - 1.386);
+        if ((double)pend > pcap) pend = (int64_t)pcap;
+        int64_t PBLK = (int64_t)(2.0e5 / eN); if (PBLK < 1000000) PBLK = 1000000;
+        fprintf(stderr, "swapped mode: |p| in [%lld, %lld], p-rich n=%d (%zu subsets, class density %.3g), p-block %lld, r in %zu values\n", (long long)pstart, (long long)pend, n, SUBS[n].size(), eN, (long long)PBLK, RL4.size());
+        for (int64_t pa = pstart; pa <= pend; pa += PBLK) {
+            int64_t pb = pa + PBLK - 1; if (pb > pend) pb = pend;
+            std::vector<int64_t> pv;
+            for (const Sub &sb : SUBS[n]) { const int64_t mm = sb.m; for (int64_t k = (pa + mm - 1) / mm, kh = pb / mm; k <= kh; k++) pv.push_back(mm * k); }
+            std::sort(pv.begin(), pv.end()); pv.erase(std::unique(pv.begin(), pv.end()), pv.end());
+            for (const int64_t pabs : pv) {
+                for (int sg = 0; sg < 2; sg++) {
+                    const int64_t P = sg ? -pabs : pabs;
+                    for (size_t ir = 0; ir < RL4.size(); ir++) {
+                        const int64_t r = RL4[ir];
+                        if (gcd64(pabs, r) != 1) continue;
+                        auto hf = [&](int64_t m) { return hnaive(4, (double)P, (double)(m * m * r)) - log((double)m); };
+                        if (hf(1) >= Hmax) continue;
+                        int64_t mhi = (int64_t)(exp(Hmax + 0.2) / (double)r);
+                        if ((double)mhi * (double)mhi * (double)r > 9.0e18) mhi = (int64_t)sqrt(9.0e18 / (double)r);
+                        if (mhi < 1) continue;
+                        int64_t mmax;
+                        if (hf(mhi) < Hmax) mmax = mhi;
+                        else { int64_t a = 1, b = mhi; while (b - a > 1) { int64_t c = (a + b) / 2; if (hf(c) < Hmax) a = c; else b = c; } mmax = a; }
+                        int64_t mlow = 1;
+                        if (Hmin > -1e8 && hf(1) < Hmin) {
+                            if (hf(mmax) < Hmin) continue;
+                            int64_t a = 1, b = mmax; while (b - a > 1) { int64_t c = (a + b) / 2; if (hf(c) >= Hmin) b = c; else a = c; }
+                            mlow = b;
+                        }
+                        int ncls = 1; int64_t sstr = 1; int64_t res[2] = {0, 0};
+                        if (pabs % 6 == 0) { sstr = 6; ncls = 2; res[0] = 1; res[1] = 5; }
+                        else if (pabs % 2 == 0) { sstr = 2; res[0] = 1; }
+                        else if (pabs % 3 == 0) { sstr = 3; ncls = 2; res[0] = 1; res[1] = 2; }
+                        for (int c = 0; c < ncls; c++) {
+                            const int64_t first = mlow + (((res[c] - mlow) % sstr) + sstr) % sstr;
+                            if (first > mmax) continue;
+                            const int64_t cnt = (mmax - first) / sstr + 1;
+                            for (int64_t u = 0; u < cnt; u += CHUNK) {
+                                int64_t len = cnt - u; if (len > CHUNK) len = CHUNK;
+                                if (nitems >= MAXITEMS) flush(true, pabs);
+                                hitems[nitems].q = P; hitems[nitems].plo = first + sstr * u; hitems[nitems].len = len; hitems[nitems].stride = sstr; hitems[nitems].r = r;
+                                nitems++; batch_cand += (uint64_t)len;
+                            }
+                        }
+                    }
+                }
+                if (batch_cand >= BATCHMAX || nitems + 64 >= MAXITEMS) flush(true, pabs);
+            }
+        }
+        if (nitems > 0) flush(true, pend);
+    }
+    if (!SWAPN)
     for (;;) {
         // fill a batch
-        while (q <= qhi && nitems + ITEM_MARGIN < MAXITEMS && batch_cand < BATCHMAX) {
-            if (QMOD > 1) { int64_t adj = (((QRES - q) % QMOD) + QMOD) % QMOD; q += adj; if (q > qhi) break; }
-            if (QRICH) { int hq = 0; for (int j = 0; j < 12; j++) hq += (q % WP[j] == 0); if (hq < QRICH || (QRICHMAX && hq > QRICHMAX)) { q++; continue; } }
-            int nint = p_shell(q, Hmin, Hmax, ilo, ihi);
+        while (QOK() && nitems + ITEM_MARGIN < MAXITEMS && batch_cand < BATCHMAX) {
+            if (FAM != 4 && QMOD > 1) { int64_t adj = (((QRES - q) % QMOD) + QMOD) % QMOD; q += adj; if (q > qhi) break; }
+            if (FAM == 4 && (double)mcur * (double)RL4[ri] > cap4) { QNEXT(); continue; }          // m r > e^(Hmax+0.4): no p of this q reaches the shell
+            if (QRICH) { int hq; if (FAM == 4) { hq = 0; for (int j = 0; j < 12; j++) hq += (q % WP[j] == 0); } else hq = hq_of(q); if (hq < QRICH || (QRICHMAX && hq > QRICHMAX)) { QNEXT(); continue; } }
+            if ((C45 & 1) && (q & 3) == 2) { QNEXT(); continue; }          // the even element would be 2 mod 4: no ln 2 height reduction, outside the bit-1 class
+            const int64_t c45 = (((C45 & 1) && (q & 1)) ? 4 : 1) * (((C45 & 2) && (q % 5)) ? 5 : 1) * (((C45 & 4) && (q % 3)) ? 3 : 1);      // extra progression modulus: odd q -> 4 | p; 5 not dividing q -> 5 | p; 3 not dividing q -> 3 | p
+            const double lm4 = (FAM == 4) ? log((double)mcur) : 0.0;
+            int nint = p_shell(q, Hmin > -1e8 ? Hmin + lm4 : Hmin, Hmax + lm4, ilo, ihi);
             if (SYM && nint && FAM == 5 && ROLEB) {      // Z/5 role B (outer value = |p| of the original pair, inner p' with |p'| > q'): two intervals per input interval
                 int64_t tlo[40], thi[40]; int m = 0;
                 for (int iv = 0; iv < nint; iv++) {
@@ -607,7 +877,7 @@ int main(int argc, char **argv) {
                     int qmask = 0; for (int j = 0; j < 12; j++) if (q % WP[j] == 0) qmask |= 1 << j;
                     for (const Sub &sb : SUBS[PROG]) {
                         if (sb.mask & qmask) continue;
-                        const int64_t m = sb.m;
+                        const int64_t m = sb.m * c45;
                         // FAM 66 (Z/6, outer = p, inner = q): the inner discriminant factor is p+q, i.e. the progressions are p' = -q (mod m) with an offset; no 2/3 coprimality classes then (the host drops gcd > 1)
                         const int64_t r0 = (FAM == 66) ? ((((-q) % m) + m) % m) : 0;
                         const int64_t klo = -floordiv64(-(lo - r0), m), khi = floordiv64(hi - r0, m);      // ceil((lo-r0)/m) .. floor((hi-r0)/m)
@@ -619,7 +889,7 @@ int main(int argc, char **argv) {
                             int64_t cnt = (khi - first) / ss + 1;
                             for (int64_t u = 0; u < cnt; u += CHUNK) {
                                 int64_t len = cnt - u; if (len > CHUNK) len = CHUNK;
-                                if (nitems < MAXITEMS) { hitems[nitems].q = q; hitems[nitems].plo = r0 + m * (first + ss * u); hitems[nitems].len = len; hitems[nitems].stride = m * ss; nitems++; batch_cand += (uint64_t)len; }
+                                if (nitems < MAXITEMS) { hitems[nitems].q = q; hitems[nitems].plo = r0 + m * (first + ss * u); hitems[nitems].len = len; hitems[nitems].stride = m * ss; nitems++; batch_cand += (uint64_t)len; } else dropped_items++;
                             }
                         }
                     }
@@ -631,52 +901,21 @@ int main(int argc, char **argv) {
                     int64_t cnt = (hi - first) / s + 1;
                     for (int64_t u = 0; u < cnt; u += CHUNK) {
                         int64_t len = cnt - u; if (len > CHUNK) len = CHUNK;
-                        if (nitems < MAXITEMS) { hitems[nitems].q = q; hitems[nitems].plo = first + s * u; hitems[nitems].len = len; hitems[nitems].stride = s; nitems++; batch_cand += (uint64_t)len; }
+                        if (nitems < MAXITEMS) { hitems[nitems].q = q; hitems[nitems].plo = first + s * u; hitems[nitems].len = len; hitems[nitems].stride = s; nitems++; batch_cand += (uint64_t)len; } else dropped_items++;
                     }
                 }
             }
-            q++;
+            QNEXT();
         }
         if (nitems == 0) break;
-        CK(cudaMemcpy(d_items, hitems, nitems * sizeof(Item), cudaMemcpyHostToDevice));
-        CK(cudaMemset(d_nhits, 0, sizeof(int)));
-        { unsigned long long z = 0; CK(cudaMemcpyToSymbol(d_cnt1, &z, sizeof z)); }
-        if (use_swar) stage1s<<<nitems, 256>>>(d_items, d_pat, d_patofs, thr1i, thr2i, NP2, d_hits, d_nhits, HITCAP);
-        else if (use_packed) stage1p<<<nitems, 256>>>(d_items, d_pat, d_patofs, thr1i, thr2i, NP2, d_hits, d_nhits, HITCAP);
-        else stage1<<<nitems, 256>>>(d_items, d_pat, d_patofs, thr1i, thr2i, NP2, d_hits, d_nhits, HITCAP);
-        CK(cudaGetLastError());
-        CK(cudaDeviceSynchronize());
-        { unsigned long long c1 = 0; CK(cudaMemcpyFromSymbol(&c1, d_cnt1, sizeof c1)); gpu_s1 += c1; }
-        int nh = 0; CK(cudaMemcpy(&nh, d_nhits, sizeof(int), cudaMemcpyDeviceToHost));
-        if (nh > HITCAP) { overflow += (uint64_t)(nh - HITCAP); nh = HITCAP; }
-        CK(cudaMemcpy(hhits, d_hits, (size_t)nh * sizeof(Hit), cudaMemcpyDeviceToHost));
-        total_cand += batch_cand;
-        if (PROG && nh > 1) {      // the same (p,q) can come from several progressions: keep one
-            std::sort(hhits, hhits + nh, [](const Hit &x, const Hit &y) { return x.q != y.q ? x.q < y.q : x.p < y.p; });
-            nh = (int)(std::unique(hhits, hhits + nh, [](const Hit &x, const Hit &y) { return x.q == y.q && x.p == y.p; }) - hhits);
-        }
-        // host-side checks in parallel
-        pthread_t th[64]; hostjob_t jobs[64]; int nt = nthr > 64 ? 64 : nthr;
-        for (int t = 0; t < nt; t++) {
-            memset(&jobs[t], 0, sizeof(hostjob_t));
-            jobs[t].h = hhits; jobs[t].lo = (int)((int64_t)nh * t / nt); jobs[t].hi = (int)((int64_t)nh * (t + 1) / nt);
-            pthread_create(&th[t], NULL, host_thr, &jobs[t]);
-        }
-        for (int t = 0; t < nt; t++) {
-            pthread_join(th[t], NULL);
-            if (jobs[t].olen) { fwrite(jobs[t].out, 1, jobs[t].olen, stdout); }
-            tot1 += jobs[t].c1; tot2 += jobs[t].c2; tot3 += jobs[t].c3; free(jobs[t].out);
-        }
-        fflush(stdout);
-        double tn = now();
-        if (tn - tlast > 20) { fprintf(stderr, "q<%lld  cand %.3g  rate %.3g/s  hits %llu\n", (long long)q, (double)total_cand, total_cand / (tn - tstart), (unsigned long long)tot1); tlast = tn; }
-        nitems = 0; batch_cand = 0;
-        if (q > qhi) break;
+        flush(false, FAM == 4 ? mcur : q);
+        if (!QOK()) break;
     }
     fprintf(stderr, "CLASSVOL par(p%%2,q%%2): %.6g %.6g %.6g %.6g\n", vol_par[0], vol_par[1], vol_par[2], vol_par[3]);
     fprintf(stderr, "CLASSVOL m3(p%%3,q%%3): "); for (int k = 0; k < 9; k++) fprintf(stderr, "%.6g ", vol_m3[k]); fprintf(stderr, "\n");
     fprintf(stderr, "CLASSVOL tbin: "); for (int k = 0; k < 14; k++) fprintf(stderr, "%.6g ", vol_tb[k]); fprintf(stderr, "\n");
     fprintf(stderr, "sieve %.1fs  rate %.3g candidates/s\n", now() - tstart, (double)total_cand / (now() - tstart));
+    if (dropped_items) fprintf(stderr, "!!! %llu WORK ITEMS DROPPED (item buffer full): the run is incomplete\n", (unsigned long long)dropped_items);
     if (overflow) fprintf(stderr, "!!! HIT-BUFFER OVERFLOW: %llu hits lost - rerun with a smaller KUB_BATCHLOG or tighter thresholds\n", (unsigned long long)overflow);
     fprintf(stderr, "done: candidates %llu  after S300 %llu  after S2000 %llu  output %llu  (hit-buffer overflow %llu)\n",
             (unsigned long long)total_cand, (unsigned long long)gpu_s1, (unsigned long long)tot1, (unsigned long long)tot3, (unsigned long long)overflow);

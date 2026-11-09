@@ -12,7 +12,7 @@ prev=$1; shift
 for hi in "$@"; do
   out=runs/camp_${FAM}${CAMP_TAG:-}_${prev}_${hi}          # CAMP_TAG distinguishes parallel campaigns of one family (e.g. qa3 / qb3 for the outer-value filter roles)
   echo "== shell FAM=$FAM H in [$prev,$hi)  start $(date -u +%T)"
-  KUB_HMIN=$prev PIPE_ASYNC_RANK=1 ./pipe.sh "$FAM" "$hi" 1 1000000000 "$T1" "$T2" "$T3" "$out" "$MINRANK" 18 "${CAMP_KUBG:-kubg}" 2>&1 | tail -12
+  KUB_HMIN=$prev PIPE_ASYNC_RANK=1 ./pipe.sh "$FAM" "$hi" 1 "${CAMP_QHI:-1000000000}" "$T1" "$T2" "$T3" "$out" "$MINRANK" 18 "${CAMP_KUBG:-kubg}" 2>&1 | tail -12
   if ls "$out"/found/*.ec >/dev/null 2>&1; then
     echo "!! FOUND curves with rank >= $MINRANK in shell [$prev,$hi):"; ls -la "$out"/found/; cat "$out"/verify.log 2>/dev/null
   fi

@@ -1,0 +1,44 @@
+extended cut: S(10^5) >= 55.00 (8363 primes in the tabx file)
+progression mode: inner values divisible by 2 further primes of W
+outer-value restriction: >= 5 of the primes 7..47 divide q; role A (q = the larger number, |p| < q)
+q range 1..3334399488 (automatic cap 3334399488)
+tables ready in 0.2s: 1228 odd primes (stage1 61)
+stage-1 table entries within +-9
+stage-1 kernel: packed + SWAR byte-lane blocks
+stage-2 early exit: S(700) >= 14.000000
+q<1168291188  cand 6.88e+10  rate 3.22e+09/s  hits 5237
+q<1243813572  cand 2.06e+11  rate 4.89e+09/s  hits 15774
+q<1348037016  cand 4.12e+11  rate 5.94e+09/s  hits 31834
+q<1445731563  cand 6.19e+11  rate 6.4e+09/s  hits 47798
+q<1537165722  cand 8.25e+11  rate 6.66e+09/s  hits 63875
+q<1624001688  cand 1.03e+12  rate 6.84e+09/s  hits 79784
+q<1705180632  cand 1.24e+12  rate 6.96e+09/s  hits 95728
+q<1782400698  cand 1.44e+12  rate 7.05e+09/s  hits 111741
+q<1858159689  cand 1.65e+12  rate 7.12e+09/s  hits 127634
+q<1927868580  cand 1.86e+12  rate 7.17e+09/s  hits 143563
+q<1996632804  cand 2.06e+12  rate 7.22e+09/s  hits 159468
+q<2064991314  cand 2.27e+12  rate 7.25e+09/s  hits 175258
+q<2130201984  cand 2.48e+12  rate 7.29e+09/s  hits 191222
+q<2192719530  cand 2.68e+12  rate 7.31e+09/s  hits 206990
+q<2253746067  cand 2.89e+12  rate 7.32e+09/s  hits 223063
+q<2312689653  cand 3.09e+12  rate 7.33e+09/s  hits 238992
+q<2371307940  cand 3.3e+12  rate 7.33e+09/s  hits 254761
+q<2428852119  cand 3.51e+12  rate 7.32e+09/s  hits 270661
+q<2483217150  cand 3.71e+12  rate 7.31e+09/s  hits 286745
+q<2537907516  cand 3.92e+12  rate 7.3e+09/s  hits 302925
+q<2590658190  cand 4.13e+12  rate 7.29e+09/s  hits 318927
+q<2641028292  cand 4.33e+12  rate 7.33e+09/s  hits 335142
+q<2692922688  cand 4.54e+12  rate 7.37e+09/s  hits 351331
+q<2742159729  cand 4.74e+12  rate 7.41e+09/s  hits 367584
+q<2791352796  cand 4.95e+12  rate 7.44e+09/s  hits 383631
+q<2839886568  cand 5.16e+12  rate 7.47e+09/s  hits 399635
+q<2888214720  cand 5.36e+12  rate 7.53e+09/s  hits 415911
+q<2934700770  cand 5.57e+12  rate 7.6e+09/s  hits 432054
+q<2984683626  cand 5.78e+12  rate 7.66e+09/s  hits 448309
+q<3052279407  cand 5.98e+12  rate 7.71e+09/s  hits 464654
+q<3334399490  cand 6.18e+12  rate 7.75e+09/s  hits 480976
+CLASSVOL par(p%2,q%2): 5.29794e+13 5.37278e+13 5.29794e+13 5.37278e+13
+CLASSVOL m3(p%3,q%3): 0 0 7.11381e+13 0 0 7.11381e+13 0 0 7.11381e+13 
+CLASSVOL tbin: 0 0 0 0 0 0 0 4.9959e+13 5.28208e+13 5.64745e+13 5.41601e+13 0 0 0 
+sieve 797.6s  rate 7.75e+09 candidates/s
+done: candidates 6184778392796  after S300 6715494066  after S2000 480976  output 5  (hit-buffer overflow 0)

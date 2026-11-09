@@ -1,0 +1,20 @@
+extended cut: S(10^5) >= 52.00 (8363 primes in the tabx file)
+progression mode: inner values divisible by 1 further primes of W
+outer-value restriction: >= 3 of the primes 7..47 divide q; role A (q = the larger number, |p| < q)
+C45 restriction mask 2: 5 | p*q; 
+q range 1..24000000 (automatic cap 30327289)
+tables ready in 0.4s: 1228 odd primes (stage1 61)
+stage-1 table entries within +-9
+stage-1 kernel: packed + SWAR byte-lane blocks
+stage-2 early exit: S(700) >= 14.000000
+q<15241710  cand 6.87e+10  rate 7.44e+08/s  hits 149929
+q<17525656  cand 1.37e+11  rate 7.99e+08/s  hits 299781
+q<19541216  cand 2.06e+11  rate 8.15e+08/s  hits 449651
+q<21371841  cand 2.75e+11  rate 8.29e+08/s  hits 599931
+q<23055605  cand 3.44e+11  rate 8.43e+08/s  hits 749453
+q<24000001  cand 3.84e+11  rate 8.51e+08/s  hits 838003
+CLASSVOL par(p%2,q%2): 9.59807e+11 9.56935e+11 9.59807e+11 9.56935e+11
+CLASSVOL m3(p%3,q%3): 4.2518e+11 4.26433e+11 4.26214e+11 4.2518e+11 4.26433e+11 4.26214e+11 4.2518e+11 4.26433e+11 4.26214e+11 
+CLASSVOL tbin: 0 0 0 0 0 0 0 9.81036e+11 9.61874e+11 9.3758e+11 9.52994e+11 0 0 0 
+sieve 451.8s  rate 8.51e+08 candidates/s
+done: candidates 384397068156  after S300 2431637017  after S2000 838003  output 47  (hit-buffer overflow 0)

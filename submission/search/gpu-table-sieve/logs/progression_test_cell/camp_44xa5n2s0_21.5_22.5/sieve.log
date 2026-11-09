@@ -1,0 +1,35 @@
+extended cut: S(10^5) >= 55.00 (8363 primes in the tabx file)
+progression mode: inner values divisible by 2 further primes of W
+outer-value restriction: >= 5 of the primes 7..47 divide q; role A (q = the larger number, |p| < q)
+q range 1..3334399488 (automatic cap 3334399488)
+tables ready in 0.2s: 1228 odd primes (stage1 61)
+stage-1 table entries within +-9
+stage-1 kernel: packed + SWAR byte-lane blocks
+stage-2 early exit: S(700) >= 14.000000
+q<1190301190  cand 6.87e+10  rate 2.86e+09/s  hits 4143
+q<1305855409  cand 2.06e+11  rate 4.52e+09/s  hits 12618
+q<1461130408  cand 4.12e+11  rate 5.63e+09/s  hits 25210
+q<1600181662  cand 6.19e+11  rate 6.14e+09/s  hits 37896
+q<1729511980  cand 8.25e+11  rate 6.45e+09/s  hits 50143
+q<1847676832  cand 1.03e+12  rate 6.66e+09/s  hits 62444
+q<1958972170  cand 1.24e+12  rate 6.8e+09/s  hits 75004
+q<2064521746  cand 1.44e+12  rate 6.91e+09/s  hits 87350
+q<2163972826  cand 1.65e+12  rate 7e+09/s  hits 99736
+q<2260419646  cand 1.86e+12  rate 7.06e+09/s  hits 112259
+q<2351528488  cand 2.06e+12  rate 7.1e+09/s  hits 124927
+q<2440706962  cand 2.27e+12  rate 7.12e+09/s  hits 137536
+q<2524396744  cand 2.47e+12  rate 7.13e+09/s  hits 149920
+q<2606450575  cand 2.68e+12  rate 7.13e+09/s  hits 162426
+q<2685138730  cand 2.89e+12  rate 7.12e+09/s  hits 175229
+q<2762954503  cand 3.09e+12  rate 7.11e+09/s  hits 187699
+q<2837738905  cand 3.3e+12  rate 7.1e+09/s  hits 200417
+q<2885502166  cand 3.44e+12  rate 7.09e+09/s  hits 208771
+q<2934490582  cand 3.57e+12  rate 7.08e+09/s  hits 217198
+q<2986677145  cand 3.71e+12  rate 7.06e+09/s  hits 225680
+q<3058539289  cand 3.85e+12  rate 7.04e+09/s  hits 234076
+q<3334399489  cand 3.97e+12  rate 6.99e+09/s  hits 241631
+CLASSVOL par(p%2,q%2): 5.10538e+13 5.26018e+13 5.10538e+13 5.26018e+13
+CLASSVOL m3(p%3,q%3): 6.91038e+13 0 0 6.91038e+13 0 0 6.91038e+13 0 0 
+CLASSVOL tbin: 0 0 0 0 0 0 0 4.85322e+13 5.13058e+13 5.48643e+13 5.2609e+13 0 0 0 
+sieve 568.5s  rate 6.99e+09 candidates/s
+done: candidates 3970943737274  after S300 3502447661  after S2000 241631  output 5  (hit-buffer overflow 0)

@@ -18,7 +18,7 @@ for i in $(seq 1 "$ITER"); do
     ./inc_rank.sh "$OUT" "$FAM" "$MINRANK" 18 2>&1 | tail -n 6
     if [ -f "$OUT/FOUND.txt" ]; then echo "$(date -u +%T) FOUND marker in $OUT"; stop=1; fi
   done
-  [ "$stop" = "1" ] && break
+  # (a FOUND marker used to stop the loop here; the lottery sweeps produce many harmless rank-9 curves above the cell holders, so keep going)
   sleep "$INTERVAL"
 done
 echo "$(date -u +%T) inc_loop finished"

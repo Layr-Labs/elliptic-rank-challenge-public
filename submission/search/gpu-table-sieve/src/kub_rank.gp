@@ -60,6 +60,7 @@ for(ii = 1, #L,
     printf("%d %d %s %.5f -2 -2 0 %.2f %.2f\n", p, q, if(#tok > 4, strjoin(tok[3..5], " "), "- - -"), H, (getabstime() - t0)/1000., dS);
     next);
   r = iferr(alarm(tmax, ellrank(Em, effort)), e, [-1, -1, 0, []]);
+  if(type(r) == "t_ERROR", r = [-1, -1, 0, []]);        \\ alarm(s, code) RETURNS a t_ERROR when the time limit is hit (it does not throw): without this line r[1] aborted the whole script and every later line of the part file was never ranked
   lb = r[1]; ub = r[2]; pts = r[4];
   printf("%d %d %s %.5f %d %d %d %.2f %.2f\n", p, q, if(#tok > 4, strjoin(tok[3..5], " "), "- - -"), H, lb, ub, #pts, (getabstime() - t0)/1000., dS);
   if(lb >= minr,
