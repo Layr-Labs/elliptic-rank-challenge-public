@@ -1,9 +1,0 @@
-# One-value-window reproduction of the hit (Spark GB10), run at about 09:05 UTC on 10 November 2026 with
-#   (a) kubg_q9   = the binary of the shell (md5 661daddda5391f73ac43ceb048ba307c, built 8 Nov 20:06 UTC from the sources that are src/kubg_q9_as_run.cu, src/kub.c, src/tabx.cu of this archive), and
-#   (b) kubg_pkg  = the fresh build from this archive's sources (md5 321af800403d1330d5a51c52488058f1, built 02:08 UTC on 10 November; command and source md5s in logs/winning_run_5/repro_window/command.txt).
-# environment and arguments of the shell, with the outer-value range cut to the single value q = 641835656:
-export KUB_TABDIR=<tables> KUB_FAMS=src/fams.txt KUB_HMIN=19.4 KUB_QRICH=5 KUB_QRICHMAX=5 KUB_PROG=1 KUB_ROLE=A KUB_THR4=55 KUB_TMAX=900
-./<binary> sieve 5 20.5 641835655 641835657 9.5 24 34 6        # <binary> = kubg_q9 (original) or kubg_pkg (fresh build)
-# both builds print exactly (cmp: identical stdout):
-#   43326387 641835656 12.38 31.62 44.88 20.4364 66.14
-# stderr of both: done: candidates 37540471  after S300 73017  after S2000 6  output 1  (hit-buffer overflow 0)

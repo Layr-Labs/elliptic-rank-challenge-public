@@ -1,5 +1,0 @@
-# The only rational isogeny of the Z/5 board curve (kernel <P5>, Velu quotient, model reduced at the primes dividing gcd(c4,c6) with elllocalred; PARI/GP 2.17.4, script iso5.gp of this archive). The 5-division polynomial has two linear factors (the x-coordinates of +-P5 and +-2P5) and one factor of degree 10, so <P5> is the only rational subgroup of order 5.
-E: torsion [5] H=20.436403887355120781898893422170289913
-E/<P5>: H=20.902517020524755676848952773539348164 torsion=[] c4=-2048288843941705280791781482459896719 c6=668482424085740393768700204362640531500233227260981495
-degree of 5-division polynomial: 12
-degrees of its irreducible factors over Q: [1, 1, 10]
