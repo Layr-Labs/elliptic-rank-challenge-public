@@ -1,0 +1,9 @@
+# One-value-window reproduction of the winning hit (Spark GB10), run at 02:08 UTC on 10 November 2026 with
+#   (a) kubg_q9      = the binary of the winning shell (built 8 Nov 20:06 UTC from the sources that are src/kubg_q9_as_run.cu, src/kub.c, src/tabx.cu of this archive), and
+#   (b) kubg_pkg     = a fresh build from this archive's sources:  nvcc -O3 -arch=sm_121 -Xcompiler -O3,-march=native -o kubg_pkg src/kubg_q9_as_run.cu -lpthread
+# environment and arguments of the winning shell, with the outer-value range cut to the single value qk = 12859057120:
+export KUB_TABDIR=<tables> KUB_FAMS=src/fams.txt KUB_HMIN=22.0 KUB_QRICH=6 KUB_QRICHMAX=6 KUB_PROG=3 KUB_THR4=55 KUB_TMAX=900
+./<binary> sieve 67 25.5 12859057119 12859057121 9.5 24 34 6        # <binary> = kubg_q9 (original) or kubg_pkg (fresh build)
+# both builds print exactly (cmp: identical stdout):
+#   686288691 12859057120 10.38 34.75 53.00 23.3658 76.78
+# stderr of both: done: candidates 90026574  after S300 57599  after S2000 1  output 1

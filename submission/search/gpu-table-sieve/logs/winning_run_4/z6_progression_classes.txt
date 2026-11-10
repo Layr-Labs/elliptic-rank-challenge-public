@@ -1,0 +1,12 @@
+# Z/6 progression-class cells (FAM 66: outer p; FAM 67: outer p+q): candidates swept and curves by exact lower rank bound; per-directory keys, snapshot 02:16 UTC
+F66 t=4 n=3 shell [19.5,22.0): cand 1.48e+13  rank5 2 rank6 3 rank7 12 rank8 21 rank9 0 rank10 0
+F66 t=5 n=2 shell [19.5,22.0): cand 1.52e+13  rank5 0 rank6 1 rank7 14 rank8 14 rank9 2 rank10 0
+F66 t=5 n=3 shell [20.5,23.5): cand 1.24e+13  rank5 0 rank6 1 rank7 6 rank8 7 rank9 0 rank10 0
+F66 t=6 n=2 shell [21.0,24.0): cand 1.13e+13  rank5 0 rank6 0 rank7 1 rank8 2 rank9 0 rank10 0
+F66 t=6 n=3 shell [22.0,25.5): cand 1.19e+13  rank5 0 rank6 1 rank7 1 rank8 0 rank9 1 rank10 0
+F67 t=4 n=3 shell [19.5,22.0): cand 1.32e+13  rank5 2 rank6 1 rank7 13 rank8 21 rank9 0 rank10 0
+F67 t=5 n=2 shell [19.5,22.0): cand 2.02e+13  rank5 1 rank6 4 rank7 16 rank8 23 rank9 0 rank10 0
+F67 t=5 n=3 shell [20.5,23.5): cand 1.29e+13  rank5 0 rank6 0 rank7 8 rank8 4 rank9 0 rank10 0
+F67 t=6 n=2 shell [21.0,24.0): cand 1.19e+13  rank5 1 rank6 0 rank7 1 rank8 1 rank9 0 rank10 0
+F67 t=6 n=3 shell [22.0,25.5): cand 1.2e+13  rank5 0 rank6 0 rank7 1 rank8 0 rank9 0 rank10 1
+TOTAL cand 1.36e+14  rank5 6 rank6 11 rank7 73 rank8 93 rank9 3 rank10 1

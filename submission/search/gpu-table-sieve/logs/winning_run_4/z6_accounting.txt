@@ -1,0 +1,7 @@
+dirs per family: {'66': 20, '67': 19, '6': 2}
+candidates swept per family: 6: 3.72e+13, 66: 3.62e+14, 67: 3.35e+14  total 7.33e+14
+distinct Z/6 curves with lower bound >= 5 (dedup on minimal-model height):  {5: 103, 6: 329, 7: 698, 8: 236, 9: 4, 10: 1}  total 1371
+rank >= 5 rows with lb != ub: [('15.37824', (5, 7, '67')), ('20.07114', (5, 7, '67'))]
+lb=-1 rows: 0
+rank 9 H: [18.44512, 19.02961, 20.73455, 24.90334]
+rank>=10: [(22.67265, '67', 'runs/camp_67x6n3_22.0_25.5')]

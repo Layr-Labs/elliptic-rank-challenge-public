@@ -1,0 +1,19 @@
+# Comparison of the parent archive (8e9f71b8) copies of src/kub.c and src/tabx.cu with the versions that were compiled into kubg_q9 (this archive), run on 10 November 2026 (GB10 host).
+# md5 parent archive: kub.c 5b8e46ce1f7748df636d9c6179826476, tabx.cu 5a6d4d01ada54e0cad4a071d84dbf748   |   md5 this archive (= sources of the kubg_q9 build): kub.c 5a18eb9f0f6e181ca839f0e4bcc504d7, tabx.cu f4edb24ac72e3ca92dd043356a43a332, kubg_q9_as_run.cu 1b7637be91269eccd160b5606eca9633
+# Both source sets compile together with src/kubg_q9_as_run.cu (kubg_old = old copies, kubg_pkg = this archive).
+
+## Z/6 (FAM 67), one-value window of the winning hit: ./kubg sieve 67 25.5 12859057119 12859057121 9.5 24 34 6 with the environment of repro_window/command.txt
+old copies stdout:  686288691 12859057120 10.38 34.75 53.00 23.3658 76.78
+new (this archive): 686288691 12859057120 10.38 34.75 53.00 23.3658 76.78
+old copies: done: candidates 90026574  after S300 57599  after S2000 1  output 1  (hit-buffer overflow 0)
+new:        done: candidates 90026574  after S300 57599  after S2000 1  output 1  (hit-buffer overflow 0)
+
+## Legendre (FAM 44), window of the previous find (a,b)=(33661279586,5418397845): KUB_ROLE=B KUB_QRICH=6 KUB_QRICHMAX=6 KUB_HMIN=22.5 KUB_PROG=2 KUB_QMOD=4:1 ./kubg sieve 44 25.0 5418397844 5418397846 9.5 24 34 6
+old copies stdout:  33661279586 5418397845 12.12 29.50 41.88 24.9456 69.86
+new (this archive): 33661279586 5418397845 12.12 29.50 41.88 24.9264 69.86
+old copies: done: candidates 697765809  after S300 435362  after S2000 37  output 1  (hit-buffer overflow 0)
+new:        done: candidates 711870108  after S300 444055  after S2000 37  output 1  (hit-buffer overflow 0)
+old copies: q range 5418397844..5418397846 (automatic cap 37802572154)
+new:        q range 5418397844..5418397846 (automatic cap 40621301604)
+
+# Reading: on the Z/6 window (a4 = a6 = 0) the two source sets print the same line and the same counts; on the Legendre window (a4 = a^2 b^2 != 0) the S columns agree but the height column and the automatic q cap differ (H 24.9456 with the older copies, 24.9264 with the sources of the kubg_q9 build, and different candidate counts); the pair of the previous find is printed by both. Only these two windows were compared.

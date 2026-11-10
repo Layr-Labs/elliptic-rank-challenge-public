@@ -1,0 +1,28 @@
+# The four Z/6 curves of lower rank bound 9 found by the Z/6 sweeps of this campaign (ranked line: pk qk S300 S2000 S10000 H lb ub npts seconds dS; then the ec_verify screen, novelty ON, as run by the pipeline).
+# None of them improves cell 6/9 (baseline H = 18.445122, curve icarm-1216); nothing is claimed for any of them.
+
+## H = 18.44512 
+-37178488 52327275 14.00 34.25 53.00 18.44512 9 9 9 0.09 25.11
+run directory: camp_67q4h_18.445_19.0
+
+## H = 19.02961 
+245100629 52327275 14.00 34.25 53.00 19.02961 9 9 9 0.15 25.11
+run directory: camp_66x5n2_19.5_22.0
+66-9--1423487024_260506169.ec
+66-9-245100629_52327275.ec
+66-9--1423487024_260506169.ec   "verified_claim": "certified rank >= 9 from 9 independent points of infinite order; torsion 6; cell 6/9; H = 20.734546" } 
+66-9-245100629_52327275.ec  REJECTED: KNOWN_CURVE: curve is icarm-1216 (claimed rank >= 9) or isogenous/twist-equivalent to it; known curves are not eligible (docs/submitting.md §4) 
+
+## H = 20.73455 
+-1423487024 260506169 11.25 27.75 43.75 20.73455 9 9 9 0.13 17.87
+run directory: camp_66x5n2_19.5_22.0
+66-9--1423487024_260506169.ec
+66-9-245100629_52327275.ec
+66-9--1423487024_260506169.ec   "verified_claim": "certified rank >= 9 from 9 independent points of infinite order; torsion 6; cell 6/9; H = 20.734546" } 
+66-9-245100629_52327275.ec  REJECTED: KNOWN_CURVE: curve is icarm-1216 (claimed rank >= 9) or isogenous/twist-equivalent to it; known curves are not eligible (docs/submitting.md §4) 
+
+## H = 24.90334 
+58124741438 2607760925 10.62 27.38 44.12 24.90334 9 9 9 0.14 21.81
+run directory: camp_66x6n3_22.0_25.5
+66-9-58124741438_2607760925.ec
+66-9-58124741438_2607760925.ec   "verified_claim": "certified rank >= 9 from 9 independent points of infinite order; torsion 6; cell 6/9; H = 24.903340" } 

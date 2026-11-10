@@ -1,0 +1,27 @@
+dirs=154 done=14 swept=1.18e+15 cand | ranked>=6: {6: 47, 7: 165, 8: 171, 9: 17, 10: 2} | r9 H: [19.03, 20.436, 20.735, 21.475, 21.892, 21.905, 22.115, 22.221, 22.436, 22.564, 22.974, 23.195, 23.427, 23.806, 23.816, 24.467, 24.903] | r10+/ub10: [(('33661279586
+  F5 t3n3[18.2,20.5)       cand 5.95e+12 dirs 0/2 done | r7 14 r8 9 r9 0 r10+ 0
+  F5 t4n2[19.4,20.5)       cand 2.01e+13 dirs 0/2 done | r7 4 r8 9 r9 0 r10+ 0
+  F5 t4n3[19.5,22.0)       cand 1.59e+13 dirs 0/2 done | r7 14 r8 10 r9 0 r10+ 0
+  F5 t5n1[19.4,20.5)       cand 1.70e+13 dirs 2/2 done | r7 2 r8 3 r9 0 r10+ 0
+  F5 t5n2[19.5,22.0)       cand 2.56e+13 dirs 0/2 done | r7 10 r8 4 r9 1 r10+ 0
+  F5 t5n3[20.5,23.5)       cand 1.89e+13 dirs 0/2 done | r7 13 r8 11 r9 3 r10+ 0
+  F5 t5n3[23.5,25.0)       cand 1.27e+13 dirs 0/2 done | r7 0 r8 0 r9 0 r10+ 0
+  F5 t6n1[19.4,20.5)       cand 9.32e+11 dirs 2/2 done | r7 0 r8 0 r9 0 r10+ 0
+  F5 t6n2[21.0,24.0)       cand 1.85e+13 dirs 0/2 done | r7 0 r8 1 r9 1 r10+ 0
+  F5 t6n2[24.0,25.5)       cand 1.31e+13 dirs 0/2 done | r7 0 r8 0 r9 0 r10+ 0
+  F5 t6n3[22.0,25.5)       cand 1.77e+13 dirs 0/2 done | r7 3 r8 0 r9 1 r10+ 0
+  F5 t6n3[25.5,27.5)       cand 1.39e+13 dirs 0/2 done | r7 0 r8 0 r9 0 r10+ 0
+  F5 t7n2[23.0,26.5)       cand 1.38e+13 dirs 0/2 done | r7 1 r8 0 r9 0 r10+ 0
+  F5 t7n3[24.0,27.5)       cand 1.38e+13 dirs 0/2 done | r7 0 r8 2 r9 0 r10+ 0
+  F5 t8n1[23.0,27.0)       cand 1.29e+13 dirs 0/2 done | r7 0 r8 0 r9 0 r10+ 0
+  F5 t8n2[24.0,28.0)       cand 1.26e+13 dirs 0/2 done | r7 0 r8 0 r9 0 r10+ 0
+  F66 t4n3[19.5,22.0)      cand 1.44e+13 dirs 0/1 done | r7 12 r8 21 r9 0 r10+ 0
+  F66 t5n2[19.5,22.0)      cand 1.49e+13 dirs 0/1 done | r7 13 r8 12 r9 2 r10+ 0
+  F66 t5n3[20.5,23.5)      cand 1.22e+13 dirs 0/1 done | r7 6 r8 7 r9 0 r10+ 0
+  F66 t6n2[21.0,24.0)      cand 1.11e+13 dirs 0/1 done | r7 1 r8 2 r9 0 r10+ 0
+  F66 t6n3[22.0,25.5)      cand 1.17e+13 dirs 0/1 done | r7 1 r8 0 r9 1 r10+ 0
+  F67 t4n3[19.5,22.0)      cand 1.29e+13 dirs 0/1 done | r7 13 r8 21 r9 0 r10+ 0
+  F67 t5n2[19.5,22.0)      cand 1.97e+13 dirs 0/1 done | r7 14 r8 21 r9 0 r10+ 0
+  F67 t5n3[20.5,23.5)      cand 1.25e+13 dirs 0/1 done | r7 8 r8 4 r9 0 r10+ 0
+  F67 t6n2[21.0,24.0)      cand 1.17e+13 dirs 0/1 done | r7 1 r8 1 r9 0 r10+ 0
+  F67 t6n3[22.0,25.5)      cand 1.18e+13 dirs 0/1 done | r7 1 r8 0 r9 0 r10+ 1

@@ -1,0 +1,1 @@
+67-10-686288691_12859057120.ec   "verified_claim": "certified rank >= 10 from 10 independent points of infinite order; torsion 6; cell 6/10; H = 22.672650" } 
