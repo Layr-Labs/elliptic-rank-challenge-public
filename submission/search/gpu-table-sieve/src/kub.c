@@ -7,8 +7,6 @@
 // FAM 5:  y^2+(1-t)xy-t y = x^3-t x^2                      (Z/5)
 // FAM 6:  y^2+(1-t)xy-(t+t^2)y = x^3-(t+t^2)x^2             (Z/6)
 // FAM 42: y^2+xy-b y = x^3-b x^2, b = v^2-1/16, v=t         (Z/2xZ/4)
-// FAM 44: y^2 = x (x+p^2) (x+q^2), (p,q) = (b,a) with a > b >= 1 coprime  (Z/2xZ/4 in Legendre form: no duplicates, no 2-power scaling overhead; a4 = p^2 q^2 != 0)
-// FAM 4:  y^2+xy-t y = x^3-t x^2, t = p/q  (Z/4, Tate normal form with c = 0; integral model [q, -pq, -p q^2, 0, 0]; disc = p^4 q^7 (16p+q); every curve once, t of both signs, no symmetry, p large and q small allowed)
 // sieve output (stdout): p q S300 S2000 S10000 H   for every t=p/q (gcd=1, q in [qlo,qhi]) with H<Hmax and S300>=thr1,
 //                        S2000>=thr2, S10000>=thr3.  progress / counters go to stderr.
 #include <stdio.h>
@@ -38,20 +36,16 @@ static uint16_t *inv[1300];              // inv[i][r] = r^-1 mod l (0 if r==0)
 static int8_t *pat[1300];                // pat[i][r*l + j] = tab[i][(j*inv[r]) % l], r in [1,l); (stage-1 primes only)
 
 // ---------------------------------------------------------------- family models (table-driven, from fams.txt written by famgen.gp)
-// a_i'(p,q) = q^(w_i*FD) * A_i(p/q),  [a1,a2,a3,a4,a6] with weights w = 1,2,3,4,6;  A_i integer polynomials in tau = p/q.
-// fams.txt blocks "A1 .. A2 .. A3 .." are mandatory (a4 = a6 = 0 unless given); optional trailing blocks "A4 n c0 .." and "A6 n c0 .." (the old 3-block parsers skip them).
+// a_i'(p,q) = q^(i*FD) * A_i(p/q),  i = 1,2,3  (a4 = a6 = 0);  A_i integer polynomials in tau = p/q
 #define MAXC 16
-#define NCO 5
-static const int AWT[NCO] = {1, 2, 3, 4, 6};
 static int FD;                       // scale degree d
-static int NAC[NCO];
-static long long AC[NCO][MAXC];      // ascending coefficients
+static int NAC[3];
+static long long AC[3][MAXC];        // ascending coefficients
 static void load_family(int fam) {
     const char *fn = getenv("KUB_FAMS"); if (!fn) fn = "fams.txt";
     FILE *f = fopen(fn, "r");
     if (!f) { fprintf(stderr, "cannot open family table %s\n", fn); exit(3); }
     char tok[64]; int found = 0;
-    for (int i = 0; i < NCO; i++) { NAC[i] = 1; AC[i][0] = 0; }
     while (fscanf(f, "%63s", tok) == 1) {
         if (strcmp(tok, "FAM")) continue;
         char name[64]; int d;
@@ -64,37 +58,29 @@ static void load_family(int fam) {
             NAC[i] = n;
             for (int j = 0; j < n; j++) if (fscanf(f, "%lld", &AC[i][j]) != 1) { fprintf(stderr, "bad family table\n"); exit(3); }
         }
-        for (int extra = 0; extra < 2; extra++) {            // optional A4 / A6 blocks
-            long pos = ftell(f); char an[16]; int n;
-            if (fscanf(f, "%15s", an) != 1) break;
-            int slot = !strcmp(an, "A4") ? 3 : (!strcmp(an, "A6") ? 4 : -1);
-            if (slot < 0) { fseek(f, pos, SEEK_SET); break; }
-            if (fscanf(f, "%d", &n) != 1 || n > MAXC) { fprintf(stderr, "bad family table\n"); exit(3); }
-            NAC[slot] = n;
-            for (int j = 0; j < n; j++) if (fscanf(f, "%lld", &AC[slot][j]) != 1) { fprintf(stderr, "bad family table\n"); exit(3); }
-        }
         found = 1; break;
     }
     fclose(f);
     if (!found) { fprintf(stderr, "family %d not in %s\n", fam, fn); exit(3); }
 }
-// [a1,a2,a3,a4,a6](tau) mod l for tau in [0,l)
-static void coeffs_mod(int fam, int64_t tau, int64_t l, int64_t *a) {
+// a_i(tau) mod l for tau in [0,l)
+static void coeffs_mod(int fam, int64_t tau, int64_t l, int64_t *a1, int64_t *a2, int64_t *a3) {
     (void)fam;
-    for (int i = 0; i < NCO; i++) {
+    int64_t out[3];
+    for (int i = 0; i < 3; i++) {
         int64_t acc = 0;
         for (int j = NAC[i] - 1; j >= 0; j--) {
             int64_t c = AC[i][j] % l; if (c < 0) c += l;
             acc = (acc * tau + c) % l;
         }
-        a[i] = acc;
+        out[i] = acc;
     }
+    *a1 = out[0]; *a2 = out[1]; *a3 = out[2];
 }
 
-// character sum  sum_x chi(4x^3 + b2 x^2 + 2 b4 x + b6) over F_l, chi = Legendre symbol (table chi[0..l));  b2 = a1^2+4a2, b4 = a1 a3 + 2 a4, b6 = a3^2 + 4 a6
-static int charsum(const int8_t *chi, int64_t l, const int64_t *a) {
-    const int64_t a1 = a[0], a2 = a[1], a3 = a[2], a4 = a[3], a6 = a[4];
-    int64_t b2 = (a1 * a1 + 4 * a2) % l, b4 = (a1 * a3 + 2 * a4) % l, b6 = (a3 * a3 + 4 * a6) % l;
+// character sum  sum_x chi(4x^3 + b2 x^2 + 2 b4 x + b6) over F_l, chi = Legendre symbol (table chi[0..l))
+static int charsum(const int8_t *chi, int64_t l, int64_t a1, int64_t a2, int64_t a3) {
+    int64_t b2 = (a1 * a1 + 4 * a2) % l, b4 = (a1 * a3) % l, b6 = (a3 * a3) % l;
     int64_t c3 = 4 % l, c2 = b2, c1 = (2 * b4) % l, c0 = b6;
     int s = 0;
     for (int64_t x = 0; x < l; x++) {
@@ -116,9 +102,9 @@ static void *build_tables_thr(void *arg) {
         tab[i] = (int8_t *)malloc(l);
         double lw = log((double)l) / (double)l;
         for (int64_t tau = 0; tau < l; tau++) {
-            int64_t ac[NCO];
-            coeffs_mod(FAM, tau, l, ac);
-            int cs = charsum(chi, l, ac);                                 // = -a_l
+            int64_t a1, a2, a3;
+            coeffs_mod(FAM, tau, l, &a1, &a2, &a3);
+            int cs = charsum(chi, l, a1, a2, a3);                         // = -a_l
             double w = cs * lw * SCALE;
             int v = (int)floor(w + 0.5);
             if (v > 127) v = 127;
@@ -209,20 +195,21 @@ static void build_tables(int nthr) {
 }
 
 // ---------------------------------------------------------------- height (approximate, from the integral model)
-static void model(int fam, double p, double q, double *a) {      // a[0..4] = a1,a2,a3,a4,a6 of the integral model at (p,q)
+static void model(int fam, double p, double q, double *a1, double *a2, double *a3) {
     (void)fam;
-    for (int i = 0; i < NCO; i++) {
-        double acc = 0, pw = 1;                 // sum_j c_j p^j q^(w-j), w = AWT[i]*FD
-        int w = AWT[i] * FD;
+    double out[3];
+    for (int i = 0; i < 3; i++) {
+        double acc = 0, pw = 1;                 // sum_j c_j p^j q^(w-j), w = (i+1)*FD
+        int w = (i + 1) * FD;
         double qp[64]; qp[0] = 1; for (int k = 1; k <= w; k++) qp[k] = qp[k-1] * q;
         for (int j = 0; j < NAC[i]; j++) { if (w - j >= 0) acc += (double)AC[i][j] * pw * qp[w - j]; pw *= p; }
-        a[i] = acc;
+        out[i] = acc;
     }
+    *a1 = out[0]; *a2 = out[1]; *a3 = out[2];
 }
-static void bvals(const double *a, double *b2, double *b4, double *b6) { *b2 = a[0] * a[0] + 4 * a[1]; *b4 = a[0] * a[2] + 2 * a[3]; *b6 = a[2] * a[2] + 4 * a[4]; }
 static double hnaive(int fam, double p, double q) {
-    double a[NCO]; model(fam, p, q, a);
-    double b2, b4, b6; bvals(a, &b2, &b4, &b6);
+    double a1, a2, a3; model(fam, p, q, &a1, &a2, &a3);
+    double b2 = a1 * a1 + 4 * a2, b4 = a1 * a3, b6 = a3 * a3;
     double c4 = b2 * b2 - 24 * b4, c6 = -b2 * b2 * b2 + 36 * b2 * b4 - 216 * b6;
     double x = fabs(c4), y = fabs(c6);
     double l4 = x > 0 ? 3 * log(x) : -1e300, l6 = y > 0 ? 2 * log(y) : -1e300;
@@ -267,24 +254,23 @@ static int64_t gcd64(int64_t a, int64_t b) { if (a < 0) a = -a; while (b) { int6
 
 // Phi(tau) = max(|c4|^3, c6^2) of the homogeneous model at (p,q)=(tau,1); H(p,q) = ln q + ln Phi(p/q) / 12
 static double phi_of(double tau) {
-    double a[NCO]; model(FAM, tau, 1.0, a);
-    double b2, b4, b6; bvals(a, &b2, &b4, &b6);
+    double a1, a2, a3; model(FAM, tau, 1.0, &a1, &a2, &a3);
+    double b2 = a1 * a1 + 4 * a2, b4 = a1 * a3, b6 = a3 * a3;
     double c4 = b2 * b2 - 24 * b4, c6 = -b2 * b2 * b2 + 36 * b2 * b4 - 216 * b6;
     double x = fabs(c4), y = fabs(c6);
     double u = x * x * x, v = y * y;
     return u > v ? u : v;
 }
-#define NGRID 12000
+#define NGRID 6200
 static double gx[NGRID], gphi[NGRID];
 static int ngrid;
 static void init_grid(void) {
-    // ascending: -GMAX ... -1e-3, 0, 1e-3 ... GMAX geometric ratio 1.01;  GMAX = 1e10 (all families up to FAM 265), 1e18 for FAM 4 (Z/4: H ~ (ln|p| + ln q)/2 for |p| > q, so q = 1 reaches |p| ~ e^(2H))
+    // ascending: -1e10 ... -1e-3, 0, 1e-3 ... 1e10 geometric ratio 1.01
     int n = 0;
     double r = 1.01;
-    const double gmax = (FAM == 4) ? 1e18 : 1e10;
-    int m = 0; for (double x = 1e-3; x < gmax; x *= r) m++;
+    int m = 0; for (double x = 1e-3; x < 1e10; x *= r) m++;
     double *pos = (double *)malloc(m * sizeof(double)); m = 0;
-    for (double x = 1e-3; x < gmax; x *= r) pos[m++] = x;
+    for (double x = 1e-3; x < 1e10; x *= r) pos[m++] = x;
     for (int i = m - 1; i >= 0; i--) gx[n++] = -pos[i];
     gx[n++] = 0.0;
     for (int i = 0; i < m; i++) gx[n++] = pos[i];
@@ -369,7 +355,6 @@ static void *sieve_thr(void *arg) {
                 if (FAM == 5) { if (lo < -q) lo = -q; if (hi > q) hi = q; }
                 else if (FAM == 42) { if (lo < 1) lo = 1; }
                 else if (FAM == 8) { if (hi > (q >> 1)) hi = q >> 1; }          // Z/8: t and 1-t give the same curve -> fundamental domain p <= q/2
-                else if (FAM == 44) { if (lo < 1) lo = 1; if (hi > q - 1) hi = q - 1; }   // Legendre Z/2xZ/4: (a,b) ~ (b,a) ~ (-a,b): fundamental domain 1 <= p=b < q=a
                 if (lo <= hi) { ilo[m] = lo; ihi[m] = hi; m++; }
             }
             nint = m;

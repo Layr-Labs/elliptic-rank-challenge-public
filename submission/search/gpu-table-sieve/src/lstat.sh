@@ -3,7 +3,7 @@
 # usage (Spark, from ~/ecwork_src/kub):  ./lstat.sh [SUFFIX_REGEX=_r[0-9]+$]
 cd "$(dirname "$0")"
 echo "$(date -u +%H:%MZ) sieves=$(ps -eo args | grep -c '[k]ubg_q[0-9]* sieve') gpu=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader | tr -d ' ') load=$(cut -d' ' -f1 /proc/loadavg) rankers=$(ps -eo args | grep -c '[k]ub_rank.gp') inc_loops=$(ps -eo args | grep -c '[i]nc_loop.sh')"
-python3 - "${1:-_r[0-9]+$|camp_(44|66|67|5)x}" <<'PY'
+python3 - "${1:-_r[0-9]+$|camp_44x}" <<'PY'
 import glob, re, collections, sys
 pat = re.compile(sys.argv[1])
 tot = 0.0; done = 0; n = 0; alive_lines = 0
@@ -37,10 +37,10 @@ for k, (lb, ub, H, d) in rows.items():
 print("dirs=%d done=%d swept=%.3g cand | ranked>=6: %s | r9 H: %s | r10+/ub10: %s | rank errors/timeouts (lb=-1): %d" % (n, done, tot, dict(sorted(cnt.items())), sorted(r9.values()), hi, len(err)))
 # per progression class (camp_44x{a|b}{T}n{N}s{j}_{HLO}_{HHI}): candidates swept, dirs done/total, curves with rank>=7 by rank
 cls = collections.OrderedDict()
-for d in sorted(glob.glob("runs/camp_*x*")):
-    m = re.match(r"runs/camp_(\d+)x[ab]?(\d)n(\d)(?:s\d+)?_([0-9.]+)_([0-9.]+)", d)
+for d in sorted(glob.glob("runs/camp_44x*")):
+    m = re.match(r"runs/camp_44x[ab](\d)n(\d)(?:s\d+)?_([0-9.]+)_([0-9.]+)", d)
     if not m or not pat.search(d): continue
-    key = "F%s t%sn%s[%s,%s)" % m.groups()
+    key = "t%sn%s[%s,%s)" % m.groups()
     c = cls.setdefault(key, [0.0, 0, 0, collections.Counter()])
     try: L = open(d + "/sieve.log", errors="ignore").read().split("\n")
     except OSError: continue
@@ -54,6 +54,6 @@ for d in sorted(glob.glob("runs/camp_*x*")):
     for (p_, q_), (lb, ub, H, dd) in rows.items():
         if dd == d and lb >= 7: c[3][lb] += 1
 for key, (cd, dn_, nd, rc) in cls.items():
-    print("  %-24s cand %.2e dirs %d/%d done | r7 %d r8 %d r9 %d r10+ %d" % (key, cd, dn_, nd, rc.get(7, 0), rc.get(8, 0), rc.get(9, 0), sum(v for k, v in rc.items() if k >= 10)))
+    print("  %-16s cand %.2e dirs %d/%d done | r7 %d r8 %d r9 %d r10+ %d" % (key, cd, dn_, nd, rc.get(7, 0), rc.get(8, 0), rc.get(9, 0), sum(v for k, v in rc.items() if k >= 10)))
 PY
 python3 ev_new.py 2>&1 | tail -n 6

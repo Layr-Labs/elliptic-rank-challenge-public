@@ -82,8 +82,8 @@ static double tabx_sum(int64_t p, int64_t q) {
 #ifdef TABX_MAIN
 // ---------------------------------------------------------------- GPU builder
 #define CK(x) do { cudaError_t e = (x); if (e != cudaSuccess) { fprintf(stderr, "CUDA error %s at %s:%d\n", cudaGetErrorString(e), __FILE__, __LINE__); exit(2); } } while (0)
-__constant__ long long c_AC[NCO][MAXC];
-__constant__ int c_NAC[NCO];
+__constant__ long long c_AC[3][MAXC];
+__constant__ int c_NAC[3];
 
 __global__ void __launch_bounds__(256) build_prime(int l, int16_t *out) {
     extern __shared__ uint32_t qr[];                         // bit table of the nonzero squares mod l
@@ -97,13 +97,13 @@ __global__ void __launch_bounds__(256) build_prime(int l, int16_t *out) {
     __syncthreads();
     const int tau = blockIdx.x * blockDim.x + threadIdx.x;
     if (tau >= l) return;
-    long long a[NCO];
-    for (int i = 0; i < NCO; i++) {
+    long long a[3];
+    for (int i = 0; i < 3; i++) {
         long long acc = 0;
         for (int j = c_NAC[i] - 1; j >= 0; j--) { long long c = c_AC[i][j] % l; if (c < 0) c += l; acc = (acc * tau + c) % l; }
         a[i] = acc;
     }
-    const long long b2 = (a[0] * a[0] + 4 * a[1]) % l, b4 = (a[0] * a[2] + 2 * a[3]) % l, b6 = (a[2] * a[2] + 4 * a[4]) % l;     // a = [a1,a2,a3,a4,a6]
+    const long long b2 = (a[0] * a[0] + 4 * a[1]) % l, b4 = (a[0] * a[2]) % l, b6 = (a[2] * a[2]) % l;
     const int c3 = 4 % l, c2 = (int)b2, c1 = (int)((2 * b4) % l), c0 = (int)b6;
     int f = c0, d1 = (c3 + c2 + c1) % l, d2 = (6 * c3 + 2 * c2) % l;
     const int d3 = (6 * c3) % l;
