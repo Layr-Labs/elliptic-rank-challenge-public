@@ -1,0 +1,10 @@
+# Independent PARI/GP check of the submitted minimal model (run on the host that produced the find, after the discovery); the verifier ec_verify (PARI 2.17.4) recomputes torsion, points and independence on its own.
+PARI/GP version: [2, 17, 4]
+ellinit ok; discriminant has 101 digits; ellminimalmodel(E)==E: 1
+elltors = [5, [5], [[20581638749157906, 8924217743362925810079063]]]
+ellrank(E,1): lower bound 9, upper bound 9, parity-related field 0, #points returned 9
+ellrootno(E) = -1
+ellsaturation(points, 100): 9 points
+regulator (det of the height matrix of the saturated points) = 31597607.602487594609571994381681032878
+good reduction at 155 of 168 primes below 1000
+number of points in the file: 9; all on the curve: 1

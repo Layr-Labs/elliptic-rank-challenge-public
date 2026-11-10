@@ -1,0 +1,1 @@
+5-9-43326387_641835656.ec  [0.7 s]   "verified_claim": "certified rank >= 9 from 9 independent points of infinite order; torsion 5; cell 5/9; H = 20.436404" } 

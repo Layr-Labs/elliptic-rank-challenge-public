@@ -1,0 +1,14 @@
+# Integral model of the sieve family at the found parameters (fams.txt block of the family), minimal model, discriminant factorisation assembled from the factors of p, q, p+q and the last discriminant factor (PARI/GP 2.17.4, script model_check.gp of this archive).
+integral model [a1,a2,a3,a4,a6]=[598509269, -27808420022254872, -17848435507307490369316032, 0, 0]
+minimal model [1, 0, 0, -6612038604938639760365630912643765, 207009790989398164552588533643664645493811922402721]
+same as submitted: 1
+change of variables [u,r,s,t] integral -> minimal: [1, -20581638749157906, -299254634, 15083368534944031527473373]
+Hint=20.436403887355120781898893422170289913
+Hmin=20.436403887355120781898893422170289913
+sign of the discriminant: -1   (the factorisations below are of the absolute value)
+Delta0 = [2, 3, 7, 11, 13, 17, 19, 29, 31, 53, 61, 137, 691, 1026761, 1009128509; 15, 15, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 1, 1, 1]   (cofactor left after dividing out all primes of p, q, p+q, the last factor and 2,3,5,7: 1)
+Delta_min = [2, 3, 7, 11, 13, 17, 19, 29, 31, 53, 61, 137, 691, 1026761, 1009128509; 15, 15, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 1, 1, 1]   (cofactor: 1)
+p = [3, 3; 13, 1; 17, 1; 53, 1; 137, 1]   q = [2, 3; 7, 1; 11, 1; 19, 1; 29, 1; 31, 1; 61, 1]
+p+q = 1 * [43, 1; 15934001, 1]   p^2-11pq-q^2 = -1 * [691, 1; 1026761, 1; 1009128509, 1]
+torsion order: 5 structure [5]
+good primes among the first 168 (<1000): 155
