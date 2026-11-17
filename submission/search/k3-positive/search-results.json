@@ -1,0 +1,719 @@
+{
+  "scope": "Finite parameter evaluations; overlaps across runs are possible; returned-point counts are not certificates.",
+  "total_evaluations": 110029,
+  "states": {
+    "height": 46316,
+    "rank": 63706,
+    "singular": 7
+  },
+  "competitive_at_any_returned_point_subset_rank": 0,
+  "runs": [
+    {
+      "run": "k3crt15-seeded-ranked",
+      "expected": 24000,
+      "complete": true,
+      "states": {
+        "height": 10375,
+        "rank": 13625
+      },
+      "ranks": {
+        "6": 4743,
+        "5": 2642,
+        "4": 961,
+        "8": 945,
+        "7": 4312,
+        "9": 22
+      },
+      "hits": [],
+      "errors": [],
+      "top": [
+        {
+          "p": 93,
+          "q": 478,
+          "m": null,
+          "height": 13.736218750958555,
+          "torsion": [
+            4
+          ],
+          "lower": 9,
+          "upper": 9,
+          "cell": "4/9",
+          "verification": null,
+          "points_count": 9,
+          "baseline": 13.736219,
+          "board_best": {
+            "file": "4-9b.ec",
+            "naive_height": 12.166195
+          }
+        },
+        {
+          "p": -17,
+          "q": 1142,
+          "m": null,
+          "height": 13.801141129078935,
+          "torsion": [
+            4
+          ],
+          "lower": 9,
+          "upper": 9,
+          "cell": "4/9",
+          "verification": null,
+          "points_count": 9,
+          "baseline": 13.736219,
+          "board_best": {
+            "file": "4-9b.ec",
+            "naive_height": 12.166195
+          }
+        },
+        {
+          "p": -53,
+          "q": 316,
+          "m": null,
+          "height": 14.198644342934935,
+          "torsion": [
+            4
+          ],
+          "lower": 9,
+          "upper": 9,
+          "cell": "4/9",
+          "verification": null,
+          "points_count": 9,
+          "baseline": 13.736219,
+          "board_best": {
+            "file": "4-9b.ec",
+            "naive_height": 12.166195
+          }
+        }
+      ]
+    },
+    {
+      "run": "k3crt18-seeded-ranked1",
+      "expected": 30000,
+      "complete": true,
+      "states": {
+        "height": 11448,
+        "rank": 18552
+      },
+      "ranks": {
+        "6": 4344,
+        "5": 3607,
+        "9": 814,
+        "8": 3039,
+        "7": 4244,
+        "4": 2461,
+        "11": 1,
+        "10": 42
+      },
+      "hits": [],
+      "errors": [],
+      "top": [
+        {
+          "p": -94073,
+          "q": 34016,
+          "m": null,
+          "height": 18.74657352782932,
+          "torsion": [
+            4
+          ],
+          "lower": 11,
+          "upper": 11,
+          "cell": "4/11",
+          "verification": null,
+          "points_count": 11,
+          "baseline": 18.746574,
+          "board_best": null
+        },
+        {
+          "p": 565,
+          "q": 2324,
+          "m": null,
+          "height": 15.939253048640884,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        },
+        {
+          "p": -2041,
+          "q": 5272,
+          "m": null,
+          "height": 16.01681272670579,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        }
+      ]
+    },
+    {
+      "run": "k3crt18-seeded-ranked2",
+      "expected": 7304,
+      "complete": true,
+      "states": {
+        "height": 4644,
+        "rank": 2660
+      },
+      "ranks": {
+        "7": 467,
+        "4": 574,
+        "6": 635,
+        "5": 650,
+        "8": 265,
+        "9": 65,
+        "10": 4
+      },
+      "hits": [],
+      "errors": [],
+      "top": [
+        {
+          "p": 461,
+          "q": 10564,
+          "m": null,
+          "height": 18.07749471158406,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        },
+        {
+          "p": 2013,
+          "q": 10012,
+          "m": null,
+          "height": 18.119567547031075,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        },
+        {
+          "p": 4003,
+          "q": 15572,
+          "m": null,
+          "height": 18.32946785957303,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        }
+      ]
+    },
+    {
+      "run": "k3second18-ranked1",
+      "expected": 16182,
+      "complete": true,
+      "states": {
+        "height": 5958,
+        "rank": 10224
+      },
+      "ranks": {
+        "7": 2390,
+        "9": 484,
+        "4": 1253,
+        "6": 2212,
+        "10": 22,
+        "8": 1743,
+        "5": 1802,
+        "3": 202,
+        "2": 78,
+        "0": 8,
+        "1": 30
+      },
+      "hits": [],
+      "errors": [],
+      "top": [
+        {
+          "p": -4497,
+          "q": 51766,
+          "m": null,
+          "height": 17.57365820819829,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        },
+        {
+          "p": 1051,
+          "q": 1207,
+          "m": null,
+          "height": 17.671541870466257,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        },
+        {
+          "p": 16027,
+          "q": 22294,
+          "m": null,
+          "height": 17.68985958719975,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        }
+      ]
+    },
+    {
+      "run": "k3second18-ranked2",
+      "expected": 9320,
+      "complete": true,
+      "states": {
+        "rank": 4348,
+        "height": 4972
+      },
+      "ranks": {
+        "7": 875,
+        "6": 1069,
+        "5": 976,
+        "9": 138,
+        "8": 546,
+        "4": 702,
+        "3": 27,
+        "2": 8,
+        "10": 6,
+        "1": 1
+      },
+      "hits": [],
+      "errors": [],
+      "top": [
+        {
+          "p": -397,
+          "q": 1602,
+          "m": null,
+          "height": 15.389399593461205,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        },
+        {
+          "p": -167,
+          "q": 1118,
+          "m": null,
+          "height": 16.440397569964695,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        },
+        {
+          "p": -272,
+          "q": 3447,
+          "m": null,
+          "height": 17.619811661898375,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        }
+      ]
+    },
+    {
+      "run": "k3second18-ranked3",
+      "expected": 1534,
+      "complete": true,
+      "states": {
+        "height": 1101,
+        "rank": 433
+      },
+      "ranks": {
+        "5": 102,
+        "7": 65,
+        "4": 81,
+        "8": 51,
+        "6": 117,
+        "9": 13,
+        "3": 1,
+        "10": 3
+      },
+      "hits": [],
+      "errors": [],
+      "top": [
+        {
+          "p": -331,
+          "q": 6650,
+          "m": null,
+          "height": 18.312895381221416,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        },
+        {
+          "p": -731,
+          "q": 6802,
+          "m": null,
+          "height": 18.433454873528113,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        },
+        {
+          "p": 31,
+          "q": 9582,
+          "m": null,
+          "height": 18.72576484818093,
+          "torsion": [
+            4
+          ],
+          "lower": 10,
+          "upper": 10,
+          "cell": "4/10",
+          "verification": null,
+          "points_count": 10,
+          "baseline": 15.3894,
+          "board_best": null
+        }
+      ]
+    },
+    {
+      "run": "c22six160-ranked",
+      "expected": 7805,
+      "complete": true,
+      "states": {
+        "rank": 23,
+        "height": 7782
+      },
+      "ranks": {
+        "6": 13,
+        "4": 1,
+        "7": 6,
+        "8": 2,
+        "5": 1
+      },
+      "hits": [],
+      "errors": [],
+      "top": [
+        {
+          "p": 3,
+          "q": 2,
+          "m": 0,
+          "height": 18.520404474435743,
+          "torsion": [
+            2,
+            2
+          ],
+          "lower": 8,
+          "upper": 8,
+          "cell": "2x2/8",
+          "verification": null,
+          "points_count": 8,
+          "baseline": 8.285406,
+          "board_best": {
+            "file": "2x2-8.ec",
+            "naive_height": 8.108753
+          }
+        },
+        {
+          "p": 18,
+          "q": 11,
+          "m": 0,
+          "height": 20.045909286448783,
+          "torsion": [
+            2,
+            2
+          ],
+          "lower": 8,
+          "upper": 8,
+          "cell": "2x2/8",
+          "verification": null,
+          "points_count": 8,
+          "baseline": 8.285406,
+          "board_best": {
+            "file": "2x2-8.ec",
+            "naive_height": 8.108753
+          }
+        },
+        {
+          "p": 6,
+          "q": 1,
+          "m": 0,
+          "height": 14.317597569329042,
+          "torsion": [
+            2,
+            2
+          ],
+          "lower": 7,
+          "upper": 7,
+          "cell": "2x2/7",
+          "verification": null,
+          "points_count": 7,
+          "baseline": 6.994963,
+          "board_best": {
+            "file": "2x2-7.ec",
+            "naive_height": 6.924776
+          }
+        }
+      ]
+    },
+    {
+      "run": "c2nine75-ranked",
+      "expected": 13884,
+      "complete": true,
+      "states": {
+        "rank": 13841,
+        "singular": 7,
+        "height": 36
+      },
+      "ranks": {
+        "11": 3004,
+        "10": 5792,
+        "9": 3930,
+        "12": 675,
+        "8": 280,
+        "7": 45,
+        "5": 3,
+        "6": 18,
+        "13": 88,
+        "14": 5,
+        "15": 1
+      },
+      "hits": [],
+      "errors": [],
+      "top": [
+        {
+          "p": 19,
+          "q": 20,
+          "m": 2,
+          "height": 15.747850294679635,
+          "torsion": [
+            2
+          ],
+          "lower": 15,
+          "upper": 15,
+          "cell": "2/15",
+          "verification": null,
+          "points_count": 15,
+          "baseline": 15.254068,
+          "board_best": {
+            "file": "2-r15-z2k3.ec",
+            "naive_height": 15.138777
+          }
+        },
+        {
+          "p": 33,
+          "q": 16,
+          "m": 2,
+          "height": 16.51275285299649,
+          "torsion": [
+            2
+          ],
+          "lower": 14,
+          "upper": 14,
+          "cell": "2/14",
+          "verification": null,
+          "points_count": 14,
+          "baseline": 13.755516,
+          "board_best": null
+        },
+        {
+          "p": 17,
+          "q": 54,
+          "m": -3,
+          "height": 16.648745556495683,
+          "torsion": [
+            2
+          ],
+          "lower": 14,
+          "upper": 14,
+          "cell": "2/14",
+          "verification": null,
+          "points_count": 14,
+          "baseline": 13.755516,
+          "board_best": null
+        }
+      ]
+    }
+  ],
+  "configs": {
+    "k3crt15-seeded-ranked": {
+      "input": "k3crt15-unique-top24k.txt",
+      "run": "k3crt15-seeded-ranked",
+      "workers": 20,
+      "batch_size": 64,
+      "alarm": 10,
+      "effort": 1,
+      "height_max": 15.3894,
+      "retry": false
+    },
+    "k3crt18-seeded-ranked1": {
+      "input": "k3crt18-top30k.txt",
+      "run": "k3crt18-seeded-ranked1",
+      "workers": 8,
+      "batch_size": 64,
+      "alarm": 10,
+      "effort": 1,
+      "height_max": 18.746574,
+      "retry": false
+    },
+    "k3crt18-seeded-ranked2": {
+      "input": "k3crt18-next30k.txt",
+      "run": "k3crt18-seeded-ranked2",
+      "workers": 8,
+      "batch_size": 64,
+      "alarm": 12,
+      "effort": 1,
+      "height_max": 18.746574,
+      "retry": false
+    },
+    "k3second18-ranked1": {
+      "input": "k3second18-top24k.txt",
+      "run": "k3second18-ranked1",
+      "workers": 10,
+      "batch_size": 64,
+      "alarm": 12,
+      "effort": 1,
+      "height_max": 18.746574,
+      "retry": false,
+      "second": true
+    },
+    "k3second18-ranked2": {
+      "input": "k3second18-next25k.txt",
+      "run": "k3second18-ranked2",
+      "workers": 10,
+      "batch_size": 64,
+      "alarm": 15,
+      "effort": 2,
+      "height_max": 18.746574,
+      "retry": false,
+      "second": true
+    },
+    "k3second18-ranked3": {
+      "input": "k3second18-final-new.txt",
+      "run": "k3second18-ranked3",
+      "workers": 8,
+      "batch_size": 64,
+      "alarm": 20,
+      "effort": 2,
+      "height_max": 18.746574,
+      "retry": false,
+      "second": true
+    },
+    "c22six160-ranked": {
+      "family": "c22",
+      "bound": 160,
+      "m": "2,-3",
+      "height_max": 20.25267,
+      "workers": 10,
+      "effort": 1,
+      "alarm": 10,
+      "run": "c22six160-ranked"
+    },
+    "c2nine75-ranked": {
+      "family": "c2",
+      "bound": 75,
+      "m": "2,-3",
+      "height_max": 18.911354,
+      "workers": 10,
+      "effort": 1,
+      "alarm": 10,
+      "run": "c2nine75-ranked"
+    }
+  },
+  "c2_rank15_full_verification": {
+    "parameters": {
+      "m": 2,
+      "p": 19,
+      "q": 20
+    },
+    "exit": 1,
+    "code": "KNOWN_CURVE",
+    "match": "icarm-1976",
+    "board_included": false
+  },
+  "second_crt": {
+    "status": "intentionally_stopped_for_submission",
+    "rows": 43274,
+    "unique_parameter_pairs": 27250,
+    "complete": false
+  },
+  "completed_first_crt_logs": {
+    "k3crt15.log": [
+      "cases=3500 H<=15.389400 thresholds=9.00/22.00/34.00 cap=30000000",
+      "done positions=199206700 height_eligible=2088361 output=101398 seconds=5.692 (domains overlap; height allows extra 2-scale)"
+    ],
+    "k3crt18.log": [
+      "cases=3500 H<=18.746574 thresholds=11.00/27.00/42.00 cap=30000000",
+      "done positions=5718206723 height_eligible=60269875 output=91016 seconds=163.315 (domains overlap; height allows extra 2-scale)"
+    ]
+  }
+}

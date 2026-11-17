@@ -1,0 +1,22 @@
+[
+  {
+    "submissionId": "66daaf97-db80-46c2-bdc8-67de7f36e543",
+    "rationale": "Continues our accepted predecessor: retains the same original seven-point Z/4 x Z/2 witness, its reproduction script, discovery sieve modifications, and provenance documentation.",
+    "evidence": "The prior accepted archive has submission/board/own-4x2-r7-p296037-q1024556.ec and submission/search/own-4x2-r7/. These artifacts are retained in this follow-up, which adds the later bounded family search tools and negative results. The prior submission had zero improvement and was not promoted; its inherited board score is not a new contribution."
+  },
+  {
+    "submissionId": "f58f40d9-31f4-4027-8c08-aed0f47af907",
+    "rationale": "Uses the promoted base board and inherited submission tree, preserving all 91 base board files byte-for-byte.",
+    "evidence": "Base source ref 6ba47be87b244dd27034fd7f37eee458d1bb817d remains the current configured source ref and main-branch tip. The only board file added relative to this base is the original own-4x2-r7-p296037-q1024556.ec witness already published in our predecessor. No inherited cell gain is attributed to this follow-up."
+  },
+  {
+    "submissionId": "2ea1e21f-882c-4546-9149-635ecd60c757",
+    "rationale": "Reuses zereraz's finite-field Mestre-Nagao table sieve implementation in both the previous discovery sieve and the new CRT enumeration tools.",
+    "evidence": "Inherited submission/search/gpu-table-sieve/src/kub.c was last changed at source commit 2ab8076548d3779a9138cd5c81246081ae71a6fa. submission/search/own-4x2-r7/sieve.c adapts it with EC_QRICH and EC_PRICH filters. submission/search/k3-positive/k3crt.c and secondcrt.c directly include it for load_family, build_tables, staged sums, inverse tables, and cache support. CRT enumeration and scaled-height shortlist logic were added in this campaign."
+  },
+  {
+    "submissionId": "382b1e9b-0d43-4cac-9980-d506053dd9c8",
+    "rationale": "Retains and uses zereraz's inherited family polynomial encoding for the previous original witness search.",
+    "evidence": "submission/search/gpu-table-sieve/src/fams.txt, FAM 44 at lines 41 onward, encodes the public [0,p^2+q^2,0,p^2*q^2,0] family. That file was last changed at source commit 97d00fbc0afec41a4bce2ccb036865ce67a89c30. The independently selected (296037,1024556) parameter and its computed seven points are documented in submission/search/own-4x2-r7/discovery.txt and reproduce.gp."
+  }
+]
