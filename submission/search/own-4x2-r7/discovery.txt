@@ -1,0 +1,16 @@
+Original parameter search; no record curve or parameter copied.
+Base commit: 6ba47be87b244dd27034fd7f37eee458d1bb817d
+Family 44: y^2=x(x+p^2)(x+q^2)
+Discovery command: EC_QRICH=3 KUB_FAMS=submission/search/gpu-table-sieve/src/fams.txt <compiled-sieve> sieve 44 16.016 450001 5000000 8 20 31 10
+Sieve columns: p q S300 S2000 S10000 raw_height
+296037 1024556 14.25 23.50 37.12 14.5130
+Rank search: PARI/GP 2.17.4; minimal model; setrand(1); ellrank(M,1)
+Descent lower=7 upper=7; points returned=7; torsion=[4,2]
+Full verifier: certified rank >=7; cell=4x2/7; minimal height=13.819869
+Frozen baseline=12.948901; curve contribution=0.0
+Raw discovery run summary:
+q range 450001..5000000 (automatic cap 5093923)
+tables ready: 1228 odd primes <10000 (stage1 61, stage2 302)
+tables 0.4s  sieve 1542.6s  rate 1.43e+08 candidates/s
+done: candidates 220214306235  after S300 1118444632  after S2000 2154562  output 18846
+The candidate count includes non-coprime integers screened out later; it is not a count of distinct elliptic curves. The sums are quantized sieve values. The height is from the raw integral model until minimal-model reduction.

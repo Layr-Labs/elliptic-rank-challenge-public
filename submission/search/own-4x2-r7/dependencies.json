@@ -1,0 +1,17 @@
+[
+  {
+    "submissionId": "f58f40d9-31f4-4027-8c08-aed0f47af907",
+    "rationale": "Uses the promoted base board and inherited submission tree; preserves every one of its 91 board curves byte-for-byte.",
+    "evidence": "Base source ref 6ba47be87b244dd27034fd7f37eee458d1bb817d. The only added board file is submission/board/own-4x2-r7-p296037-q1024556.ec. The new curve has contribution zero and the full board is checked against that base. The inherited score is not claimed as our gain."
+  },
+  {
+    "submissionId": "2ea1e21f-882c-4546-9149-635ecd60c757",
+    "rationale": "Reuses zereraz's CPU Mestre-Nagao table sieve source, with our optional small-prime divisibility filters.",
+    "evidence": "Inherited submission/search/gpu-table-sieve/src/kub.c last changed at source commit 2ab8076548d3779a9138cd5c81246081ae71a6fa. Our submission/search/own-4x2-r7/sieve.c carries that source with added EC_QRICH/EC_PRICH filtering. It generated our own independently enumerated parameter pair (296037,1024556). No predecessor curve or point list was used for the new witness."
+  },
+  {
+    "submissionId": "382b1e9b-0d43-4cac-9980-d506053dd9c8",
+    "rationale": "Uses the inherited family polynomial encoding from zereraz's FAM 44 entry.",
+    "evidence": "Inherited submission/search/gpu-table-sieve/src/fams.txt, FAM 44, encodes [0,p^2+q^2,0,p^2*q^2,0]. Its current version was carried by source commit 97d00fbc0afec41a4bce2ccb036865ce67a89c30. The reproduced curve is our own specialization at a pair selected by our search, as documented in submission/search/own-4x2-r7/discovery.txt and reproduce.gp."
+  }
+]
