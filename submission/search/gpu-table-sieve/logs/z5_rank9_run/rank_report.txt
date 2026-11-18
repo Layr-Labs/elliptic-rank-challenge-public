@@ -1,8 +1,0 @@
-rank stage: 0 s wall
-ranked 11 curves; lower-bound rank histogram: [(4, 1), (5, 1), (6, 1), (7, 3), (8, 4), (9, 1)]
-  rank >= 5: n=1  H min 19.785  median 19.785
-  rank >= 6: n=1  H min 20.329  median 20.329
-  rank >= 7: n=3  H min 20.008  median 20.338
-  rank >= 8: n=4  H min 19.433  median 20.389
-  rank >= 9: n=1  H min 20.436  median 20.436
-verifier screen: 1 curves, see <work>/runs/camp_5xa5n1_19.4_20.5/verify.log

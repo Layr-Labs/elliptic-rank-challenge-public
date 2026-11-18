@@ -1,4 +1,0 @@
-plain FAM 67 dirs: distinct ranked curves: 617
-rank >= 6 (486 curves): n>=1: observed 371 of 486 (76 %) vs 170.6 expected for a random inner value (x2.2); n>=2: observed 228 of 486 (47 %) vs 30.2 expected for a random inner value (x7.5); n>=3: observed 90 of 486 (19 %) vs 3.2 expected for a random inner value (x28.1)
-rank >= 7 (353 curves): n>=1: observed 291 of 353 (82 %) vs 123.5 expected for a random inner value (x2.4); n>=2: observed 190 of 353 (54 %) vs 21.8 expected for a random inner value (x8.7); n>=3: observed 81 of 353 (23 %) vs 2.3 expected for a random inner value (x35.2)
-rank >= 8 (85 curves): n>=1: observed 68 of 85 (80 %) vs 29.4 expected for a random inner value (x2.3); n>=2: observed 50 of 85 (59 %) vs 5.2 expected for a random inner value (x9.7); n>=3: observed 26 of 85 (31 %) vs 0.5 expected for a random inner value (x47.8)
