@@ -1,0 +1,7 @@
+2026-11-19T18:35:24Z start sieve6 tag=lot-z3b-om14 family=z3b table=search/lottery/tables/z3 spans=work/build-lottery/enum/z3b-om14 pairs= rows=1930117 spans=1930117 total_cand=9130584461462 lims=300,2000,10000 np1=60 np2=1227 groups=8 K2=16384 KC=209 sumB300=10563 sumB2000=32475 err300<=0.1435 err2000<=0.7201 dense groups=29 lane cuts 12623 38175 cut1=10 cut2=28 cut3=40 hshell=[8,14.75) dedup=1 duty=1 dauto=82 batch=5e+07 code=bin:cce62a27700c3573
+2026-11-19T18:35:24Z duty-auto: mean 85.1 C over 30 s -> duty 0.95
+2026-11-19T18:36:54Z duty-auto: mean 83.4 C over 30 s -> duty 0.90
+2026-11-19T18:37:24Z duty-auto: mean 82.8 C over 30 s -> duty 0.85
+2026-11-19T18:37:54Z duty-auto: mean 83.4 C over 30 s -> duty 0.80
+2026-11-19T18:38:24Z duty-auto: mean 82.6 C over 30 s -> duty 0.75
+2026-11-19T18:39:24Z duty-auto: mean 82.1 C over 30 s -> duty 0.70
