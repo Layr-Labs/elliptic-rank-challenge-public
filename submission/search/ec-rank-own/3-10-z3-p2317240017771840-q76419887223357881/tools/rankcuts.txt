@@ -1,0 +1,11 @@
+# fam  min S(1e4) (sieve convention, l >= 5) for a survivor to be ranked; read every round by lotrank.sh
+# z6k: frozen rank-9 min 36.85, test rank-10 52.88; z5: frozen rank-9 45.69 (2 curves), test rank-10 38.88; leg: frozen rank-9 min 36.71, test 39.79
+z6k 35.5
+z5 36
+leg 36
+conic-z6k- 40
+conic-leg- 40
+uc- 34
+uc8- 30
+# z3: frozen rank-9 (a != 0) S1e4 >= 51.2, the 3/10 record 64.6 in the GPU convention (a_l = 0 for l | a)
+z3 50
