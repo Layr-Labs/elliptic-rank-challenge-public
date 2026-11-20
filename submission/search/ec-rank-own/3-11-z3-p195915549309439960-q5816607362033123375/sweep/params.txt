@@ -1,0 +1,7 @@
+2026-11-20T07:47:43Z start sieve6 tag=lot-z3u11-s97e13b family=z3b table=search/lottery/tables/z3 spans=work/build-lottery/enum/z3u11-s97e13b pairs= rows=4056004 spans=4342863 total_cand=3644880568057 lims=300,2000,10000 np1=60 np2=1227 groups=8 K2=16384 KC=209 sumB300=10563 sumB2000=32475 err300<=0.1435 err2000<=0.7201 dense groups=29 lane cuts 12623 38175 cut1=10 cut2=28 cut3=40 hshell=[8,13.9996) dedup=1 duty=1 dauto=82 batch=5e+07 code=bin:edc0e271d6317efb
+2026-11-20T07:58:43Z duty-auto: mean 82.7 C over 30 s -> duty 0.95
+2026-11-20T07:59:43Z duty-auto: mean 82.8 C over 30 s -> duty 0.90
+2026-11-20T08:01:14Z duty-auto: mean 84.0 C over 30 s -> duty 0.85
+2026-11-20T08:02:14Z duty-auto: mean 82.2 C over 30 s -> duty 0.80
+2026-11-20T08:03:14Z duty-auto: mean 83.1 C over 30 s -> duty 0.75
+2026-11-20T08:05:27Z DONE cand_run=3644880568057 busy_s=960.019 dense_s=768.267 stage2_s=39.846 stage3_s=58.874 wall_run_s=1063.87 wall_total_s=1063.87 paused_s=9.0 dense_cand_per_s=4.744e+09 s2_in_per_s=1287 s3_in_per_s=530.3 cand_per_s_busy=3.797e+09 cand_per_s_wall=3.426e+09 n1=51284 n300=49945 n2000=31223 final=10450 dropped_out_of_shell=1 dropped_duplicates=0 singular=1849

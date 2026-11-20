@@ -1,0 +1,1 @@
+2026-11-19T20:56:21Z z4 table: cmd1 then cmd2 on core 19 in a 1.5G scope (fam3.gp/famtab3.gp sha256 e70ec9c92f60 b9a662bb7c85 )
