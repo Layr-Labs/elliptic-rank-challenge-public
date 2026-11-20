@@ -1,0 +1,133 @@
+--- ../../search/lottery/lotsieve7.cu	2026-11-19 22:05:44.748319484 +0000
++++ lotsieve7v.cu	2026-11-20 12:46:52.699266269 +0000
+@@ -72,7 +72,7 @@
+   return gcd_u(a, (unsigned int)((unsigned long long)q % a)) == 1; }
+ 
+ struct __align__(16) PP { int l; unsigned int m; int off; int ioff; };
+-__constant__ int c_cube, c_nogcd, c_swap, c_wide, c_z4;   // c_z4 (z4b): row u, inner s, t = u D^-1 s^-2 mod l
++__constant__ int c_cube, c_nogcd, c_swap, c_wide, c_z4, c_vmul;   // c_vmul (build-dside --vmul): z3b/z3w inner a = Mv i, Mv = R.M (z3b) or R.tri (z3w), Mv | 6   // c_z4 (z4b): row u, inner s, t = u D^-1 s^-2 mod l
+ __device__ const signed char* g_QR;          // z4b: kronecker(x, l) at INV offsets
+ __device__ const unsigned short* g_DV;       // z4b: D^-1 mod l stored at each prime's INV offset (0 when l | D)
+ __device__ const unsigned short* g_INVP;     // z4b: the INV table (inverses mod l at the INV offsets)   // c_wide (z3w): row value |b| = (M << 64) | (uint64) q, multiplier 1   // c_swap (z3b): row value = |b|, inner i = a, t = b a^-3 mod l   // z3: row residue = (a mod l)^3; no coprimality filter (the host checks weighted primitivity)
+@@ -114,8 +114,16 @@
+   if (!am) return pp.l;
+   const unsigned int iv = INV[pp.ioff + am], iv2 = fmod32(iv * iv, pp.m, pp.l), iv3 = fmod32(iv2 * iv, pp.m, pp.l);
+   unsigned int t = fmod32(bres * iv3, pp.m, pp.l); return (neg && t) ? pp.l - t : t; }
+-// z3w row offset A0 (tri = low 32 bits, pad = high 32 bits) mod l as a true residue
++// --vmul (build-dside): a = Mv i, so t = b a^-3 = (b Mv^-3) i^-3: replace the row constant b by b Mv^-3 mod l.
++// Table primes start at 5 and the host refuses Mv with a prime factor >= 5, so l never divides Mv (no constant class l).
++__device__ __forceinline__ unsigned int vfix(unsigned int br, const RowD& R, unsigned int m, unsigned int l, int ioff, const unsigned short* __restrict__ INV) {
++  if (!c_vmul || !br) return br;
++  const unsigned int mv = (unsigned int)(c_wide ? R.tri : (int)R.M) % l;
++  const unsigned int iv = INV[ioff + mv], iv3 = fmod32(fmod32(iv * iv, m, l) * iv, m, l);
++  return fmod32(br * iv3, m, l); }
++// z3w row offset A0 (tri = low 32 bits, pad = high 32 bits) mod l as a true residue (--vmul: tri holds Mv, A0 = 0)
+ __device__ __forceinline__ unsigned int a0res(const RowD& R, unsigned int m, unsigned int l) {
++  if (c_vmul) return 0;
+   const long long A0 = ((long long)R.pad << 32) | (long long)(unsigned int)R.tri; if (!A0) return 0;
+   if (A0 > 0) return mod64u((unsigned long long)A0, m, l); const unsigned int r = mod64u((unsigned long long)(-A0), m, l); return r ? l - r : 0; }
+ 
+@@ -127,7 +135,7 @@
+     const RowD R = rows[row0];
+     for (int b = 0; b < n; b += 32) {
+       unsigned int wj = 0xFFFFu, wpj = 0; const int ii = b + lane;
+-      if (ii < n) { const PP pp = sp[ii]; if (c_z4) wj = z4_rho(R.q, R.M, pp.ioff, pp.m, pp.l); else if (c_swap) { wj = bres_of(R.q, R.M, pp.m, pp.l); wpj = c_wide ? a0res(R, pp.m, pp.l) : 0; } else { wj = rho_of(R.q, R.M, pp, INV); if (wj != 0xFFFFu) wpj = SHT[pp.ioff + wj]; } }
++      if (ii < n) { const PP pp = sp[ii]; if (c_z4) wj = z4_rho(R.q, R.M, pp.ioff, pp.m, pp.l); else if (c_swap) { wj = vfix(bres_of(R.q, R.M, pp.m, pp.l), R, pp.m, pp.l, pp.ioff, INV); wpj = c_wide ? a0res(R, pp.m, pp.l) : 0; } else { wj = rho_of(R.q, R.M, pp, INV); if (wj != 0xFFFFu) wpj = SHT[pp.ioff + wj]; } }
+       const int cnt = min(32, n - b);
+       for (int u = 0; u < cnt; u++) {
+         const unsigned int w = __shfl_sync(FULL, wj, u), wp = __shfl_sync(FULL, wpj, u);
+@@ -145,7 +153,7 @@
+     for (int k = 0; k < n; k++) {
+       const PP pp = sp[k]; unsigned int t;
+       if (c_z4) { s += z4_w(ai, z4_rho(R.q, R.M, pp.ioff, pp.m, pp.l), pp, INV, base); continue; }
+-      if (c_swap) { t = swap_t(ai, neg, bres_of(R.q, R.M, pp.m, pp.l), pp, INV, c_wide ? a0res(R, pp.m, pp.l) : 0); s += base[pp.off + t]; continue; }
++      if (c_swap) { t = swap_t(ai, neg, vfix(bres_of(R.q, R.M, pp.m, pp.l), R, pp.m, pp.l, pp.ioff, INV), pp, INV, c_wide ? a0res(R, pp.m, pp.l) : 0); s += base[pp.off + t]; continue; }
+       const unsigned int w = rho_of(R.q, R.M, pp, INV);
+       if (w != 0xFFFFu) { const unsigned int wp = SHT[pp.ioff + w]; t = ai * w - __umulhi(ai, wp) * (unsigned int)pp.l; t = t >= (unsigned int)pp.l ? t - pp.l : t; t = (neg && t) ? pp.l - t : t; }
+       else t = pp.l;
+@@ -253,12 +261,13 @@
+     const unsigned int l = c_l[tid], m = cd_m[tid], mm = c_wide ? 1u : qmod(R.M, m, l);
+     const unsigned int qm = c_wide ? bres_of(R.q, R.M, m, l) : rowres(R.q, m, l);   // class qk = 0 mod l (row 0) takes precedence over l | M (row l), as in the exact stages
+     srow[tid] = !qm ? 0 : (mm ? (int)fmod32(qm * (unsigned int)INV[cd_ioff[tid] + mm], m, l) : (int)l);
++    if (c_vmul) srow[tid] = (int)vfix(qm, R, m, l, cd_ioff[tid], INV);   // z3b/z3w with a = Mv i: row b Mv^-3 (0 when l | b)
+     if (c_z4) { const unsigned int rr = z4_rho(R.q, R.M, cd_ioff[tid], m, l); srow[tid] = rr == 0xFFFEu ? (int)l : (rr == 0xFFFCu ? (int)l + 1 : (rr == 0xFFFBu ? (int)l + 2 : (int)rr)); }
+     ssh[tid] = c_wide ? (int)a0res(R, m, l) : 0;
+   }
+   for (int i = tid; i < cb_np; i += NTD) {   // rho = M qk^-1 mod l; 0: l | qk (class infinity); -1: l | M (t = 0)
+     const unsigned int l = cb_l[i], m = cb_m[i], qm = c_wide ? bres_of(R.q, R.M, m, l) : rowres(R.q, m, l), mm = c_wide ? 1u : qmod(R.M, m, l);
+-    sinv[i] = c_swap ? (int)qm : (!qm ? 0 : (!mm ? -1 : (int)fmod32(mm * (unsigned int)INV[cb_ioff[i] + qm], m, l)));
++    sinv[i] = c_swap ? (int)vfix(qm, R, m, l, cb_ioff[i], INV) : (!qm ? 0 : (!mm ? -1 : (int)fmod32(mm * (unsigned int)INV[cb_ioff[i] + qm], m, l)));
+     if (c_z4) { const unsigned int rr = z4_rho(R.q, R.M, cb_ioff[i], m, l); sinv[i] = rr == 0xFFFEu ? -3 : (rr == 0xFFFCu ? -4 : (rr == 0xFFFBu ? -5 : (int)rr)); }
+   }
+   __syncthreads();
+@@ -417,7 +426,7 @@
+               hb = std::string(ROOT) + "/work/gpusieve/heartbeat", stopf = std::string(ROOT) + "/work/gpusieve/STOP", code = "?";
+   int lim1 = 300, lim2 = 2000, lim3 = 10000;
+   double K2 = 16384, cut1 = -1e9, cut2 = -1e9, cut3 = -1e9, duty = 1.0, batch = 4e8, dauto = 0, hlo = -1e9, hhi = 1e9;
+-  bool resume = false, nowd = false, dedup = true; long maxbatches = -1;
++  bool resume = false, nowd = false, dedup = true, vmul = false; long maxbatches = -1;
+   for (int i = 1; i < argc; i++) {
+     std::string a = argv[i]; auto nx = [&]() { if (i + 1 >= argc) { fprintf(stderr, "missing value for %s\n", a.c_str()); exit(1); } return std::string(argv[++i]); };
+     if (a == "--table") table = nx(); else if (a == "--family") family = nx(); else if (a == "--tag") tag = nx();
+@@ -426,6 +435,7 @@
+     else if (a == "--hshell") { hlo = atof(nx().c_str()); hhi = atof(nx().c_str()); }
+     else if (a == "--duty") duty = atof(nx().c_str()); else if (a == "--duty-auto") dauto = atof(nx().c_str()); else if (a == "--batch") batch = atof(nx().c_str());
+     else if (a == "--outdir") outdir = nx(); else if (a == "--runid") runid = nx(); else if (a == "--resume") resume = true; else if (a == "--code") code = nx();
++    else if (a == "--vmul") vmul = true;
+     else if (a == "--no-dedup") dedup = false; else if (a == "--max-batches") maxbatches = atol(nx().c_str());
+     else if (a == "--stop") stopf = nx();
+     else if (a == "--no-watchdog-i-know") nowd = true;
+@@ -541,14 +551,21 @@
+       RowD r; r.q = qk; r.M = M; r.tri = 0; r.pad = 0; rows.push_back(r); spans.push_back({(int)rows.size() - 1, (int)(pk / M), 1}); }
+     if (fp) fclose(fp);
+   } else {
+-    const bool r64 = exists(spansf + ".rows64");
+-    std::string rb = slurp(spansf + (r64 ? ".rows64" : ".rows")), sb = slurp(spansf + ".spans");
++    const bool r64 = exists(spansf + (vmul ? ".vrows64" : ".rows64"));   // --vmul: build-dside rows (.vrows / .vrows64) only
++    std::string rb = slurp(spansf + (vmul ? (r64 ? ".vrows64" : ".vrows") : (r64 ? ".rows64" : ".rows"))), sb = slurp(spansf + ".spans");
+     const size_t rs = r64 ? 24 : 16; size_t nr = rb.size() / rs, ns = sb.size() / 12; rows.resize(nr); spans.resize(ns);
+     for (size_t k = 0; k < nr; k++) { memcpy(&rows[k].q, rb.data() + rs * k, 8); rows[k].pad = 0;
+       if (r64) { memcpy(&rows[k].M, rb.data() + 24 * k + 8, 8); memcpy(&rows[k].tri, rb.data() + 24 * k + 16, 4); memcpy(&rows[k].pad, rb.data() + 24 * k + 20, 4); }
+       else { int m32; memcpy(&m32, rb.data() + 16 * k + 8, 4); rows[k].M = m32; memcpy(&rows[k].tri, rb.data() + 16 * k + 12, 4); } }
+     memcpy(spans.data(), sb.data(), 12 * ns);
+   }
++  if (vmul) {   // build-dside: a = Mv i with Mv = 2^x 3^y (z3b: row M; z3w: tri, pad 0); table primes start at 5
++    if ((g_fam != 4 && g_fam != 5) || g_conic || (valmode && g_fam == 5)) { fprintf(stderr, "--vmul is for z3b (spans or pairs) and z3w (spans) only\n"); return 1; }
++    if (rows.empty()) { fprintf(stderr, "--vmul: no rows (missing PREFIX.vrows/.vrows64?)\n"); return 1; }
++    for (auto& R : rows) { long long mv = g_fam == 5 ? (long long)R.tri : R.M; if (g_fam == 5 && R.pad != 0) { fprintf(stderr, "--vmul: z3w row with pad != 0\n"); return 1; }
++      if (mv <= 0) { fprintf(stderr, "--vmul: row multiplier %lld <= 0\n", mv); return 1; }
++      while (mv % 2 == 0) mv /= 2; while (mv % 3 == 0) mv /= 3; if (mv != 1) { fprintf(stderr, "--vmul: row multiplier with a prime >= 5\n"); return 1; } }
++    fprintf(stderr, "vmul: %zu rows, inner a = Mv i\n", rows.size()); }
+   double totcand = 0; for (auto& s : spans) totcand += s.len;
+ 
+   // ---- resume
+@@ -574,7 +591,7 @@
+   CK(cudaSetDeviceFlags(cudaDeviceScheduleBlockingSync));
+   CK(cudaMemcpyToSymbol(c_l, L1.data(), np1 * 4)); CK(cudaMemcpyToSymbol(c_soff, soff.data(), np1 * 4)); CK(cudaMemcpyToSymbol(c_poff, poff.data(), np1 * 8));
+   CK(cudaMemcpyToSymbol(c_np, &np1, 4));
+-  { int cub = g_fam == 3, nog = g_fam >= 3, swp = g_fam == 4 || g_fam == 5, wid = g_fam == 5; CK(cudaMemcpyToSymbol(c_wide, &wid, 4)); CK(cudaMemcpyToSymbol(c_cube, &cub, 4)); CK(cudaMemcpyToSymbol(c_nogcd, &nog, 4)); CK(cudaMemcpyToSymbol(c_swap, &swp, 4)); }
++  { int cub = g_fam == 3, nog = g_fam >= 3, swp = g_fam == 4 || g_fam == 5, wid = g_fam == 5; CK(cudaMemcpyToSymbol(c_wide, &wid, 4)); CK(cudaMemcpyToSymbol(c_cube, &cub, 4)); CK(cudaMemcpyToSymbol(c_nogcd, &nog, 4)); CK(cudaMemcpyToSymbol(c_swap, &swp, 4)); int vmc = vmul ? 1 : 0; CK(cudaMemcpyToSymbol(c_vmul, &vmc, 4)); }
+   CK(cudaMemcpyToSymbol(c2_l, l2.data(), np2 * 4)); CK(cudaMemcpyToSymbol(c2_off, off2.data(), np2 * 4)); CK(cudaMemcpyToSymbol(c2_ioff, ioff2.data(), np2 * 4)); CK(cudaMemcpyToSymbol(c2_m, m2.data(), np2 * 4));
+   CK(cudaMemcpyToSymbol(cd_step, dstep.data(), np1 * 4)); CK(cudaMemcpyToSymbol(cd_m, dm.data(), np1 * 4)); CK(cudaMemcpyToSymbol(cd_ioff, dioff.data(), np1 * 4));
+   CK(cudaMemcpyToSymbol(cb_l, bl.data(), npb * 4)); CK(cudaMemcpyToSymbol(cb_woff, bwoff.data(), npb * 4)); CK(cudaMemcpyToSymbol(cb_goff, bgoff.data(), npb * 4));
+@@ -622,9 +639,9 @@
+   if (!resume) fprintf(fpg, "utc\tspan_done\tqk_done\tcand_done\tfrac_done\tdense_cand_per_s\ts2_in_per_s\ts3_in_per_s\tcand_per_s_busy\tcand_per_s_wall\tn1\tn300\tn2000\tn_final\tgpu_C\tpower_W\tmax_C\tpaused_s\tduty\twall_s\n");
+   { FILE* fp = fopen((outdir + "/params.txt").c_str(), resume ? "a" : "w");
+     fprintf(fp, "%s start%s sieve6 tag=%s family=%s table=%s spans=%s pairs=%s rows=%zu spans=%zu total_cand=%.0f lims=%d,%d,%d np1=%d np2=%d groups=%zu K2=%g "
+-                "KC=%g sumB300=%d sumB2000=%d err300<=%.4f err2000<=%.4f dense groups=%zu lane cuts %u %u cut1=%g cut2=%g cut3=%g hshell=[%g,%g) dedup=%d duty=%g dauto=%g batch=%g code=%s\n",
++                "KC=%g sumB300=%d sumB2000=%d err300<=%.4f err2000<=%.4f dense groups=%zu lane cuts %u %u cut1=%g cut2=%g cut3=%g hshell=[%g,%g) dedup=%d duty=%g dauto=%g batch=%g code=%s vmul=%d\n",
+             utc().c_str(), resume ? "(resume)" : "", tag.c_str(), family.c_str(), table.c_str(), spansf.c_str(), pairsf.c_str(), rows.size(), spans.size(), totcand, lim1, lim2, lim3, np1, np2,
+-            groups.size(), K2, KC, sumBC1, sumBC, errC1, errC2, bgs.size() - 1, cut1vd, cut2vd, cut1, cut2, cut3, hlo, hhi, (int)dedup, duty, dauto, batch, code.c_str());
++            groups.size(), K2, KC, sumBC1, sumBC, errC1, errC2, bgs.size() - 1, cut1vd, cut2vd, cut1, cut2, cut3, hlo, hhi, (int)dedup, duty, dauto, batch, code.c_str(), (int)vmul);
+     fclose(fp); }
+ 
+   size_t si = ck_sp; long so = ck_off;
+@@ -694,7 +711,7 @@
+         kept++; continue;
+       }
+       if (g_fam == 5) {   // z3w: a = inner, |b| = (M << 64) | q; normalise to a > 0; weighted-primitive; print p = b, q = a^3 (decimal, 128-bit)
+-        long long a = (((long long)R.pad << 32) | (long long)(unsigned int)R.tri) + r.p; __int128 b = ((__int128)R.M << 64) | (__int128)(unsigned long long)R.q; if (a < 0) { a = -a; b = -b; }
++        long long a = vmul ? (long long)R.tri * r.p : (((long long)R.pad << 32) | (long long)(unsigned int)R.tri) + r.p; __int128 b = ((__int128)R.M << 64) | (__int128)(unsigned long long)R.q; if (a < 0) { a = -a; b = -b; }
+         if (a >= 5000000000000LL) { nsing++; continue; }   // a^3 must stay inside int128 (|a| < 5e12 covers H < 29)
+         const __int128 a3 = (__int128)a * a * a;
+         if (valmode) { fprintf(fs, "%s %s %d %d %d\n", s128(b).c_str(), s128(a3).c_str(), r.s300, r.s2000, r.s10000); kept++; continue; }
