@@ -1,0 +1,200 @@
+# 2026-11-20 06:20Z owner: exhaustive Z/3 class sweeps around i34-9's 3/10 (97-smooth, prime powers allowed), 3/11 and 3/9
+z3u10-s97k11	z3b	search/lottery/tables/z3	8.0	12.16	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3u10-s97k11 z3b 9000000000000000000 8.0 12.16 -1 0 --qlist work/z3u/om_97_11_1340000000000000.txt
+z3u11-s97k14	z3b	search/lottery/tables/z3	8.0	14.4353	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3u11-s97k14 z3b 9000000000000000000 8.0 14.4353 -1 0 --qlist work/z3u/om_97_14_1200000000000000000.txt
+z3u9-s200k9	z3b	search/lottery/tables/z3	6.0	9.5128	8	24	36	82	search/lottery/bin/lotenum work/build-lottery/enum/z3u9-s200k9 z3b 9000000000000000000 6.0 9.5128 -1 0 --qlist work/z3u/om_200_9_480000000000.txt
+#z3u11-s97e13	z3b	search/lottery/tables/z3	8.0	14.4353	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3u11-s97e13 z3b 9000000000000000000 8.0 14.4353 -1 0 --qlist work/z3u/om_97_eq13_1.2e18.txt
+z3u12-s97k17	z3w	search/lottery/tables/z3	14.5	17.864	10	28	40	82	search/lottery/bin/lotenumwd work/build-lottery/enum/z3u12-s97k17 work/z3u/om_97_17_3.4e22.txt 14.5 17.864 --offset
+z3u13-s97k19	z3w	search/lottery/tables/z3	16.5	20.199	10	28	40	82	search/lottery/bin/lotenumwd work/build-lottery/enum/z3u13-s97k19 work/z3u/om_97_19_3.6e25.txt 16.5 20.199 --offset
+z3u13-s97e18a	z3w	search/lottery/tables/z3	16.5	20.199	10	28	40	82	search/lottery/bin/lotenumwd work/build-lottery/enum/z3u13-s97e18a work/z3u/om_97_eq18_head5000.txt 16.5 20.199 --offset
+z3u11-s97e13b	z3b	search/lottery/tables/z3	8.0	13.9996	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3u11-s97e13b z3b 9000000000000000000 8.0 13.9996 -1 0 --qlist work/z3u/om_97_eq13_1.2e18.txt
+z3u10-s97e10	z3b	search/lottery/tables/z3	8.0	12.16	12	32	50	82	search/lottery/bin/lotenum work/build-lottery/enum/z3u10-s97e10 z3b 9000000000000000000 8.0 12.16 -1 0 --qlist work/z3u/om_97_eq10_1.34e15.txt
+# 2026-11-20 06:05Z owner: i34-9 took 3/10 at H 12.159425 (03564c55, our omega method, 97-smooth b). Parked om11 lists rerun below 12.16 first.
+z3u10-b11-01	z3b	search/lottery/tables/z3	8.0	12.16	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3u10-b11-01 z3b 9000000000000000000 8.0 12.16 -1 0 --qlist search/lottery/z3lists/b11-01
+z3u10-b11-02	z3b	search/lottery/tables/z3	8.0	12.16	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3u10-b11-02 z3b 9000000000000000000 8.0 12.16 -1 0 --qlist search/lottery/z3lists/b11-02
+z3u10-b10-00	z3b	search/lottery/tables/z3	8.0	12.16	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3u10-b10-00 z3b 9000000000000000000 8.0 12.16 -1 0 --qlist search/lottery/z3lists/b10-00
+z3u10-b10-01	z3b	search/lottery/tables/z3	8.0	12.16	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3u10-b10-01 z3b 9000000000000000000 8.0 12.16 -1 0 --qlist search/lottery/z3lists/b10-01
+# build-lottery GPU queue (re-read before every region).  id fam table hlo hhi cut1 cut2 cut3 dauto enum-command (run from the campaign root)
+# Order (07:47Z): expected rank-11 yield per GPU second = family rank-10 rate (rivals, A1 in the status file) x budget proxy
+# P(log10 b >= -1) of the region's class members (work/build-lottery/bdist/summary.txt) / that of the rival's test class.
+# 2026-11-19 22:4xZ Z/3 ladder volume (owner/lead: ladder first, max-minus-one omega tiers, <= ~1 GPU-hour each): squarefree b, primes <= 200, smallest-b prefix of ~2e13 positions.
+z3w-r12b	z3w	search/lottery/tables/z3	16.0	17.864	10	28	40	82	search/lottery/bin/lotenumwd work/build-lottery/enum/z3w-r12b work/build-lottery/z3/ladder/z3w-r12b.list 16.0 17.864 --offset
+z3w-r13c	z3w	search/lottery/tables/z3	18.0	20.2	10	28	40	82	search/lottery/bin/lotenumwd work/build-lottery/enum/z3w-r13c work/build-lottery/z3/ladder/z3w-r13c.list 18.0 20.2 --offset
+z3w-r13d	z3w	search/lottery/tables/z3	18.0	20.2	10	28	40	82	search/lottery/bin/lotenumwd work/build-lottery/enum/z3w-r13d work/build-lottery/z3/ladder/z3w-r13d.list 18.0 20.2 --offset
+z3w-r14c	z3w	search/lottery/tables/z3	19.5	22.49	10	28	40	82	search/lottery/bin/lotenumwd work/build-lottery/enum/z3w-r14c work/build-lottery/z3/ladder/z3w-r14c.list 19.5 22.49 --offset
+z3w-r14d	z3w	search/lottery/tables/z3	19.5	22.49	10	28	40	82	search/lottery/bin/lotenumwd work/build-lottery/enum/z3w-r14d work/build-lottery/z3/ladder/z3w-r14d.list 19.5 22.49 --offset
+z3w-r15a	z3w	search/lottery/tables/z3	21.5	24.0	10	28	40	82	search/lottery/bin/lotenumwd work/build-lottery/enum/z3w-r15a work/build-lottery/z3/ladder/z3w-r15a.list 21.5 24.0 --offset
+z3w-r15b	z3w	search/lottery/tables/z3	21.5	24.0	10	28	40	82	search/lottery/bin/lotenumwd work/build-lottery/enum/z3w-r15b work/build-lottery/z3/ladder/z3w-r15b.list 21.5 24.0 --offset
+# 2026-11-19 22:5xZ Z/4 4/10 (owner: GO; after the Z/3 ladder slices): u 47-smooth <= 5.9e12 with omega >= 8, s free, D = +1 and -1, H [13.5, 15.3894); ~1e13 positions each.
+z4r10-1	z4b	search/lottery/tables/z4	13.5	15.3894	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4r10-1 z4b 5900000000000 13.5 15.3894 -1 0 --qlist work/build-lottery/z4/u47x59e11k8.bin --dconst 1
+z4r10-m1	z4b	search/lottery/tables/z4	13.5	15.3894	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4r10-m1 z4b 5900000000000 13.5 15.3894 -1 0 --qlist work/build-lottery/z4/u47x59e11k8.bin --dconst -1
+# 2026-11-19 18:3xZ owner order: (1) 3/11 Z/3 ladder (design-patterns): b <= 1.1e18 with omega(b) >= 14, all a, H < 14.75 (board 14.74411).
+# 2026-11-19 18:4xZ owner order (2): Z/6 smooth pairs for 6/11 (helpers/design-patterns.z6-classes.md); first the 15-minute model check: both lists
+# 100-smooth, omega >= 6 each, omega(pk)+omega(qk) >= 13, gcd 1, H [19, 25.5) (lotpair; smooth-pair restriction also in i34-9's public 5/10 note, idea only).
+# 2026-11-19 ~18:3xZ Z/3 option A (design-patterns, helpers/design-patterns.z3-classes.md): rows = |b| from its rate-ranked lists (omega(b) >= 11
+# universe, then the best 2.5M of omega = 10 with 25 | b), inner a of both signs, H < 12.675; lotsieve7 --family z3b (validated: record recalled,
+# 3000/3000 exact sums == PARI, dense path == all-exact 20/20 and 2054/2054).  ~4.4e11 positions in all.
+# 2026-11-19 ~15:50Z build-lottery note 3: Z/3 (y^2 + a x y + b y = x^3) for 3/10 (below 12.669669; 3/9 and 3/11 by-products), ahead of the
+# 6/11 hunt.  Rows = a (the GPU cubes the row residue: t = b/a^3), inner b = D i; H of the (a,b) model in [8, 12.77); weighted-primitive
+# pairs only (host).  Enumerations pre-built AND row-filtered to gcd(a,6) = 1 (search/lottery/rowsfilter.py): if re-enumerated, filter again.
+# 2026-11-19 16:1xZ measured: z3-r1 (D with 17) 37 rank-9 per 1e12 positions, z3-r2 (higher 2,3 powers) 3.4: more distinct primes in b;
+# next D = 2^5 3^3 5^2 x four of {7,11,13,17,19}, then 8 primes, then 5^1 (z3-r8 contains z3-r1: 20% overlap).  All row-filtered gcd(a,6) = 1.
+# 2026-11-19 17:1xZ Z/3 batch 2 (8 regions measured: 334 rank 9, no rank 10; yield per GPU-second grows with the number of distinct primes
+# in D): the largest D <= 2e9 with 7-8 primes (z3-r9..r12 dropped: D > 2e9).  Row-filtered gcd(a,6) = 1.
+# 2026-11-19 17:2xZ Z/3 batch 3 (owner + design-patterns: rank 9 sits on b with many DISTINCT small primes, omega(b) >= 11 lift 6.4, powers
+# hurt): every squarefree D = 2*3*5 * 9 or 8 primes of 7..47 (omega(D) 12 then 11), 50 moduli per region via lotenum --mlist (64-bit M,
+# .rows64); 715 moduli, 8.1e11 positions in all; repeated curves (b divisible by two listed D) are dropped by the ranker.
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w11-12	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-12 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-12.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w11-13	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-13 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-13.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w11-14	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-14 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-14.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w11-15	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-15 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-15.txt
+# 2026-11-19 Z/3 batch 4: every squarefree D = 2*3*5 * 7 of {7..47} (omega(D) = 10), 25 moduli per region, H < 12.675 (pre-enumerated).
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-01	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-01 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-01.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-02	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-02 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-02.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-03	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-03 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-03.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-04	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-04 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-04.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-05	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-05 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-05.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-06	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-06 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-06.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-07	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-07 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-07.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-08	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-08 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-08.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-09	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-09 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-09.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-10	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-10 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-10.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-11	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-11 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-11.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-12	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-12 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-12.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-13	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-13 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-13.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-14	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-14 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-14.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-15	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-15 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-15.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-16	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-16 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-16.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-17	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-17 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-17.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-18	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-18 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-18.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-19	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-19 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-19.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-20	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-20 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-20.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-21	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-21 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-21.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-22	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-22 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-22.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-23	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-23 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-23.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-24	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-24 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-24.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-25	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-25 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-25.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-26	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-26 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-26.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-27	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-27 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-27.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-28	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-28 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-28.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-29	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-29 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-29.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-30	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-30 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-30.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-31	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-31 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-31.txt
+# 2026-11-19 18:3xZ dropped (owner: 3/10 is ours, a lower one adds little): z3-w10-32	z3	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w10-32 z3 1000000 8.0 12.675 -1 0 --mlist search/lottery/z3lists/w10-32.txt
+# 2026-11-19 ~11:50Z build-lottery note 2 (owner): rank-9 undercut regions first (6/9 < 18.445122, 4x2/9 < 19.016457, 5/9 < 20.436404 on the
+# fibre minimal model; integral shells = board + 0.693 (frozen offsets 0 / ln 2; Z/5 0)); unions "W-primes in pk*qk >= T" with h >= 4 outer;
+# Legendre pk >= qk and Z/5 |t| <= 1 (each curve once); cuts loose (S1e4 >= 32), ranked at S1e4 >= 34 (frozen rank-9 min 36.7).
+# 2026-11-19 12:2xZ uc-z5-1 stopped at its checkpoint (qk 117517603, 2.05e11 of 5.32e12 done): its rows+spans (5.6 GB) exceed the
+# queue MemoryMax 4G (swap, ~5e8/s); the rest runs as qk chunks a-d (same class and shell, 0.5-1.6 GB each).  uc-z5-1 z5 search/lottery/tables/z5 18.0 20.437 6 19 32 82 search/lottery/bin/lotenum work/build-lottery/enum/uc-z5-1 z5 2000000000 18.0 20.437 -2 7 --hmin 4 --tlo -1 --thi 1 --qmin 100000
+# 2026-11-19 12:5xZ rank-8 undercut shells (6/8 < 15.260014, 4x2/8 < 15.323158, 5/8 < 15.726734; integral shells = board + 0.693 / + 0 for Z/5),
+# W(pk qk) >= 4 with >= 3 on the outer value; tiny (1e11-6e11); GPU cut3 30, rank cut 30 (frozen rank-8 S1e4 min 17-33).
+# Small rich classes first (minutes each), then the measured rich ones, then the big poorer shells.
+# leg-r3 runs in the side unit lottery-conicmeas2 (Legendre conic comparison baseline); kept here after z6-r1 so the two drivers never collide
+# 2026-11-19 dropped (owner, from research-edge2: budget-poor Z/6 shell; the owner runs the Kihara/Eroshkin Z/6 families instead): z6-r5 z6k search/gpusieve/tables/z6k 25.5 26.5 3 16 34 76 search/lottery/bin/lotenum work/build-lottery/enum/z6-r5 z6k 400000000000 25.5 26.5 6 3
+# 2026-11-19 dropped (owner, from research-edge2: budget-poor Z/6 shell; the owner runs the Kihara/Eroshkin Z/6 families instead): z6-r4 z6k search/gpusieve/tables/z6k 22.0 25.5 3 16 34 76 search/lottery/bin/lotenum work/build-lottery/enum/z6-r4 z6k 119000000000 22.0 25.5 7 2
+
+zp6-b100	z6k:pair:work/build-lottery/enum/zp6-b100.P:13	search/gpusieve/tables/z6k	19.0	23.5	3	16	34	82	search/lottery/bin/lotenum work/build-lottery/enum/zp6-b100 z6k 130000000000 19.0 23.5 -1 0 --qlist work/build-lottery/plists/b100k6.Q.bin --plist work/build-lottery/plists/b100k6.P.bin --pclass
+z3b-om14	z3b	search/lottery/tables/z3	8.0	14.75	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3b-om14 z3b 9000000000000000000 8.0 14.75 -1 0 --qlist search/lottery/z3lists/om14.txt
+# 2026-11-19 20:1xZ Z/3 ladder (owner note 4): 128-bit b-list rows (lotsieve7 --family z3w, validated), one region per target cell.
+z3w-r12a	z3w	search/lottery/tables/z3	14.5	17.87	10	28	40	82	search/lottery/bin/lotenumw work/build-lottery/enum/z3w-r12a search/lottery/z3lists/ladder12_om17.txt 14.5 17.87
+z3w-r13a	z3w	search/lottery/tables/z3	16.0	20.2	10	28	40	82	search/lottery/bin/lotenumw work/build-lottery/enum/z3w-r13a search/lottery/z3lists/ladder13_om19.txt 16.0 20.2
+z3w-r14a	z3w	search/lottery/tables/z3	18.0	21.5	10	28	40	82	search/lottery/bin/lotenumw work/build-lottery/enum/z3w-r14a search/lottery/z3lists/ladder14_om20_x2e27.txt 18.0 21.5 --offset
+# 2026-11-19 21:0xZ owner option (a): z3w-r13a/r14a reruns with lower cuts (6/24/36); enum files hard-linked from the a regions.
+z3w-r13b	z3w	search/lottery/tables/z3	16.0	20.2	6	24	36	82	search/lottery/bin/lotenumw work/build-lottery/enum/z3w-r13b search/lottery/z3lists/ladder13_om19.txt 16.0 20.2
+z3w-r14b	z3w	search/lottery/tables/z3	18.0	21.5	6	24	36	82	search/lottery/bin/lotenumw work/build-lottery/enum/z3w-r14b search/lottery/z3lists/ladder14_om20_x2e27.txt 18.0 21.5 --offset
+# 2026-11-19 21:1xZ Z/4 calibration (owner note 5, z4b validated: 2400/2400 exact sums == PARI over 6 D, dense == all-exact 6689 + 9170):
+# class (47-smooth u, omega >= 5) vs control (random u) per D, s free, H [8, 12.6); gate on rank >= 9 yield per candidate (GO >= 5x, STOP < 2x).
+z4c-1-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-1-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_1_cls.bin --dconst 1
+z4c-1-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-1-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_1_ctl.bin --dconst 1
+z4c-m1-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m1-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-1_cls.bin --dconst -1
+z4c-m1-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m1-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-1_ctl.bin --dconst -1
+z4c-2-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-2-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_2_cls.bin --dconst 2
+z4c-2-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-2-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_2_ctl.bin --dconst 2
+z4c-m2-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m2-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-2_cls.bin --dconst -2
+z4c-m2-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m2-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-2_ctl.bin --dconst -2
+z4c-6-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-6-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_6_cls.bin --dconst 6
+z4c-6-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-6-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_6_ctl.bin --dconst 6
+z4c-m6-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m6-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-6_cls.bin --dconst -6
+z4c-m6-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m6-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-6_ctl.bin --dconst -6
+z4c-7-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-7-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_7_cls.bin --dconst 7
+z4c-7-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-7-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_7_ctl.bin --dconst 7
+z4c-m7-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m7-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-7_cls.bin --dconst -7
+z4c-m7-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m7-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-7_ctl.bin --dconst -7
+z4c-15-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-15-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_15_cls.bin --dconst 15
+z4c-15-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-15-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_15_ctl.bin --dconst 15
+z4c-m15-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m15-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-15_cls.bin --dconst -15
+z4c-m15-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m15-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-15_ctl.bin --dconst -15
+z4c-26-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-26-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_26_cls.bin --dconst 26
+z4c-26-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-26-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_26_ctl.bin --dconst 26
+z4c-m26-cls	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m26-cls z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-26_cls.bin --dconst -26
+z4c-m26-ctl	z4b	search/lottery/tables/z4	8.0	12.6	5	18	30	82	search/lottery/bin/lotenum work/build-lottery/enum/z4c-m26-ctl z4b 22000000000 8.0 12.6 -1 0 --qlist work/build-lottery/z4/ucal_-26_ctl.bin --dconst -26
+# 2026-11-19 22:0xZ rank-7 fillers (owner, research-undercut3): uc8 classes in the rank-7 windows; seconds of GPU each.
+uc7-z6	z6k	search/gpusieve/tables/z6k	11.8	12.7	2	12	24	82	search/lottery/bin/lotenum work/build-lottery/enum/uc7-z6 z6k 300000000 11.8 12.7 -2 4 --hmin 3
+uc7-leg	leg	search/lottery/tables/leg	11.5	12.95	2	12	24	82	search/lottery/bin/lotenum work/build-lottery/enum/uc7-leg leg 200000000 11.5 12.95 -2 4 --hmin 3 --tlo 1
+uc7-z5	z5	search/lottery/tables/z5	12.2	13.2	2	12	24	82	search/lottery/bin/lotenum work/build-lottery/enum/uc7-z5 z5 300000000 12.2 13.2 -2 4 --hmin 3 --tlo -1 --thi 1 --qmin 1000
+# 2026-11-19 19:1xZ Z/6 smooth pairs class 2 first pass (design-patterns): 200-smooth, omega >= 7 each, n <= 4.4e10, 2^3 3^2 5 | pk qk (flag-split
+# lists: rows with flags G take pk with flags 7-G), gcd 1 (2/3/5 classes), H [19, 24.5); 3.75e12 positions in all.  Pre-enumerated (enum/<id>.P).
+zp6-b200f-0	z6k:pair:work/build-lottery/enum/zp6-b200f-0.P:14	search/gpusieve/tables/z6k	19.0	24.5	3	16	34	82	search/lottery/bin/lotenum work/build-lottery/enum/zp6-b200f-0 z6k 44000000000 19.0 24.5 -1 0 --qlist work/build-lottery/plists/b200k7.Q0.bin --plist work/build-lottery/plists/b200k7.P0.bin --pclass
+zp6-b200f-1	z6k:pair:work/build-lottery/enum/zp6-b200f-1.P:14	search/gpusieve/tables/z6k	19.0	24.5	3	16	34	82	search/lottery/bin/lotenum work/build-lottery/enum/zp6-b200f-1 z6k 44000000000 19.0 24.5 -1 0 --qlist work/build-lottery/plists/b200k7.Q1.bin --plist work/build-lottery/plists/b200k7.P1.bin --pclass
+zp6-b200f-2	z6k:pair:work/build-lottery/enum/zp6-b200f-2.P:14	search/gpusieve/tables/z6k	19.0	24.5	3	16	34	82	search/lottery/bin/lotenum work/build-lottery/enum/zp6-b200f-2 z6k 44000000000 19.0 24.5 -1 0 --qlist work/build-lottery/plists/b200k7.Q2.bin --plist work/build-lottery/plists/b200k7.P2.bin --pclass
+zp6-b200f-3	z6k:pair:work/build-lottery/enum/zp6-b200f-3.P:14	search/gpusieve/tables/z6k	19.0	24.5	3	16	34	82	search/lottery/bin/lotenum work/build-lottery/enum/zp6-b200f-3 z6k 44000000000 19.0 24.5 -1 0 --qlist work/build-lottery/plists/b200k7.Q3.bin --plist work/build-lottery/plists/b200k7.P3.bin --pclass
+zp6-b200f-4	z6k:pair:work/build-lottery/enum/zp6-b200f-4.P:14	search/gpusieve/tables/z6k	19.0	24.5	3	16	34	82	search/lottery/bin/lotenum work/build-lottery/enum/zp6-b200f-4 z6k 44000000000 19.0 24.5 -1 0 --qlist work/build-lottery/plists/b200k7.Q4.bin --plist work/build-lottery/plists/b200k7.P4.bin --pclass
+zp6-b200f-5	z6k:pair:work/build-lottery/enum/zp6-b200f-5.P:14	search/gpusieve/tables/z6k	19.0	24.5	3	16	34	82	search/lottery/bin/lotenum work/build-lottery/enum/zp6-b200f-5 z6k 44000000000 19.0 24.5 -1 0 --qlist work/build-lottery/plists/b200k7.Q5.bin --plist work/build-lottery/plists/b200k7.P5.bin --pclass
+zp6-b200f-6	z6k:pair:work/build-lottery/enum/zp6-b200f-6.P:14	search/gpusieve/tables/z6k	19.0	24.5	3	16	34	82	search/lottery/bin/lotenum work/build-lottery/enum/zp6-b200f-6 z6k 44000000000 19.0 24.5 -1 0 --qlist work/build-lottery/plists/b200k7.Q6.bin --plist work/build-lottery/plists/b200k7.P6.bin --pclass
+zp6-b200f-7	z6k:pair:work/build-lottery/enum/zp6-b200f-7.P:14	search/gpusieve/tables/z6k	19.0	24.5	3	16	34	82	search/lottery/bin/lotenum work/build-lottery/enum/zp6-b200f-7 z6k 44000000000 19.0 24.5 -1 0 --qlist work/build-lottery/plists/b200k7.Q7.bin --plist work/build-lottery/plists/b200k7.P7.bin --pclass
+# 2026-11-19 19:3xZ owner order (3): Legendre (4x2/11) with the smooth-pair kernel: a, b 200-smooth, omega >= 7 each, n <= 6e10, a >= b, H [20, 24) (3.5e12).
+zpl-b200a	leg:pair:work/build-lottery/enum/zpl-b200a.P:14	search/lottery/tables/leg	20.0	24.0	4	20	33	82	search/lottery/bin/lotenum work/build-lottery/enum/zpl-b200a leg 60000000000 20.0 24.0 -1 0 --qlist work/build-lottery/plists/b200k7x6e10.bin --plist work/build-lottery/plists/b200k7x6e10.bin --pclass --tlo 1
+z3-r1	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r1 z3 1000000 8.0 12.77 -1 0 --mfix 367567200
+z3-r2	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r2 z3 1000000 8.0 12.77 -1 0 --mfix 129729600
+z3-r4	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r4 z3 1000000 8.0 12.77 -1 0 --mfix 410810400
+z3-r5	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r5 z3 1000000 8.0 12.77 -1 0 --mfix 537213600
+z3-r6	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r6 z3 1000000 8.0 12.77 -1 0 --mfix 634888800
+z3-r7	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r7 z3 1000000 8.0 12.77 -1 0 --mfix 997682400
+z3-r3	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r3 z3 1000000 8.0 12.77 -1 0 --mfix 1396755360
+z3-r8	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r8 z3 1000000 8.0 12.77 -1 0 --mfix 73513440
+z3-r13	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r13 z3 1000000 8.0 12.77 -1 0 --mfix 1942855200
+z3-r14	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r14 z3 1000000 8.0 12.77 -1 0 --mfix 1937420640
+z3-r15	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r15 z3 1000000 8.0 12.77 -1 0 --mfix 1916157600
+z3-r16	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r16 z3 1000000 8.0 12.77 -1 0 --mfix 1907690400
+z3-r17	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r17 z3 1000000 8.0 12.77 -1 0 --mfix 1889727840
+z3-r18	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r18 z3 1000000 8.0 12.77 -1 0 --mfix 1868050080
+z3-r19	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r19 z3 1000000 8.0 12.77 -1 0 --mfix 1832695200
+z3-r20	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r20 z3 1000000 8.0 12.77 -1 0 --mfix 1819303200
+z3-r21	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r21 z3 1000000 8.0 12.77 -1 0 --mfix 1812425760
+z3-r22	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r22 z3 1000000 8.0 12.77 -1 0 --mfix 1806991200
+z3-r23	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r23 z3 1000000 8.0 12.77 -1 0 --mfix 1784613600
+z3-r24	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-r24 z3 1000000 8.0 12.77 -1 0 --mfix 1767074400
+z3-w11-01	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-01 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-01.txt
+z3-w11-02	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-02 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-02.txt
+z3-w11-03	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-03 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-03.txt
+z3-w11-04	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-04 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-04.txt
+z3-w11-05	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-05 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-05.txt
+z3-w11-06	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-06 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-06.txt
+z3-w11-07	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-07 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-07.txt
+z3-w11-08	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-08 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-08.txt
+z3-w11-09	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-09 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-09.txt
+z3-w11-10	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-10 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-10.txt
+z3-w11-11	z3	search/lottery/tables/z3	8.0	12.77	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3-w11-11 z3 1000000 8.0 12.77 -1 0 --mlist search/lottery/z3lists/w11-11.txt
+uc-leg-1 leg search/lottery/tables/leg 17.0 19.71 4 20 32 82 search/lottery/bin/lotenum work/build-lottery/enum/uc-leg-1 leg 400000000 17.0 19.71 -2 6 --hmin 4 --tlo 1
+uc-z6-1 z6k search/gpusieve/tables/z6k 16.0 19.14 3 16 32 82 search/lottery/bin/lotenum work/build-lottery/enum/uc-z6-1 z6k 500000000 16.0 19.14 -2 6 --hmin 4
+uc-z5-1a	z5	search/lottery/tables/z5	18.0	20.437	6	19	32	82	search/lottery/bin/lotenum work/build-lottery/enum/uc-z5-1a z5 499999999 18.0 20.437 -2 7 --hmin 4 --tlo -1 --thi 1 --qmin 117517603
+uc-z5-1b	z5	search/lottery/tables/z5	18.0	20.437	6	19	32	82	search/lottery/bin/lotenum work/build-lottery/enum/uc-z5-1b z5 999999999 18.0 20.437 -2 7 --hmin 4 --tlo -1 --thi 1 --qmin 500000000
+uc-z5-1c	z5	search/lottery/tables/z5	18.0	20.437	6	19	32	82	search/lottery/bin/lotenum work/build-lottery/enum/uc-z5-1c z5 1499999999 18.0 20.437 -2 7 --hmin 4 --tlo -1 --thi 1 --qmin 1000000000
+uc-z5-1d	z5	search/lottery/tables/z5	18.0	20.437	6	19	32	82	search/lottery/bin/lotenum work/build-lottery/enum/uc-z5-1d z5 2000000000 18.0 20.437 -2 7 --hmin 4 --tlo -1 --thi 1 --qmin 1500000000
+uc8-z6	z6k	search/gpusieve/tables/z6k	13.0	15.95	3	14	30	82	search/lottery/bin/lotenum work/build-lottery/enum/uc8-z6 z6k 300000000 13.0 15.95 -2 4 --hmin 3
+uc8-leg	leg	search/lottery/tables/leg	13.5	16.02	3	16	30	82	search/lottery/bin/lotenum work/build-lottery/enum/uc8-leg leg 200000000 13.5 16.02 -2 4 --hmin 3 --tlo 1
+uc8-z5	z5	search/lottery/tables/z5	13.5	15.73	5	17	30	82	search/lottery/bin/lotenum work/build-lottery/enum/uc8-z5 z5 300000000 13.5 15.73 -2 4 --hmin 3 --tlo -1 --thi 1 --qmin 1000
+z6-r6 z6k search/gpusieve/tables/z6k 22.0 27.5 3 16 34 82 search/lottery/bin/lotenum work/build-lottery/enum/z6-r6 z6k 1000000000000 22.0 27.5 6 5
+z6-r7 z6k search/gpusieve/tables/z6k 22.0 27.5 3 16 34 82 search/lottery/bin/lotenum work/build-lottery/enum/z6-r7 z6k 1000000000000 22.0 27.5 7 4
+z6-r3 z6k search/gpusieve/tables/z6k 22.0 26.5 3 16 34 82 search/lottery/bin/lotenum work/build-lottery/enum/z6-r3 z6k 400000000000 22.0 26.5 6 4
+leg-r1 leg search/lottery/tables/leg 22.5 25.0 4 20 33 82 search/lottery/bin/lotenum work/build-lottery/enum/leg-r1 leg 72000000000 22.5 25.0 7 2
+leg-r4 leg search/lottery/tables/leg 22.5 26.5 4 20 33 82 search/lottery/bin/lotenum work/build-lottery/enum/leg-r4 leg 300000000000 22.5 26.5 7 3
+z6-r1 z6k search/gpusieve/tables/z6k 22.0 25.5 3 16 34 82 search/lottery/bin/lotz6enum work/build-lottery/enum/z6-r1 119000000000 22.0 25.5 --qmin 12860000001
+leg-r3 leg search/lottery/tables/leg 22.5 26.5 4 20 33 82 search/lottery/bin/lotenum work/build-lottery/enum/leg-r3 leg 300000000000 22.5 26.5 6 4
+leg-r2 leg search/lottery/tables/leg 25.0 26.5 4 20 33 82 search/lottery/bin/lotenum work/build-lottery/enum/leg-r2 leg 300000000000 25.0 26.5 6 3
+z6-r2 z6k search/gpusieve/tables/z6k 22.0 26.5 3 16 34 82 search/lottery/bin/lotenum work/build-lottery/enum/z6-r2 z6k 400000000000 22.0 26.5 7 3
+# owner 19 Nov 18:52Z: old 3/10 regions parked (3/10 is ours; a lower one adds little):
+#z3b-b11-00	z3b	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3b-b11-00 z3b 9000000000000000000 8.0 12.675 -1 0 --qlist search/lottery/z3lists/b11-00
+#z3b-b11-01	z3b	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3b-b11-01 z3b 9000000000000000000 8.0 12.675 -1 0 --qlist search/lottery/z3lists/b11-01
+#z3b-b11-02	z3b	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3b-b11-02 z3b 9000000000000000000 8.0 12.675 -1 0 --qlist search/lottery/z3lists/b11-02
+#z3b-b10-00	z3b	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3b-b10-00 z3b 9000000000000000000 8.0 12.675 -1 0 --qlist search/lottery/z3lists/b10-00
+#z3b-b10-01	z3b	search/lottery/tables/z3	8.0	12.675	10	28	40	82	search/lottery/bin/lotenum work/build-lottery/enum/z3b-b10-01 z3b 9000000000000000000 8.0 12.675 -1 0 --qlist search/lottery/z3lists/b10-01
