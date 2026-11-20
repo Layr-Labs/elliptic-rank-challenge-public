@@ -1,0 +1,35 @@
+# fam  min S(1e4) (sieve convention, l >= 5) for a survivor to be ranked; read every round by lotrank.sh
+# z6k: frozen rank-9 min 36.85, test rank-10 52.88; z5: frozen rank-9 45.69 (2 curves), test rank-10 38.88; leg: frozen rank-9 min 36.71, test 39.79
+z6k 35.5
+z5 36
+leg 36
+conic-z6k- 40
+conic-leg- 40
+uc- 34
+uc8- 30
+# z3: frozen rank-9 (a != 0) S1e4 >= 51.2, the 3/10 record 64.6 in the GPU convention (a_l = 0 for l | a)
+z3 50
+# z3w- (owner 19 Nov 20:26Z): 128-bit ladder regions rank every survivor with S(1e4) >= 44: the frozen 3/12 record has 47.89 (recall o_r12), the 3/13 record 69.13; the ranker takes the highest S first
+z3w- 44
+# z4 (frozen Z/4 rank 9-11 S1e4 min 32-35)
+z4 33
+uc7- 26
+# reruns with lower cuts (owner option a): rank them at the lower cut too
+z3w-r13b 36
+z3w-r14b 36
+# z4c- (owner 19 Nov 22:10Z): Z/4 calibration ranks S(1e4) >= 42 only (cut 33 admitted ~90k lines per class region, days on 2 cores); lines below are kept in work/build-lottery/rank/z4c-below42.txt
+z4c- 42
+z4r10- 42
+# z3u10- (owner 20 Nov 06:05Z): 3/10 undercut lists, rank every survivor with S(1e4) >= 40 (i34-9 ranked S >= 48 only)
+z3u10- 40
+z3u11- 40
+z3u9- 44
+# z3u11-s97k14 (owner 06:50Z): non-squarefree omega>=14 97-smooth for 3/11 (nobody covered it): rank every survivor
+z3u11-s97k14 40
+z3u10-s97e10 50
+z3u12- 40
+z3u13- 40
+z3u11-s199x13 46
+z3u11-o12e3 40
+# z3u12-o15r- (owner 20 Nov 12:4xZ): 5090 survivors fed with S1e4 >= 50; the GX10 ranker scores S(1e5) and ranks the best
+z3u12-o15r- 50
